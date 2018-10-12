@@ -22,4 +22,8 @@ export default {
   margin-top: 0px;
   padding-top: 0px;
 }
+*{
+  margin: 0px;
+  padding: 0ps;
+}
 </style>
