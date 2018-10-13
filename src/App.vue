@@ -24,6 +24,6 @@ export default {
 }
 *{
   margin: 0px;
-  padding: 0ps;
+  padding: 0px;
 }
 </style>
