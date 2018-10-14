@@ -2,7 +2,8 @@
   <div class="my-account">
     <el-row class="tac">
         <el-col :span="4">
-            <h5>默认颜色</h5>
+          <!-- <strong> My Account</strong> -->
+            <h4> My Account</h4>
             <el-menu
             :default-active="$router.path"
             class="el-menu-vertical-demo my-account"
