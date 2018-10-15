@@ -1,5 +1,20 @@
 <template>
-  <div class="my-wish-list"></div>
+  <div class="my-wish-list">
+    <el-row>
+      <el-col :span="8" v-for="(o, index) in 2" :key="o" :offset="index > 0 ? 2 : 0">
+        <el-card :body-style="{ padding: '0px' }">
+          <img :src="imgList.idView" class="image">
+          <div style="padding: 14px;">
+            <span>好吃的汉堡</span>
+            <div class="bottom clearfix">
+              <time class="time">{{ currentDate }}</time>
+              <el-button type="text" class="button">操作按钮</el-button>
+            </div>
+          </div>
+        </el-card>
+      </el-col>
+    </el-row>
+  </div>
 </template>
 
 <script>
@@ -7,7 +22,10 @@ export default {
   name: 'MyWishList',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      imgList: [
+        {id: 1, idView: require('@/assets/food-img/timg.jpg')}
+      ]
     }
   }
 }
