@@ -2,7 +2,7 @@
     <div id="my-footer">
         <el-footer>
         <el-row class="footer-row">
-            <el-col :span="6" class="footer-col">
+            <el-col :sm="6" class="footer-col" :xs="6">
                 <strong class="title">CORPORATE</strong>
                     <ul class="footer-ul">
                     <li>
@@ -28,7 +28,7 @@
                     </li>
                 </ul>
             </el-col>
-            <el-col :span="6">
+            <el-col :sm="6" :xs="6">
                 <strong class="title">CONTACT INFORMATION</strong>
                 <ul class="footer-ul">
                     <li>
@@ -48,7 +48,7 @@
                     </li>
                 </ul>
             </el-col>
-            <el-col :span="6">
+            <el-col :sm="6" :xs="6">
                 <strong class="title">CUSTOMER SERVICE</strong>
                 <!-- <el-menu
                     router
@@ -86,7 +86,7 @@
                     </li>
                 </ul>
             </el-col>
-            <el-col :span="6">
+            <el-col :sm="6" :xs="6">
                 <strong class="title">BE THE FIRST TO KNOW</strong>
                 <ul class="footer-ul">
                     <li>

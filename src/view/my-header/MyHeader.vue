@@ -14,7 +14,7 @@
                 <el-menu
                 router
                 :default-active="$router.path"
-                class="el-menu-demo myheader"
+                class="el-menu-demo demo-header"
                 mode="horizontal"
                 @select="handleSelect"
                 background-color="#545c64"
@@ -83,9 +83,24 @@ export default {
     margin: 0px;
     padding: 0px;
     background-color:#545c64;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    /* height: 100px; */
+}
+.demo-header{
+    /* height: 100px; */
+    /* line-height: 10px; */
+}
+.header-row{
+    position: absolute;
+    margin-top: 5px;
+    z-index: 2;
+    float: right;
+    position: relative;
 }
 .header-ul{
-    margin-top: 5px;
+    margin-top: 10px;
     width: auto;
 }
 .header-ul li{
@@ -100,12 +115,9 @@ export default {
 }
 .header-span, .header-a{
     color: #fff;
-    font-size: 11px;
+    font-size: 13px;
 }
-/* .header-a{
+.header-a:link{
     color: #fff;
-} */
-/* .header-row{
-    float:right;
-} */
+}
 </style>

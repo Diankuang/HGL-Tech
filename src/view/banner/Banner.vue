@@ -1,45 +1,58 @@
 <template>
-  <div id="banner">
-    <!-- <el-carousel :interval="5000" arrow="always">
-        <el-carousel-item v-for="item in 4" :key="item.path">
-        <h3>{{ item }}</h3>
-        <img v-bind:src="item.path">
+    <div id="banner" :height = "imgHeight + 'px'" >
+        <el-carousel indicator-position="outside" :height = "imgHeight-28+'px'">
+        <el-carousel-item v-for="item in imgList" :key="item.id" :style = "imgClass" >
+            <el-row>
+            <el-col :span="24"><img ref="imgHeight+'px'" :src="item.idView" class="banner_img"/></el-col>
+            </el-row>
         </el-carousel-item>
-    </el-carousel> -->
-    <h1>fdahfhjdkfhjsdkfahj</h1>
-  </div>
+        </el-carousel>
+        <div style="height:200px; background: pink;"></div>
+
+    </div>
 </template>
 
 <script>
 export default {
-  name: 'Banner',
+  name: 'Baner',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App',
       imgList: [
-        {path: require('@/assets/eGFX_Slide.jpg')},
-        {path: require('@/assets/OCPC_gaming.jpg')},
-        {path: require('@/assets/SoundTubePRO-head.jpg')},
-        {path: require('@/assets/TB3_Header_Graphic_16x9.jpg')}
-      ]
+        {id: 1, idView: require('@/assets/images/1.jpg')},
+        {id: 2, idView: require('@/assets/images/2.jpg')},
+        {id: 3, idView: require('@/assets/images/3.jpg')},
+        {id: 4, idView: require('@/assets/images/4.jpg')}
+      ],
+      imgHeight: 0
     }
+  },
+  methods: {
+    hh () {
+      // console.log(window.innerHeight)
+      this.imgHeight = window.innerHeight
+      this.imgClass = 'height:  ' + window.innerHeight + 'px;'
+      console.warn('重新计算', this.imgHeight)
+    }
+  },
+  created () {
+    let that = this
+
+    this.hh()
+    window.addEventListener('resize', that.hh, false)
   }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-.el-carousel__item h3 {
-    color: #475669;
-    font-size: 18px;
-    opacity: 0.75;
-    line-height: 300px;
+<style scope>
+* {
     margin: 0;
+    padding: 0;
 }
-.el-carousel__item:nth-child(2n) {
-    background-color: #99a9bf;
+.el-carousel {
+    overflow: hidden;
+    position: relative;
 }
-.el-carousel__item:nth-child(2n+1) {
-    background-color: #d3dce6;
+#banner{
+  overflow: hidden;
 }
 </style>

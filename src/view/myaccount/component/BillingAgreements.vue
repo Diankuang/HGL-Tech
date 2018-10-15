@@ -1,10 +1,10 @@
 <template>
-  <div class="hello"></div>
+  <div class="billing-agreements"></div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'BillingAgreements',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'

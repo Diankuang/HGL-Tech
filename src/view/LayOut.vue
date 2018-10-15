@@ -9,6 +9,10 @@
                 </el-breadcrumb-item>
             </el-breadcrumb>
         </el-col> -->
+         <el-row>
+            <div class="my-account-row-div"></div>
+            <div class="grid-content bg-purple-dark"></div>
+        </el-row>
         <el-col :span="24" class="breadcrumb-container">
             <el-breadcrumb separator-class="el-icon-arrow-right">
                 <el-breadcrumb-item v-for="item in $route.matched" :key="item.path" :to="{ path: item.path }">
@@ -235,11 +239,22 @@ span{
     max-width: 100%;
     background-color: #171717;
     color: #fff;
+    padding: 10px;
 }
 .breadcrumb-a{
     color: #fff;
 }
 .breadcrumb-a:hover{
     color:#fff;
+}
+.my-account-row-div{
+  height: 60px;
+  margin: 0px;
+  padding: 0px;
+  background-color: rgb(84, 92, 100);
+  position: relative;
+}
+.el-icon-arrow-right{
+    padding: 5px;
 }
 </style>

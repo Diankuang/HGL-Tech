@@ -1,15 +1,17 @@
 <template>
   <div class="my-account">
     <el-row class="tac">
-        <el-col :span="4">
+        <el-col :span="4.5">
           <!-- <strong> My Account</strong> -->
             <h4> My Account</h4>
             <el-menu
+            router
             :default-active="$router.path"
             class="el-menu-vertical-demo my-account"
+            @select="handleSelect"
             @open="handleOpen"
             @close="handleClose">
-                <el-menu-item index="dashboard"><i class="el-icon-caret-right"></i>Dashboard</el-menu-item>
+                <el-menu-item index="account-dashboard"><i class="el-icon-caret-right"></i>Account Dashboard</el-menu-item>
                 <el-menu-item index="account-information"><i class="el-icon-caret-right"></i>Account Information</el-menu-item>
                 <el-menu-item index="address-book"><i class="el-icon-caret-right"></i>Address Book</el-menu-item>
                 <el-menu-item index="my-downloadable-products"><i class="el-icon-caret-right"></i>My Downloadable Products</el-menu-item>
@@ -42,6 +44,10 @@ export default {
     },
     handleClose (key, keyPath) {
       console.log(key, keyPath)
+    },
+    handleSelect (key, keyPath) {
+      console.log(key + '==' + keyPath)
+      this.$router.push(keyPath)
     }
   }
 }
@@ -59,5 +65,12 @@ export default {
     border-bottom: 1px solid #ddd;
     color: #777;
     padding: 8px 15px;
+}
+.my-account-row-div{
+  height: 60px;
+  margin: 0px;
+  padding: 0px;
+  background-color: rgb(84, 92, 100);
+  position: relative;
 }
 </style>
