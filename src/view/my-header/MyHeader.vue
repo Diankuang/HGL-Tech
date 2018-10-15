@@ -7,6 +7,7 @@
                     <li><a class="header-a" href="https://www.visiontek.com/frequently-asked-questions.html" title="FAQ">FAQ</a></li>
                     <li><a class="header-a" href="https://www.visiontek.com/customer/account/login/">Sign In</a></li>
                     <li><a class="header-a" href="https://www.visiontek.com/customer/account/create/">Create an Account</a></li>
+                    <li><a class="header-a"><i class="el-icon-search"></i></a></li>
                 </ul>
             </el-row>
             <el-row class="header-row1">
@@ -87,10 +88,6 @@ export default {
     width: 100%;
     z-index: 1;
     /* height: 100px; */
-}
-.demo-header{
-    /* height: 100px; */
-    /* line-height: 10px; */
 }
 .header-row{
     position: absolute;

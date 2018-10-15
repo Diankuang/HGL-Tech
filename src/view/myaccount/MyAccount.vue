@@ -1,17 +1,20 @@
 <template>
   <div class="my-account">
     <el-row class="tac">
-        <el-col :span="4.5">
+        <el-col :sm="5" :xs="5">
           <!-- <strong> My Account</strong> -->
-            <h4> My Account</h4>
+          <el-row>
+            <h3> My Account</h3>
+          </el-row>
+          <el-row>
             <el-menu
             router
             :default-active="$router.path"
-            class="el-menu-vertical-demo my-account"
+            class="el-menu-vertical-demo my-account-menu"
             @select="handleSelect"
             @open="handleOpen"
             @close="handleClose">
-                <el-menu-item index="account-dashboard"><i class="el-icon-caret-right"></i>Account Dashboard</el-menu-item>
+                <!-- <el-menu-item index="account-dashboard" class="qqqqqq"><i class="el-icon-caret-right"></i>Account Dashboard</el-menu-item> -->
                 <el-menu-item index="account-information"><i class="el-icon-caret-right"></i>Account Information</el-menu-item>
                 <el-menu-item index="address-book"><i class="el-icon-caret-right"></i>Address Book</el-menu-item>
                 <el-menu-item index="my-downloadable-products"><i class="el-icon-caret-right"></i>My Downloadable Products</el-menu-item>
@@ -22,8 +25,9 @@
                 <el-menu-item index="billing-agreements"><i class="el-icon-caret-right"></i>Billing Agreements</el-menu-item>
                 <el-menu-item index="my-wish-list"><i class="el-icon-caret-right"></i>My Wish List</el-menu-item>
             </el-menu>
+          </el-row>
         </el-col>
-        <el-col :span="20">
+        <el-col :sm="19" :xs="19" class="my-account-col-router">
             <router-view></router-view>
         </el-col>
     </el-row>
@@ -57,6 +61,9 @@ export default {
 .my-account{
     text-align: left;
 }
+.my-account-menu{
+  border-right:0px;
+}
 .el-menu-item, .el-submenu__title {
     height: 30px;
     /* padding: 0; */
@@ -72,5 +79,8 @@ export default {
   padding: 0px;
   background-color: rgb(84, 92, 100);
   position: relative;
+}
+.my-account-col-router{
+  padding: 20px 50px;
 }
 </style>
