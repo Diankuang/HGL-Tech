@@ -8,28 +8,33 @@
         <el-col :span="10" class="el-row-login-content-col">
           <el-card shadow="never" class="el-row-login-content-col-card">
             <strong>Login Customers</strong>
-            <el-form :label-position="labelPosition" :model="loginFrom" class="demo-ruleForm login-form" size="mini">
-              <strong class="el-from-strong">If you have an account, sign in with your email address.</strong>
-              <el-form-item label="Email" class="login-form">
+            <el-form :label-position="labelPosition" :model="loginFrom" ref="loginForm" class="demo-dynamic login-form" size="mini">
+              <p>If you have an account, sign in with your email address.</p>
+              <el-form-item prop="email" label="Email" class="login-form-item" :rules="[
+                { required: true, message: '请输入邮箱地址', trigger: 'blur' },
+                { type: 'email', message: '请输入正确的邮箱地址', trigger: ['blur', 'change'] }
+              ]">
                 <el-input v-model="loginFrom.email"></el-input>
               </el-form-item>
-              <el-form-item label="Password" class="login-form">
+              <el-form-item prop="password" label="Password" class="login-form-item" :rules="[{ required: true, message: 'Password can not be null'}]">
                 <el-input v-model="loginFrom.password"></el-input>
               </el-form-item>
-              <el-form-item>
-                <el-button type="primary"> Sign In</el-button>
-                <a href="#">Sign InForgot Your Password?</a>
+              <el-form-item class="login-form">
+                <el-button type="primary" class="sign-in" @click="submitForm('loginFrom')"> Sign In</el-button>
+                <a href="forgot-password" class="login-a-a">Sign InForgot Your Password?</a>
               </el-form-item>
             </el-form>
           </el-card>
         </el-col>
         <el-col :span="10" :offset="4" class="el-row-login-content-col">
           <el-card shadow="never" class="el-row-login-content-col-card">
-            从不显示
+            <strong>New Customers</strong>
+            <p>Creating an account has many benefits: check out faster, keep more than one address, track orders and more.</p>
+            <el-row class="el-row-login-content-col-card-row">
+              <a href="register"><span class="sign-in">Create an Account</span></a>
+            </el-row>
           </el-card>
         </el-col>
-        <!-- <el-col class="el-row-login-content-customer"></el-col>
-        <el-col class="el-row-login-content-register"></el-col> -->
       </el-row>
     </el-row>
   </div>
@@ -46,6 +51,19 @@ export default {
         email: '',
         password: ''
       }
+    }
+  },
+  methods: {
+    submitForm (formName) {
+      console.log(formName)
+      this.$refs[formName].validate((valid) => {
+        if (valid) {
+          alert('submit!')
+        } else {
+          console.log('error submit!!')
+          return false
+        }
+      })
     }
   }
 }
@@ -66,10 +84,7 @@ export default {
   box-shadow: 0 2px 3px rgba(0,0,0,0.08);
   margin-top: 20px;
 }
-.el-row-login-content-customer{
-  border: none;
-}
-.el-row-login-content-register,.el-row-login-content-col-card{
+.el-row-login-content-col-card{
   text-align: left;
   border: none;
   /* padding: 0px; */
@@ -83,8 +98,36 @@ export default {
     line-height: 1.4;
     font-size: 1.3rem;
 }
-.login-form{
+.login-form-item{
     margin-top: 20px;
     margin-bottom: 5px;
+    color: #fff;
+}
+.el-row-login-content-col-card a{
+    color: #777;
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.4;
+}
+.login-a-a{
+    padding-left: 20px;
+}
+.sign-in{
+  background: #000000;
+  color: #fff;
+  font-size: 15px;
+}
+.el-row-login-content-col-card p{
+  margin-top: 20px;
+  margin-buttom: 20px;
+  font-size: 0.8rem;
+}
+.el-row-login-content-col-card-row{
+  margin-top: 20px;
+}
+.el-row-login-content-col-card-row a{
+  background: #000000;
+  padding: 5px 15px;
 }
 </style>

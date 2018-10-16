@@ -5,7 +5,7 @@
         <strong>Account Information</strong>
       </el-row>
       <el-row class="account-row-content">
-        <el-col :sm="12" :xs="12" :span="12" class="account-row-content-col">
+        <el-col :sm="10" :xs="10" :span="10" class="account-row-content-col">
           <el-row class="account-row-content-col-title">
             <strong>CONTACT INFORMATION</strong>
           </el-row>
@@ -17,7 +17,7 @@
             <a href="/change-password">Change Password</a>
           </el-row>
         </el-col>
-        <el-col :sm="12" :xs="12" :span="12" class="account-row-content-col">
+        <el-col :sm="10" :xs="10" :span="10" :offset="4" class="account-row-content-col">
           <el-row class="account-row-content-col-title">
             <strong>NEWSLETTERS</strong>
           </el-row>
@@ -50,6 +50,16 @@ export default {
   position: relative;
 }
 .account-row-content{
-  padding-top: 20px;
+  padding-top: 10px;
+}
+.account-row-content-col{
+  display: block;
+  border: 1px solid #ececec;
+  border-radius: 8px;
+  background: #fff;
+  border-top: 1px solid #000000;
+  padding: 15px 10px 0;
+  /* box-shadow: 0 2px 3px rgba(0,0,0,0.08); */
+  margin-top: 10px;
 }
 </style>

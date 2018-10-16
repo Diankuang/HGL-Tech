@@ -36,15 +36,15 @@
                         </li>
                     <li>
                         <!-- <i class="el-icon-phone"></i> -->
-                        <p><i class="el-icon-phone"></i><b>Phone:</b><br><span>(866) 883-5411</span></p>
+                        <p><i class="el-icon-phone"></i><b>Phone:</b><br><span class="contact-span">(866) 883-5411</span></p>
                     </li>
                         <li>
                         <!-- <i class="el-icon-phone"></i> -->
-                        <p><i class="el-icon-message"></i><b>Email:</b><br> <a href="mailto:support@visiontek.com">support@visiontek.com</a></p>
+                        <p><i class="el-icon-message"></i><b>Email:</b><br> <a href="mailto:support@visiontek.com" style="padding-left: 8px;">support@visiontek.com</a></p>
                     </li>
                         <li>
                         <!-- <i class="el-icon-phone"></i> -->
-                        <p><i class="el-icon-time"></i><b>Working Days/Hours::</b><br><span> Mon - Fri / 8:00AM - 5:00PM CST</span></p>
+                        <p><i class="el-icon-time"></i><b>Working Days/Hours::</b><br><span class="contact-span"> Mon - Fri / 8:00AM - 5:00PM CST</span></p>
                     </li>
                 </ul>
             </el-col>
@@ -90,39 +90,16 @@
                 <strong class="title">BE THE FIRST TO KNOW</strong>
                 <ul class="footer-ul">
                     <li>
-                        <span>Get all the latest information on Events,<br>Sales and Offers. Sign up for newsletter today.</span>
+                        <span class="contact-span">Get all the latest information on Events,<br>Sales and Offers. Sign up for newsletter today.</span>
                     </li>
                     <li  style="margin-top:20px;">
-                        <span for="footer_newsletter">Enter your email address</span>
-                        <!-- <el-form ref="form" :model="form" label-width="80px">
-                            <el-input v-model="form.email"></el-input>
-                            <el-button type="primary" @click="onSubmit('form')"><span>Subscribe</span></el-button>
-                        </el-form> -->
+                        <span for="footer_newsletter" class="contact-span">Enter your email address</span>
                         <el-form :model="form" :rules="rules" ref="form" label-width="100px" class="demo-ruleForm">
                             <el-input v-model="form.email"></el-input>
                             <el-button type="primary" @click="onSubmit('form')"><span>Subscribe</span></el-button>
-                            <!-- <el-form-item style="margin-left:0px;" prop="email">
-                                <el-input v-model="form.email"></el-input>
-                                <el-button type="primary" @click="onSubmit('form')"><span>Subscribe</span></el-button>
-                            </el-form-item> -->
                         </el-form>
                     </li>
                 </ul>
-                <!-- <p style="margin-bottom: 15px;line-height: 1.5;">Get all the latest information on Events,<br>Sales and Offers. Sign up for newsletter today.</p>
-                <label for="footer_newsletter" style="margin-top:50px;margin-bottom:15px;">Enter your email address</label>
-                <form class="form subscribe" novalidate="novalidate" action="https://www.visiontek.com/newsletter/subscriber/new/" method="post" id="newsletter-validate-detail">
-                    <div class="field newsletter">
-                        <label class="label" for="footer_newsletter"><span>Sign Up for Our Newsletter:</span></label>
-                        <div class="control">
-                            <input name="email" type="email" id="footer_newsletter" data-validate="{required:true, 'validate-email':true}">
-                        </div>
-                    </div>
-                    <div class="actions">
-                        <button class="action subscribe primary" title="Subscribe" type="submit">
-                            <span>Subscribe</span>
-                        </button>
-                    </div>
-                </form> -->
             </el-col>
         </el-row>
         </el-footer>
@@ -230,10 +207,12 @@ a{
 }
 a:link {color: #777777; text-decoration:none;}
 a:hover {color: #777777; text-decoration:underline;} /*鼠标移近：红色、下划线 */
-span{
+/* span{
     color: #777777;
-}
+    font-size: 0.9rem;
+} */
 .contact-span{
     padding-left: 8px;
+    color: #777777;
 }
 </style>
