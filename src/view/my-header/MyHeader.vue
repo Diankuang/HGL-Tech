@@ -5,7 +5,7 @@
                 <ul class="header-ul">
                     <li><span class="header-span">Welcome to VisionTek</span></li>
                     <li><a class="header-a" href="https://www.visiontek.com/frequently-asked-questions.html" title="FAQ">FAQ</a></li>
-                    <li><a class="header-a" href="https://www.visiontek.com/customer/account/login/">Sign In</a></li>
+                    <li><a class="header-a" href="../customer/Login.vue">Sign In</a></li>
                     <li><a class="header-a" href="https://www.visiontek.com/customer/account/create/">Create an Account</a></li>
                     <li><a class="header-a"><i class="el-icon-search"></i></a></li>
                 </ul>
@@ -20,7 +20,8 @@
                 @select="handleSelect"
                 background-color="#545c64"
                 text-color="#fff"
-                active-text-color="#ffd04b">
+                active-text-color="#ffd04b"
+                name="">
                      <!-- <el-menu-item index="/"><img src="@/assets/logo.png"></el-menu-item> -->
                     <el-menu-item index="banner">Home</el-menu-item>
                     <el-submenu index="2">

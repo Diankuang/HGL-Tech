@@ -15,9 +15,12 @@ import NewsletterSubscriptions from '@/view/myaccount/component/NewsletterSubscr
 import MyCreditCards from '@/view/myaccount/component/MyCreditCards'
 import BillingAgreements from '@/view/myaccount/component/BillingAgreements'
 import MyWishList from '@/view/myaccount/component/MyWishList'
+import Login from '@/view/customer/Login'
+
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
@@ -33,6 +36,11 @@ export default new Router({
           path: '/hello',
           name: 'HelloWorld',
           component: HelloWorld
+        },
+        {
+          path: '/login',
+          name: 'Login',
+          component: Login
         },
         {
           path: '/my-account',

@@ -5,7 +5,7 @@
         <strong>Address Book</strong>
       </el-row>
       <el-row class="address-book-row-content">
-        <el-col :sm="12" :xs="12" :span="12" class="address-book-row-content-col">
+        <el-col :sm="8" :xs="8" :span="8" :offset="2" class="address-book-row-content-col">
           <el-row class="address-book-row-content-col-title">
             <strong>DEFAULT BILLING ADDRESS</strong>
           </el-row>
@@ -16,7 +16,7 @@
             <a href="/edit-address-book">Edit Address</a>
           </el-row>
         </el-col>
-        <el-col :sm="12" :xs="12" :span="12" class="address-book-row-content-col">
+        <el-col :sm="8" :xs="8" :span="8" :offset="2" class="address-book-row-content-col">
           <el-row class="address-book-row-content-col-title">
             <strong>DEFAULT SHIPPING ADDRESS</strong>
           </el-row>

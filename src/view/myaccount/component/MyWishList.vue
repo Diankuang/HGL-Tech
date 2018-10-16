@@ -2,7 +2,7 @@
   <div class="my-wish-list">
     <el-row>
       <el-col :span="8" v-for="(o, index) in 2" :key="o" :offset="index > 0 ? 2 : 0">
-        <el-card :body-style="{ padding: '0px' }">
+        <el-card :body-style="{ padding: '0px' }" shadow="hover">
           <img :src="imgList.idView" class="image">
           <div style="padding: 14px;">
             <span>好吃的汉堡</span>
