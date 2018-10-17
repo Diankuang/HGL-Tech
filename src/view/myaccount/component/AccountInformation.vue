@@ -13,8 +13,8 @@
             <p>{{userInfo.firstName}}&nbsp;{{userInfo.lastName}}<br>{{userInfo.email}}</p>
           </el-row>
           <el-row class="account-row-content-col-actions">
-            <a href="/edit-account">Edit</a>
-            <a href="/change-password">Change Password</a>
+            <router-link to="edit-account"><span class="account-row-content-col-actions-span">Edit</span></router-link>
+            <router-link to="forgot-password"  style="padding-left:20px;" class="account-row-content-col-actions-span">Forgot Your Password?</router-link>
           </el-row>
         </el-col>
         <el-col :sm="11" :xs="11" :span="11" :offset="3" class="account-row-content-col">
@@ -25,7 +25,7 @@
             <p>You subscribe to "General Subscription".</p>
           </el-row>
           <el-row class="account-row-content-col-actions">
-            <a href="/edit-account">Edit</a>
+            <router-link to="edit-subscription" class="account-row-content-col-actions-span">Edit</router-link>
           </el-row>
         </el-col>
       </el-row>
@@ -52,25 +52,25 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .account-information{
-  position: relative;
+    position: relative;
 }
 .account-row-content{
-  padding-top: 10px;
+    padding-top: 10px;
 }
 .account-row-content-col{
-  display: block;
-  border: 1px solid #ececec;
-  border-radius: 8px;
-  background: #fff;
-  /* border-top: 1px solid #000000; */
-  /* padding: 15px 10px 0; */
-  /* box-shadow: 0 2px 3px rgba(0,0,0,0.08); */
-  margin-top: 10px;
+    display: block;
+    border: 1px solid #ececec;
+    border-radius: 8px;
+    background: #fff;
+    /* border-top: 1px solid #000000; */
+    /* padding: 15px 10px 0; */
+    /* box-shadow: 0 2px 3px rgba(0,0,0,0.08); */
+    margin-top: 10px;
 }
 .account-row-content-col-title{
-  display: block;
-  border-bottom: 1px solid #ececec;
-  padding: 10px 15px;
+    display: block;
+    border-bottom: 1px solid #ececec;
+    padding: 10px 15px;
 
 }
 .account-row-content-col-title-span{
@@ -82,20 +82,28 @@ export default {
     font-size: 0.8rem;
 }
 .account-row-content-col-content{
-  display: block;
-  padding: 30px 15px;
-  border-bottom: 1px solid #ececec;
+    display: block;
+    padding: 30px 15px;
+    border-bottom: 1px solid #ececec;
 }
 .account-row-content-col-content p{
-  color: #777;
+    color: #777;
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-style: normal;
     font-weight: 400;
     line-height: 1.4;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     margin-bottom: 30px;
 }
 .account-row-content-col-actions{
-  padding: 10px 15px;
+    padding: 10px 15px;
+}
+.account-row-content-col-actions-span{
+    color: #313131;
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 1.4;
+    font-size: 0.8rem;
 }
 </style>

@@ -3,9 +3,13 @@
     <el-row>
       <el-col :span="8" v-for="(o, index) in 2" :key="o" :offset="index > 0 ? 2 : 0">
         <el-card :body-style="{ padding: '0px' }" shadow="hover">
-          <img :src="imgList.idView" class="image">
+          <router-link to="register">
+            <img :src="imgList.idView" class="image">
+          </router-link>
           <div style="padding: 14px;">
-            <span>好吃的汉堡</span>
+            <router-link to="register">
+              <span>好吃的汉堡</span>
+            </router-link>
             <div class="bottom clearfix">
               <time class="time">{{ currentDate }}</time>
               <el-button type="text" class="button">操作按钮</el-button>
@@ -24,7 +28,7 @@ export default {
     return {
       msg: 'Welcome to Your Vue.js App',
       imgList: [
-        {id: 1, idView: require('@/assets/food-img/timg.jpg')}
+        {id: 1, idView: require('@/assets/images/timg.jpg')}
       ]
     }
   }

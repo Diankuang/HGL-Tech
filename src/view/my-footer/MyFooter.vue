@@ -95,7 +95,7 @@
                     <li  style="margin-top:20px;">
                         <span for="footer_newsletter" class="contact-span">Enter your email address</span>
                         <el-form :model="form" :rules="rules" ref="form" label-width="100px" class="demo-ruleForm">
-                            <el-input v-model="form.email"></el-input>
+                            <el-input v-model="form.email" class="footer-el-input"></el-input>
                             <el-button type="primary" @click="onSubmit('form')"><span>Subscribe</span></el-button>
                         </el-form>
                     </li>
@@ -187,14 +187,14 @@ p{
 .el-form-item__content{
     margin-left: 0px;
 }
-.el-input {
+.footer-el-input {
     position: relative;
     font-size: 14px;
     display: inline-block;
     width: 50%;
     height: 30px;
 }
-.el-input__inner {
+.footer-el-input__inner {
     height: 30px;
 }
 .el-button--primary {

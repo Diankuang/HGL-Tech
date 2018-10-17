@@ -1,32 +1,55 @@
 <template>
   <div class="address-book">
-    <el-row class="address-book-row">
-      <el-row class="address-book-row-strong">
-        <strong>Address Book</strong>
+    <el-row class="el-row-address-book">
+      <el-row class="el-row-address-book-strong">
+        <strong>Create New Customer Account</strong>
       </el-row>
-      <el-row class="address-book-row-content">
-        <el-col :sm="8" :xs="8" :span="8" :offset="2" class="address-book-row-content-col">
-          <el-row class="address-book-row-content-col-title">
-            <strong>DEFAULT BILLING ADDRESS</strong>
-          </el-row>
-          <el-row class="address-book-row-content-col-content">
-            <p>You have not set a default billing address.</p>
-          </el-row>
-          <el-row class="address-book-row-content-col-actions">
-            <a href="/edit-address-book">Edit Address</a>
-          </el-row>
-        </el-col>
-        <el-col :sm="8" :xs="8" :span="8" :offset="2" class="address-book-row-content-col">
-          <el-row class="address-book-row-content-col-title">
-            <strong>DEFAULT SHIPPING ADDRESS</strong>
-          </el-row>
-          <el-row class="address-book-row-content-col-content">
-            <p>You have not set a default shipping address.</p>
-          </el-row>
-          <el-row class="address-book-row-content-col-actions">
-            <a href="/edit-address-book">Edit Address</a>
-          </el-row>
-        </el-col>
+      <el-row class="el-row-address-book-content">
+        <el-form :label-position="labelPosition" :model="userFrom" ref="address-bookForm" >
+            <el-col :span="11" class="el-row-address-book-content-col">
+                <el-card shadow="never" class="el-row-address-book-content-col-card">
+                    <strong><span class="address-book-row-content-col-title-span">CONTACT INFORMATION</span></strong>
+                    <el-form-item prop="firstName" label="First Name" class="address-book-form-item" :rules="[{ required: true, message: 'This is a required field.'}]">
+                        <el-input v-model="userFrom.firstName"></el-input>
+                    </el-form-item>
+                    <el-form-item prop="lastName" label="Last Name" class="address-book-form-item" :rules="[{ required: true, message: 'This is a required field.'}]">
+                        <el-input v-model="userFrom.lastName"></el-input>
+                    </el-form-item>
+                    <el-form-item prop="company" label="Company" class="address-book-form-item">
+                        <el-input v-model="userFrom.company"></el-input>
+                    </el-form-item>
+                    <el-form-item prop="phoneNumber" label="Phone Number" class="address-book-form-item" :rules="[{ required: true, message: 'This is a required field.'}]">
+                        <el-input v-model="userFrom.phoneNumber"></el-input>
+                    </el-form-item>
+                    <el-form-item prop="fax" label="Fax" class="address-book-form-item" :rules="[{ required: true, message: 'This is a required field.'}]">
+                        <el-input v-model="userFrom.fax"></el-input>
+                    </el-form-item>
+                    <el-form-item class="address-book-form">
+                        <el-button type="primary" class="sign-in" @click="submitForm('userFrom')">Create an Account</el-button>
+                    </el-form-item>
+                </el-card>
+            </el-col>
+            <el-col :span="11" :offset="2" class="el-row-address-book-content-col">
+                <el-card shadow="never" class="el-row-address-book-content-col-card">
+                    <strong><span class="address-book-row-content-col-title-span">ADDRESS</span></strong>
+                    <el-form-item prop="password" label="Street Address" class="address-book-form-item" :rules="[{ required: true, message: 'This is a required field.'}]">
+                        <el-input v-model="userFrom.streetAddress"></el-input>
+                    </el-form-item>
+                    <el-form-item prop="city" label="City" class="address-book-form-item" :rules="[{ required: true, message: 'This is a required field.'}]">
+                        <el-input v-model="userFrom.city"></el-input>
+                    </el-form-item>
+                     <el-form-item prop="state" label="State/Province" class="address-book-form-item" :rules="[{ required: true, message: 'This is a required field.'}]">
+                        <el-input v-model="userFrom.state"></el-input>
+                    </el-form-item>
+                    <el-form-item prop="postCode" label="Zip/Postal Code" class="address-book-form-item" :rules="[{ required: true, message: 'This is a required field.'}]">
+                        <el-input v-model="userFrom.postCode"></el-input>
+                    </el-form-item>
+                     <el-form-item prop="country" label="Country" class="address-book-form-item" :rules="[{ required: true, message: 'This is a required field.'}]">
+                        <el-input v-model="userFrom.country"></el-input>
+                    </el-form-item>
+                </el-card>
+            </el-col>
+        </el-form>
       </el-row>
     </el-row>
   </div>
@@ -37,7 +60,35 @@ export default {
   name: 'AddressBook',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      labelPosition: 'top',
+      userFrom: {
+        firstName: '',
+        lastName: '',
+        password: '',
+        company: '',
+        phoneNumber: '',
+        fax: '',
+        streetAddress: '',
+        city: '',
+        state: '',
+        postCode: '',
+        country: ''
+      },
+      confirmPasswprd: ''
+    }
+  },
+  methods: {
+    submitForm (formName) {
+      console.log(formName)
+      this.$refs[formName].validate((valid) => {
+        if (valid) {
+          alert('submit!')
+        } else {
+          console.log('error submit!!')
+          return false
+        }
+      })
     }
   }
 }
@@ -45,10 +96,62 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.address-book-information{
-  position: relative;
+.el-row-address-book-strong{
+  text-align: left;
 }
-.address-book-row-content{
-  padding-top: 20px;
+.el-row-address-book-content{
+  display: block;
+  border: 1px solid #ececec;
+  border-radius: 8px;
+  background: #fff;
+  border-top: 4px solid #000000;
+  padding: 15px 10px 0;
+  box-shadow: 0 2px 3px rgba(0,0,0,0.08);
+  margin-top: 20px;
+}
+.el-row-address-book-content-col-card{
+  text-align: left;
+  border: none;
+  /* padding: 0px; */
+  color: #777;
+}
+.el-form-strong{
+    color: #777;
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.4;
+    font-size: 1.3rem;
+}
+.address-book-form-item{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: #fff;
+}
+.sign-in{
+    background: #000000;
+    color: #fff;
+    font-size: 15px;
+}
+.el-row-address-book-content-col-card-row{
+  margin-top: 20px;
+}
+.el-row-address-book-content-col-card-row a{
+  background: #000000;
+  padding: 5px 15px;
+  color: #fff;
+}
+.address-book-row-content-col-title-span{
+    color: #313131;
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 1.4;
+    font-size: 0.8rem;
+}
+.address-book-form{
+    margin-top: 20px;
+    margin-bottom: 5px;
+    color: #fff;
 }
 </style>

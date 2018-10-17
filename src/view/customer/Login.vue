@@ -19,7 +19,7 @@
               <el-form-item prop="password" label="Password" class="login-form-item" :rules="[{ required: true, message: 'Password can not be null'}]">
                 <el-input v-model="loginFrom.password"></el-input>
               </el-form-item>
-              <el-form-item class="login-form">
+              <el-form-item class="login-form-item">
                 <el-button type="primary" class="sign-in" @click="submitForm('loginFrom')"> Sign In</el-button>
                 <a href="forgot-password" class="login-a-a">Sign InForgot Your Password?</a>
               </el-form-item>
@@ -41,6 +41,9 @@
 </template>
 
 <script>
+import api from '@/utils/api'
+import http from '@/utils/http'
+
 export default {
   name: 'Login',
   data () {
@@ -54,11 +57,16 @@ export default {
     }
   },
   methods: {
-    submitForm (formName) {
+    async submitForm (formName) {
       console.log(formName)
       this.$refs[formName].validate((valid) => {
         if (valid) {
           alert('submit!')
+          let params = {
+            email: '1832054053@qq.com',
+            password: '123456'
+          }
+          const res = http.get(api.login, params)
         } else {
           console.log('error submit!!')
           return false
