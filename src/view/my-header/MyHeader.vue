@@ -4,9 +4,9 @@
             <el-row class="header-row">
                 <ul class="header-ul">
                     <li><span class="header-span">Welcome to VisionTek</span></li>
-                    <li><a class="header-a" href="https://www.visiontek.com/frequently-asked-questions.html" title="FAQ">FAQ</a></li>
-                    <li><a class="header-a" href="../customer/Login.vue">Sign In</a></li>
-                    <li><a class="header-a" href="https://www.visiontek.com/customer/account/create/">Create an Account</a></li>
+                    <li><router-link to="faq" class="header-router-link">FAQ</router-link></li>
+                    <li><router-link to="login" class="header-router-link">Sign In</router-link></li>
+                    <li><router-link to="register" class="header-router-link">Create an Account</router-link></li>
                     <li><a class="header-a"><i class="el-icon-search"></i></a></li>
                 </ul>
             </el-row>
@@ -114,6 +114,13 @@ export default {
 .header-span, .header-a{
     color: #fff;
     font-size: 13px;
+}
+.header-router-link{
+    color: #fff;
+    font-size: 13px;
+}
+.header-router-link:link{
+    color: #fff;
 }
 .header-a:link{
     color: #fff;

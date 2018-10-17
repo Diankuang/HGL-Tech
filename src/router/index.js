@@ -16,6 +16,7 @@ import MyCreditCards from '@/view/myaccount/component/MyCreditCards'
 import BillingAgreements from '@/view/myaccount/component/BillingAgreements'
 import MyWishList from '@/view/myaccount/component/MyWishList'
 import Login from '@/view/customer/Login'
+import Register from '@/view/customer/Register'
 
 Vue.use(Router)
 
@@ -36,6 +37,11 @@ export default new Router({
           path: '/hello',
           name: 'HelloWorld',
           component: HelloWorld
+        },
+        {
+          path: '/register',
+          name: 'Register',
+          component: Register
         },
         {
           path: '/login',

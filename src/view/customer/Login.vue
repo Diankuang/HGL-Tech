@@ -31,7 +31,7 @@
             <strong>New Customers</strong>
             <p>Creating an account has many benefits: check out faster, keep more than one address, track orders and more.</p>
             <el-row class="el-row-login-content-col-card-row">
-              <a href="register"><span class="sign-in">Create an Account</span></a>
+              <router-link to="register">Create an Account</router-link>
             </el-row>
           </el-card>
         </el-col>
@@ -120,7 +120,6 @@ export default {
 }
 .el-row-login-content-col-card p{
   margin-top: 20px;
-  margin-buttom: 20px;
   font-size: 0.8rem;
 }
 .el-row-login-content-col-card-row{
@@ -129,5 +128,6 @@ export default {
 .el-row-login-content-col-card-row a{
   background: #000000;
   padding: 5px 15px;
+  color: #fff;
 }
 </style>
