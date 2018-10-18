@@ -17,6 +17,8 @@ import BillingAgreements from '@/view/myaccount/component/BillingAgreements'
 import MyWishList from '@/view/myaccount/component/MyWishList'
 import Login from '@/view/customer/Login'
 import Register from '@/view/customer/Register'
+import AboutUs from '@/view/about-us/AboutUs'
+import Structure from '@/view/about-us/component/Structure'
 
 Vue.use(Router)
 
@@ -47,6 +49,18 @@ export default new Router({
           path: '/login',
           name: 'Login',
           component: Login
+        },
+        {
+          path: '/about-us',
+          name: 'AboutUs',
+          component: AboutUs,
+          children: [
+            {
+              path: '/structure',
+              name: 'Structure',
+              component: Structure
+            }
+          ]
         },
         {
           path: '/my-account',

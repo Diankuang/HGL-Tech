@@ -57,22 +57,32 @@ export default {
     }
   },
   methods: {
-    async submitForm (formName) {
-      console.log(formName)
-      this.$refs[formName].validate((valid) => {
-        if (valid) {
-          alert('submit!')
-          let params = {
-            email: '1832054053@qq.com',
-            password: '123456'
-          }
-          const res = http.get(api.login, params)
-        } else {
-          console.log('error submit!!')
-          return false
-        }
-      })
+    submitForm: async function () {
+      let params = {
+        email: '1832054053@qq.com',
+        password: '123456'
+      }
+      const res = await http.post(api.login, params)
+      if (res.data.success) {
+        alert('请求成功')
+      }
     }
+    // async submitForm (formName) {
+    //   console.log(formName)
+    //   this.$refs[formName].validate((valid) => {
+    //     if (valid) {
+    //       alert('submit!')
+    //       let params = {
+    //         email: '1832054053@qq.com',
+    //         password: '123456'
+    //       }
+    //       const res = await http.get(api.login, params)
+    //     } else {
+    //       console.log('error submit!!')
+    //       return false
+    //     }
+    //   })
+    // }
   }
 }
 </script>

@@ -43,7 +43,7 @@ function checkCode (res) {
 
 export default {
   post (url, data) {
-    return this.axios({
+    return axios({
       method: 'post',
       baseURL: 'http://localhost:8083/dreamspace',
       url,
@@ -51,7 +51,7 @@ export default {
       timeout: 10000,
       headers: {
         'X-Requested-With': 'XMLHttpRequest',
-        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+        'Content-Type': 'application/json; charset=UTF-8'
       }
     }).then(
       (response) => {
@@ -64,7 +64,7 @@ export default {
     )
   },
   get (url, params) {
-    return this.axios({
+    return axios({
       method: 'get',
       baseURL: 'http://localhost:8083/dreamspace',
       url,

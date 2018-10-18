@@ -25,7 +25,8 @@
                      <!-- <el-menu-item index="/"><img src="@/assets/logo.png"></el-menu-item> -->
                     <el-menu-item index="banner">Home</el-menu-item>
                     <el-submenu index="2">
-                        <template slot="title">About us</template>
+                        <template slot="title"><router-link to="/about-us">About us</router-link>
+                        </template>
                         <el-menu-item index="structure">Structure</el-menu-item>
                         <el-menu-item index="2-2">Factory Scene</el-menu-item>
                     </el-submenu>
