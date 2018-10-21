@@ -22,7 +22,7 @@
             <strong><span class="account-row-content-col-title-span">NEWSLETTERS</span></strong>
           </el-row>
           <el-row class="account-row-content-col-content">
-            <p>You subscribe to "General Subscription".</p>
+            <p>userInfo.subscribe</p>
           </el-row>
           <el-row class="account-row-content-col-actions">
             <router-link to="edit-subscription" class="account-row-content-col-actions-span">Edit</router-link>
@@ -38,12 +38,12 @@ export default {
   name: 'AccountInformatoin',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App',
-      userInfo: {
-        firstName: 'xie',
-        lastName: 'dishi',
-        email: '1832054053@qq.com'
-      }
+      msg: 'Welcome to Your Vue.js App'
+    }
+  },
+  computed: {
+    userInfo () {
+      return JSON.parse(this.$store.state.user)
     }
   }
 }

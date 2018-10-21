@@ -5,22 +5,22 @@
         <strong>Create New Customer Account</strong>
       </el-row>
       <el-row class="el-row-register-content">
-        <el-form :label-position="labelPosition" :model="registerFrom" ref="registerForm" class="demo-dynamic register-form">
+        <el-form :label-position="labelPosition" :model="registerForm" ref="registerForm" class="demo-dynamic register-form">
             <el-col :span="10" class="el-row-register-content-col">
                 <el-card shadow="never" class="el-row-register-content-col-card">
                     <strong>PERSONAL INFORMATION</strong>
                     <el-form-item prop="firstName" label="First Name" class="register-form-item" :rules="[{ required: true, message: 'This is a required field.'}]">
-                        <el-input v-model="registerFrom.firstName"></el-input>
+                        <el-input v-model="registerForm.firstName"></el-input>
                     </el-form-item>
                     <el-form-item prop="lastName" label="Last Name" class="register-form-item" :rules="[{ required: true, message: 'This is a required field.'}]">
-                        <el-input v-model="registerFrom.lastName"></el-input>
+                        <el-input v-model="registerForm.lastName"></el-input>
                     </el-form-item>
                      <el-form-item class="register-form">
                         <input type="checkbox" name="is_subscribed" title="Sign Up for Newsletter" value="1" id="is_subscribed" class="checkbox">
                         <label for="is_subscribed" class="label"><span>Sign Up for Newsletter</span></label>
                     </el-form-item>
                     <el-form-item class="register-form">
-                        <el-button type="primary" class="sign-in" @click="submitForm('registerFrom')">Create an Account</el-button>
+                        <el-button type="primary" class="sign-in" @click="submitForm('registerForm')">Create an Account</el-button>
                     </el-form-item>
                 </el-card>
             </el-col>
@@ -31,13 +31,13 @@
                     { required: true, message: '请输入邮箱地址', trigger: 'blur' },
                     { type: 'email', message: '请输入正确的邮箱地址', trigger: ['blur', 'change'] }
                     ]">
-                        <el-input v-model="registerFrom.email"></el-input>
+                        <el-input v-model="registerForm.email"></el-input>
                     </el-form-item>
                     <el-form-item prop="password" label="Password" class="register-form-item" :rules="[{ required: true, message: 'This is a required field.'}]">
-                        <el-input v-model="registerFrom.password"></el-input>
+                        <el-input v-model="registerForm.password"></el-input>
                     </el-form-item>
-                    <el-form-item prop="confirmPassword" label="Confirm Password" class="register-form-item" :rules="[{ required: true, message: 'This is a required field.'}]">
-                        <el-input v-model="confirmPasswprd"></el-input>
+                    <el-form-item prop="checkPassword" label="Confirm Password" class="register-form-item" :rules="[{ required: true, message: 'This is a required field.'}]">
+                        <el-input v-model="registerForm.checkPassword"></el-input>
                     </el-form-item>
                 </el-card>
             </el-col>
@@ -48,27 +48,59 @@
 </template>
 
 <script>
+import api from '@/utils/api'
+
 export default {
   name: 'register',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
       labelPosition: 'top',
-      registerFrom: {
+      registerForm: {
         firstName: '',
         lastName: '',
         email: '',
-        password: ''
-      },
-      confirmPasswprd: ''
+        password: '',
+        checkPassword: ''
+      }
     }
   },
   methods: {
     submitForm (formName) {
+      var that = this
       console.log(formName)
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          alert('submit!')
+          let params = {
+            firstName: that.registerForm.firstName,
+            lastName: that.registerForm.lastName,
+            email: that.registerForm.email,
+            password: that.registerForm.password,
+            userClass: 2
+          }
+          api.post('/user/register', params).then(res => {
+            var data = res.data
+            if (data.code === '0') {
+              // this.$router.push('/login')
+              alert('Createed Success')
+              let params = {
+                email: data.user.email,
+                password: data.user.password
+              }
+              api.post('/user/login', params).then(loginRes => {
+                console.log(loginRes)
+                var loginData = loginRes.data
+                if (loginData.code === '0') {
+                  // sessionStorage.setItem('user', JSON.stringify(data.user))
+                  this.$store.commit('$_setStorage', JSON.stringify(loginData.user))
+                  this.$store.commit('$_setLogin', '1')
+                  this.$router.push('/my-account')
+                }
+              })
+            } else {
+              alert(data.msg)
+            }
+          })
         } else {
           console.log('error submit!!')
           return false

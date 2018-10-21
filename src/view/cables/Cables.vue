@@ -1,25 +1,31 @@
 <template>
-  <div class="about-us">
-    <el-row class="el-row-about-us">
-        <el-col :span="4" class="el-col-about-us-content-left">
-            <el-col :span="24" class="el-col-about-us-content-left-title">
+  <div class="cables">
+    <el-row class="el-row-cables">
+        <el-col :span="4" class="el-col-cables-content-left">
+            <el-col :span="24" class="el-col-cables-content-left-title">
                 <strong>About us</strong>
             </el-col>
-            <el-col :span="24" class="el-col-about-us-content-left-content">
-                <ul class="el-col-about-us-content-left-content-ul">
+            <el-col :span="24" class="el-col-cables-content-left-content">
+                <ul class="el-col-cables-content-left-content-ul">
                     <li>
-                        <router-link to="structure">Structure</router-link>
+                        <router-link to="micro-usb">Micro USB</router-link>
                     </li>
-                    <!-- <li>
-                        <router-link to="factory-scene">Factory Scene</router-link>
-                    </li> -->
+                     <li>
+                        <router-link to="type-c">Type-C</router-link>
+                    </li>
+                    <li>
+                        <router-link to="lightning">Lightning</router-link>
+                    </li>
+                     <li>
+                        <router-link to="other">Other</router-link>
+                    </li>
                 </ul>
             </el-col>
         </el-col>
-        <el-col :span="15" class="el-col-about-us-content-center">
+        <el-col :span="15" class="el-col-cables-content-center">
             <router-view></router-view>
         </el-col>
-        <el-col :span="5" class="el-col-about-us-content-right">
+        <el-col :span="5" class="el-col-cables-content-right">
             <LatestNews></LatestNews>
         </el-col>
     </el-row>
@@ -29,7 +35,7 @@
 <script>
 import LatestNews from '@/view/latest-news/LatestNews'
 export default {
-  name: 'AboutUs',
+  name: 'Cables',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
@@ -42,10 +48,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.el-row-about-us{
+.el-row-cables{
   text-align: left;
 }
-.el-col-about-us-content-left{
+.el-col-cables-content-left{
     display: block;
     border: 1px solid #777;
     border-radius: 5px;
@@ -55,7 +61,7 @@ export default {
     box-shadow: 0 2px 3px rgba(0,0,0,0.08);
     margin-top: 20px;
 }
-.el-col-about-us-content-left-title{
+.el-col-cables-content-left-title{
     color: rgb(119, 119, 119);
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-style: normal;
@@ -66,7 +72,7 @@ export default {
     line-height: 1.4;
     font-size: 1.3rem; */
 }
-.el-col-about-us-content-left-content{
+.el-col-cables-content-left-content{
     font-size: 13px;
     background-color: rgb(251, 251, 251);
     margin: 0px;
@@ -77,16 +83,16 @@ export default {
     /* border-top: 0px; */
     border-radius: 0px 0px 7px 7px;
 }
-.el-col-about-us-content-left-content-ul{
+.el-col-cables-content-left-content-ul{
     list-style:none;
     line-height:30px;
     padding-top: 10px;
     text-align: left;
 }
-.el-col-about-us-content-center{
+.el-col-cables-content-center{
     padding: 10px 15px 15px;
 }
-.el-col-about-us-content-right{
+.el-col-cables-content-right{
     display: block;
     background: #fff;
     margin-top: 20px;

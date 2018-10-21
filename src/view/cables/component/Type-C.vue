@@ -1,7 +1,7 @@
 <template>
-  <div class="structure">
-    <el-col class="el-col-structure" :span="24">
-      <img :src="imgUrl" class="structure-col-img">
+  <div class="type-c">
+    <el-col class="el-col-type-c" :span="24">
+      <img :src="imgUrl" class="type-c-col-img">
     </el-col>
   </div>
 </template>
@@ -9,7 +9,7 @@
 <script>
 
 export default {
-  name: 'Structure',
+  name: 'Type-C',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
@@ -22,11 +22,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.structure{
+.type-c{
   margin: 0px;
   padding: 0px;
 }
-.structure-col-img{
+.type-c-col-img{
   width: 100%
 }
 </style>

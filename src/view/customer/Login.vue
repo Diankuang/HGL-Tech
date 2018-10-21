@@ -8,19 +8,19 @@
         <el-col :span="10" class="el-row-login-content-col">
           <el-card shadow="never" class="el-row-login-content-col-card">
             <strong>Login Customers</strong>
-            <el-form :label-position="labelPosition" :model="loginFrom" ref="loginForm" class="demo-dynamic login-form" size="mini">
+            <el-form :label-position="labelPosition" :model="loginForm" ref="loginForm" class="demo-dynamic login-form" size="mini">
               <p>If you have an account, sign in with your email address.</p>
               <el-form-item prop="email" label="Email" class="login-form-item" :rules="[
                 { required: true, message: '请输入邮箱地址', trigger: 'blur' },
                 { type: 'email', message: '请输入正确的邮箱地址', trigger: ['blur', 'change'] }
               ]">
-                <el-input v-model="loginFrom.email"></el-input>
+                <el-input v-model="loginForm.email"></el-input>
               </el-form-item>
               <el-form-item prop="password" label="Password" class="login-form-item" :rules="[{ required: true, message: 'Password can not be null'}]">
-                <el-input v-model="loginFrom.password"></el-input>
+                <el-input v-model="loginForm.password"></el-input>
               </el-form-item>
               <el-form-item class="login-form-item">
-                <el-button type="primary" class="sign-in" @click="submitForm('loginFrom')"> Sign In</el-button>
+                <el-button type="primary" class="sign-in" @click="submitForm('loginForm')"> Sign In</el-button>
                 <a href="forgot-password" class="login-a-a">Sign InForgot Your Password?</a>
               </el-form-item>
             </el-form>
@@ -42,7 +42,6 @@
 
 <script>
 import api from '@/utils/api'
-import http from '@/utils/http'
 
 export default {
   name: 'Login',
@@ -50,39 +49,45 @@ export default {
     return {
       msg: 'Welcome to Your Vue.js App',
       labelPosition: 'top',
-      loginFrom: {
+      loginForm: {
         email: '',
         password: ''
       }
     }
   },
   methods: {
-    submitForm: async function () {
-      let params = {
-        email: '1832054053@qq.com',
-        password: '123456'
-      }
-      const res = await http.post(api.login, params)
-      if (res.data.success) {
-        alert('请求成功')
-      }
+    // submitForm () {
+    //   let params = {
+    //     email: '1832054053@qq.com',
+    //     password: '123456'
+    //   }
+    //   // console.log(res)
+    // },
+    submitForm (loginFrom) {
+      var that = this
+      console.log(that.loginForm)
+      this.$refs[loginFrom].validate((valid) => {
+        if (valid) {
+          let params = {
+            email: that.loginForm.email,
+            password: that.loginForm.password
+          }
+          api.post('/user/login', params).then(res => {
+            console.log(res)
+            var data = res.data
+            if (data.code === '0') {
+              // sessionStorage.setItem('user', JSON.stringify(data.user))
+              this.$store.commit('$_setStorage', JSON.stringify(data.user))
+              this.$store.commit('$_setLogin', '1')
+              this.$router.push('/my-account')
+            }
+          })
+        } else {
+          console.log('error submit!!')
+          return false
+        }
+      })
     }
-    // async submitForm (formName) {
-    //   console.log(formName)
-    //   this.$refs[formName].validate((valid) => {
-    //     if (valid) {
-    //       alert('submit!')
-    //       let params = {
-    //         email: '1832054053@qq.com',
-    //         password: '123456'
-    //       }
-    //       const res = await http.get(api.login, params)
-    //     } else {
-    //       console.log('error submit!!')
-    //       return false
-    //     }
-    //   })
-    // }
   }
 }
 </script>

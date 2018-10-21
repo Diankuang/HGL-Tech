@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import ElementUI from 'element-ui'
+import store from './store/index'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import 'element-ui/lib/theme-chalk/index.css'
@@ -15,6 +16,20 @@ Vue.use(VueAxios, axios)
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
+})
+
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(m => m.meta.auth)) {
+    if (window.sessionStorage.isLogin === '1') {
+      next()
+    } else if (to.path !== '/') {
+      next({path: '/login'})
+      Vue.prototype.$message.warning('检测到您还未登录,请登录后操作！')
+    }
+  } else {
+    next()
+  }
 })

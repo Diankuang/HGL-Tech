@@ -4,9 +4,12 @@
             <el-row class="header-row">
                 <ul class="header-ul">
                     <li><span class="header-span">Welcome to VisionTek</span></li>
+                    <li v-if="user"><router-link to="my-account" class="header-router-link">{{user.firstName}}&nbsp;{{user.lastName}}</router-link></li>
                     <li><router-link to="faq" class="header-router-link">FAQ</router-link></li>
-                    <li><router-link to="login" class="header-router-link">Sign In</router-link></li>
-                    <li><router-link to="register" class="header-router-link">Create an Account</router-link></li>
+                    <li v-if="!user"><router-link to="login" class="header-router-link">Sign In</router-link></li>
+                    <li v-if="user"><router-link to="logout" class="header-router-link" @click.native="logout()">Sign Out</router-link></li>
+                    <!-- <li v-if="user"><span class="header-router-link">Sign Out</span></li> -->
+                    <li v-if="!user"><router-link to="/register" class="header-router-link">Create an Account</router-link></li>
                     <li><a class="header-a"><i class="el-icon-search"></i></a></li>
                 </ul>
             </el-row>
@@ -28,14 +31,13 @@
                         <template slot="title"><router-link to="/about-us">About us</router-link>
                         </template>
                         <el-menu-item index="structure">Structure</el-menu-item>
-                        <el-menu-item index="2-2">Factory Scene</el-menu-item>
                     </el-submenu>
                     <el-submenu index="3">
-                        <template slot="title">Cables</template>
-                        <el-menu-item index="3-1">Micro USB</el-menu-item>
-                        <el-menu-item index="3-2">Type-C</el-menu-item>
-                        <el-menu-item index="3-3">Lightning </el-menu-item>
-                        <el-menu-item index="3-4">Others</el-menu-item>
+                        <template slot="title"><router-link to="/cables">Cables</router-link></template>
+                        <el-menu-item index="micro-usb">Micro USB</el-menu-item>
+                        <el-menu-item index="type-c">Type-C</el-menu-item>
+                        <el-menu-item index="lightning">Lightning </el-menu-item>
+                        <el-menu-item index="other">Others</el-menu-item>
                     </el-submenu>
                     <el-submenu index="4">
                         <template slot="title">Temper</template>
@@ -56,7 +58,6 @@
                         <template slot="title">Contact us</template>
                         <el-menu-item index="6-1">Online Message</el-menu-item>
                     </el-submenu>
-                    <el-menu-item index="my-account">My Account</el-menu-item>
                 </el-menu>
             </el-row>
         </el-header>
@@ -64,6 +65,8 @@
 </template>
 
 <script>
+import api from '@/utils/api'
+
 export default {
   name: 'MyHeader',
   data () {
@@ -76,6 +79,19 @@ export default {
     handleSelect (key, keyPath) {
       console.log(key + '==' + keyPath)
       this.$router.push(keyPath)
+    },
+    logout () {
+      console.log('logout ')
+      api.get('/user/logout', null).then(res => {
+        console.log(res)
+        this.$store.commit('$_setStorage', null)
+        this.$store.commit('$_setLogin', '0')
+      })
+    }
+  },
+  computed: {
+    user () {
+      return JSON.parse(this.$store.state.user)
     }
   }
 }

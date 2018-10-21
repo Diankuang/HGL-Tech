@@ -78,6 +78,9 @@ export default {
       confirmPasswprd: ''
     }
   },
+  created () {
+    this.getRow(this.userInfo)
+  },
   methods: {
     submitForm (formName) {
       console.log(formName)
@@ -89,6 +92,16 @@ export default {
           return false
         }
       })
+    },
+    getRow (userInfo) {
+      let that = this
+      that.userFrom = userInfo
+    }
+  },
+  computed: {
+    userInfo () {
+      // let user = JSON.parse(this.$store.state.user)
+      return JSON.parse(this.$store.state.user)
     }
   }
 }
@@ -124,7 +137,7 @@ export default {
     font-size: 1.3rem;
 }
 .address-book-form-item{
-    margin-top: 0px;
+    margin-top: 5px;
     margin-bottom: 0px;
     color: #fff;
 }

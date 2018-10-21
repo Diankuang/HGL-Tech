@@ -39,8 +39,12 @@ export default {
   name: 'MyAccount',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      user: []
     }
+  },
+  created () {
+    this.getSessionStorage()
   },
   methods: {
     handleOpen (key, keyPath) {
@@ -52,6 +56,11 @@ export default {
     handleSelect (key, keyPath) {
       console.log(key + '==' + keyPath)
       this.$router.push(keyPath)
+    },
+    getSessionStorage () {
+      var that = this
+      const user = JSON.parse(sessionStorage.getItem('user'))
+      that.user = user
     }
   }
 }

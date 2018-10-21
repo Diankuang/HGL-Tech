@@ -19,6 +19,14 @@ import Login from '@/view/customer/Login'
 import Register from '@/view/customer/Register'
 import AboutUs from '@/view/about-us/AboutUs'
 import Structure from '@/view/about-us/component/Structure'
+import FactoryScene from '@/view/about-us/component/FactoryScene'
+import Cables from '@/view/cables/Cables'
+import MicroUSB from '@/view/cables/component/MicroUSB'
+import TypeC from '@/view/cables/component/Type-C'
+import Lightning from '@/view/cables/component/Lightning'
+import Other from '@/view/cables/component/Other'
+
+// import LatestNews from '@/view/latest-news/LatestNews'
 
 Vue.use(Router)
 
@@ -59,6 +67,38 @@ export default new Router({
               path: '/structure',
               name: 'Structure',
               component: Structure
+            },
+            {
+              path: '/factory-scene',
+              name: 'FactoryScene',
+              component: FactoryScene
+            }
+          ]
+        },
+        {
+          path: '/cables',
+          name: 'Cables',
+          component: Cables,
+          children: [
+            {
+              path: '/micro-usb',
+              name: 'Micro USB',
+              component: MicroUSB
+            },
+            {
+              path: '/lightning',
+              name: 'Lightning',
+              component: Lightning
+            },
+            {
+              path: '/type-c',
+              name: 'Type-C',
+              component: TypeC
+            },
+            {
+              path: 'other',
+              name: 'Other',
+              component: Other
             }
           ]
         },
@@ -66,6 +106,8 @@ export default new Router({
           path: '/my-account',
           name: 'my-account',
           component: MyAccount,
+          redirect: '/account-information',
+          meta: {auth: true},
           children: [
             {
               path: '/account-dashboard',
@@ -75,7 +117,8 @@ export default new Router({
             {
               path: '/account-information',
               name: 'Account Information',
-              component: AccountInformation
+              component: AccountInformation,
+              meta: {auth: true}
             },
             {
               path: '/address-book',

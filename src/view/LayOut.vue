@@ -16,8 +16,8 @@
         <el-col :span="24" class="breadcrumb-container">
             <el-breadcrumb separator-class="el-icon-arrow-right">
                 <el-breadcrumb-item v-for="item in $route.matched" :key="item.path" :to="{ path: item.path }">
-                    <!-- {{item.name }} -->
-                    <a class="breadcrumb-a" href="">{{ item.name }}</a>
+                    <!-- <router-link  class="breadcrumb-a">{{item.name }}</router-link> -->
+                    <a class="breadcrumb-a" :href="item.path">{{ item.name }}</a>
                 </el-breadcrumb-item>
             </el-breadcrumb>
         </el-col>
