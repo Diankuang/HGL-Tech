@@ -96,7 +96,7 @@ export default new Router({
               component: TypeC
             },
             {
-              path: 'other',
+              path: '/other',
               name: 'Other',
               component: Other
             }

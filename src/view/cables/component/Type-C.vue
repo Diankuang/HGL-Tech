@@ -1,22 +1,50 @@
 <template>
   <div class="type-c">
-    <el-col class="el-col-type-c" :span="24">
-      <img :src="imgUrl" class="type-c-col-img">
-    </el-col>
+    <el-row class="type-c-row">
+      <el-col :span="6" v-for="(o, index) in 6" :key="o" :offset="index > 0 ? 2 : 0" class="type-c-row-col">
+        <el-card :body-style="{ padding: '0px' }" class="type-c-row-col-card" shadow="hover">
+          <router-link to="/login"><img src="@/assets/factory-scene/57b6cf5a9e40b.jpg" class="image"></router-link>
+        </el-card>
+        <router-link to="/login">
+          <span class="type-c-row-col-span">Car Chargers</span>
+        </router-link>
+      </el-col>
+    </el-row>
+    <el-row class="type-c-row-pagination">
+      <el-pagination
+        background
+        background-color="#000"
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+        :current-page="currentPage"
+        :page-sizes="[10, 20, 30, 40]"
+        :page-size="100"
+        layout="total, sizes, prev, pager, next, jumper"
+        :total="400">
+      </el-pagination>
+    </el-row>
   </div>
 </template>
 
 <script>
 
 export default {
-  name: 'Type-C',
+  name: 'TypeC',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
-      imgUrl: require('@/assets/1539869424.jpg')
+      imgUrl: require('@/assets/1539869424.jpg'),
+      currentPage: 5
     }
   },
-  methods: {}
+  methods: {
+    handleSizeChange (val) {
+      console.log(`每页 ${val} 条`);
+    },
+    handleCurrentChange (val) {
+      console.log(`当前页: ${val}`);
+    }
+  }
 }
 </script>
 
@@ -28,5 +56,18 @@ export default {
 }
 .type-c-col-img{
   width: 100%
+}
+.time {
+  font-size: 13px;
+  color: #999;
+}
+.image {
+  width: 100%;
+  display: block;
+}
+.type-c-row-col{
+  margin-left: 0px;
+  margin-bottom: 20px;
+  text-align: center
 }
 </style>

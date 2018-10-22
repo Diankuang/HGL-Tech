@@ -5,8 +5,23 @@
         <el-card :body-style="{ padding: '0px' }" class="micro-usb-row-col-card" shadow="hover">
           <router-link to="/login"><img src="@/assets/factory-scene/57b6cf5a9e40b.jpg" class="image"></router-link>
         </el-card>
-        <span class="micro-usb-row-col-span">好吃的汉堡</span>
+        <router-link to="/login">
+          <span class="micro-usb-row-col-span">Car Chargers</span>
+        </router-link>
       </el-col>
+    </el-row>
+    <el-row class="micro-usb-row-pagination">
+      <el-pagination
+        background
+        background-color="#000"
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+        :current-page="currentPage"
+        :page-sizes="[10, 20, 30, 40]"
+        :page-size="100"
+        layout="total, sizes, prev, pager, next, jumper"
+        :total="400">
+      </el-pagination>
     </el-row>
   </div>
 </template>
@@ -18,10 +33,18 @@ export default {
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
-      imgUrl: require('@/assets/1539869424.jpg')
+      imgUrl: require('@/assets/1539869424.jpg'),
+      currentPage: 5
     }
   },
-  methods: {}
+  methods: {
+    handleSizeChange (val) {
+      console.log(`每页 ${val} 条`);
+    },
+    handleCurrentChange (val) {
+      console.log(`当前页: ${val}`);
+    }
+  }
 }
 </script>
 
@@ -44,7 +67,7 @@ export default {
 }
 .micro-usb-row-col{
   margin-left: 0px;
-  margin-bottom: 0px;
+  margin-bottom: 20px;
   text-align: center
 }
 </style>
