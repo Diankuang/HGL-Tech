@@ -1,16 +1,16 @@
 <template>
-  <div class="micro-usb">
-    <el-row class="micro-usb-row">
-      <el-col :span="6" v-for="(o, index) in 6" :key="o" :offset="index > 0 ? 2 : 0" class="micro-usb-row-col">
-        <el-card :body-style="{ padding: '0px' }" class="micro-usb-row-col-card" shadow="hover">
+  <div class="power-bank">
+    <el-row class="power-bank-row">
+      <el-col :span="6" v-for="(o, index) in 6" :key="o" :offset="index > 0 ? 2 : 0" class="power-bank-row-col">
+        <el-card :body-style="{ padding: '0px' }" class="power-bank-row-col-card" shadow="hover">
           <router-link to="/login"><img src="@/assets/factory-scene/57b6cf5a9e40b.jpg" class="image"></router-link>
         </el-card>
         <router-link to="/login">
-          <span class="micro-usb-row-col-span">Car Chargers</span>
+          <span class="power-bank-row-col-span">Car Chargers</span>
         </router-link>
       </el-col>
     </el-row>
-    <el-row class="micro-usb-row-pagination">
+    <el-row class="power-bank-row-pagination">
       <el-pagination
         background
         @size-change="handleSizeChange"
@@ -49,11 +49,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.micro-usb{
+.power-bank{
   margin: 0px;
   padding: 0px;
 }
-.micro-usb-col-img{
+.power-bank-col-img{
   width: 100%
 }
 .time {
@@ -65,7 +65,7 @@ export default {
   display: block;
   height: 300px;
 }
-.micro-usb-row-col{
+.power-bank-row-col{
   margin-left: 0px;
   margin-bottom: 20px;
   text-align: center

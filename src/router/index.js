@@ -79,6 +79,7 @@ export default new Router({
           path: '/cables',
           name: 'Cables',
           component: Cables,
+          redirect: 'micro-usb',
           children: [
             {
               path: '/micro-usb',
