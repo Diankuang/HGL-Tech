@@ -25,6 +25,8 @@ import MicroUSB from '@/view/cables/component/MicroUSB'
 import TypeC from '@/view/cables/component/Type-C'
 import Lightning from '@/view/cables/component/Lightning'
 import Other from '@/view/cables/component/Other'
+import PowerBank from '@/view/cables/PowerBank'
+import Products from '@/view/product/Products'
 
 // import LatestNews from '@/view/latest-news/LatestNews'
 
@@ -37,6 +39,7 @@ export default new Router({
       path: '/',
       name: 'Home',
       component: Layout,
+      redirect: 'banner',
       children: [
         {
           path: '/banner',
@@ -102,6 +105,16 @@ export default new Router({
               component: Other
             }
           ]
+        },
+        {
+          path: '/power-bank/:productId',
+          name: 'Power-Bank',
+          component: PowerBank
+        },
+        {
+          path: '/products/:productId',
+          name: 'Products',
+          component: Products
         },
         {
           path: '/my-account',

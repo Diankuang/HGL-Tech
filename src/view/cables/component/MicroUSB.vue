@@ -3,9 +3,9 @@
     <el-row class="micro-usb-row">
       <el-col :span="6" v-for="(o, index) in 6" :key="o" :offset="index > 0 ? 2 : 0" class="micro-usb-row-col">
         <el-card :body-style="{ padding: '0px' }" class="micro-usb-row-col-card" shadow="hover">
-          <router-link to="/login"><img src="@/assets/factory-scene/57b6cf5a9e40b.jpg" class="image"></router-link>
+          <router-link :to="{name: 'Products',params: { productId: 123}}"><img src="@/assets/factory-scene/57b6cf5a9e40b.jpg" class="image"></router-link>
         </el-card>
-        <router-link to="/login">
+        <router-link :to="{name: 'Products',params: { productId: 123}}">
           <span class="micro-usb-row-col-span">Car Chargers</span>
         </router-link>
       </el-col>
