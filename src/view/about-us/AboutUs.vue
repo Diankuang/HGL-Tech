@@ -47,7 +47,7 @@ export default {
 }
 .el-col-about-us-content-left{
     display: block;
-    border: 1px solid #777;
+    border: 1px solid #ddd;
     border-radius: 5px;
     background: #fff;
     /* border-top: 1px solid #777; */
@@ -59,7 +59,7 @@ export default {
     color: rgb(119, 119, 119);
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-style: normal;
-    border-bottom: 1px solid #777;
+    border-bottom: 1px solid #ddd;
     background: #F5F5F5;
     padding: 10px 10px 10px;
     /* font-weight: 400;
