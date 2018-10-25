@@ -10,7 +10,7 @@
               </el-carousel-item>
             </el-carousel>
           </div>
-          <div class="goodDetails_name_img">
+          <!-- <div class="goodDetails_name_img">
               <div style="width: 300px;height: 300px">
                       <img :src="ImgUrl" style="width: 100%;height: 100%">
               </div>
@@ -21,10 +21,10 @@
                       </li>
                   </ul>
               </div>
-          </div>
+          </div> -->
         </el-col>
         <el-col class="products-row-col-left-col-right" :span="17">
-          <h1>Thunderbolt™ 3 eGFX External GPU Enclosure</h1>
+          <h1>{{product.name}}</h1>
         </el-col>
       </el-col>
       <el-col :span="5" :offset="2" class="products-row-col-right">
@@ -43,9 +43,10 @@
 </template>
 
 <script>
+import api from '@/utils/api'
 import LatestNews from '@/view/latest-news/LatestNews'
 export default {
-  name: 'MicroUsb',
+  name: 'Products',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
@@ -57,8 +58,13 @@ export default {
         {id: 3, idView: require('@/assets/images/3.jpg')},
         {id: 4, idView: require('@/assets/images/4.jpg')}
       ],
-      ImgUrl: require('@/assets/images/1.jpg')
+      ImgUrl: require('@/assets/images/1.jpg'),
+      product:{},
+      productPicture:[]
     }
+  },
+  created () {
+    this.getProductDetail()
   },
   methods: {
     handleSizeChange () {
@@ -69,6 +75,20 @@ export default {
     },
     getIndex (imgUrl) {
       this.ImgUrl = imgUrl
+    },
+    getProductDetail () {
+      let that = this
+      let param = {
+        productId:'6582116488'
+      }
+      let productId='6582116488'
+      api.postC('/product/query-power-pro-detail',param).then(data => {
+        console.log(data)
+        if(data.code === '0'){
+          that.product = data.product
+          that.productPicture = data.productPicture
+        }
+      })
     }
   },
   components: {LatestNews}

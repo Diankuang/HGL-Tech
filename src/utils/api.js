@@ -1,9 +1,9 @@
 'use strict'
 
 import axios from 'axios'
-// import qs from 'qs'
+import qs from 'qs'
 
-axios.defaults.baseURL = 'http://localhost:9002/power-bank'
+axios.defaults.baseURL = 'http://localhost:9002/'
 
 axios.interceptors.request.use(config => {
   // loading
@@ -22,7 +22,7 @@ function checkStatus (response) {
   // loading
   // 如果http状态码正常，则直接返回数据
   if (response && (response.status === 200 || response.status === 304 || response.status === 400)) {
-    return response
+    return response.data
     // 如果不需要除了data之外的数据，可以直接 return response.data
   }
   // 异常状态下，把错误信息返回去
@@ -47,7 +47,7 @@ export default {
   post (url, data) {
     return axios({
       method: 'post',
-      // baseURL: 'http://localhost:9002/dreamspace',
+      // baseURL: 'http://localhost:9002/',
       url,
       data: data,
       timeout: 10000,
@@ -55,6 +55,26 @@ export default {
         'X-Requested-With': 'XMLHttpRequest',
         'Content-Type': 'application/json; charset=UTF-8'
       }
+    }).then(
+      (response) => {
+        return checkStatus(response)
+      }
+    ).then(
+      (res) => {
+        return checkCode(res)
+      }
+    )
+  },
+  postC (url, data) {
+    return axios({
+      method: 'post',
+      url,
+      data: qs.stringify(data),
+      timeout: 10000
+      // headers: {
+      //   'X-Requested-With': 'XMLHttpRequest',
+      //   'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+      // }
     }).then(
       (response) => {
         return checkStatus(response)

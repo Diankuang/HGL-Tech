@@ -72,9 +72,8 @@ export default {
             email: that.loginForm.email,
             password: that.loginForm.password
           }
-          api.post('/user/login', params).then(res => {
-            console.log(res)
-            var data = res.data
+          api.post('/user/login', params).then(data => {
+            console.log(data)
             if (data.code === '0') {
               // sessionStorage.setItem('user', JSON.stringify(data.user))
               this.$store.commit('$_setStorage', JSON.stringify(data.user))

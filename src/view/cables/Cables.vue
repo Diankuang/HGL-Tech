@@ -53,19 +53,19 @@ export default {
 }
 .el-col-cables-content-left{
     display: block;
-    border: 1px solid #777;
+    border: 1px solid #ddd;
     border-radius: 5px;
     background: #fff;
     /* border-top: 1px solid #777; */
     /* padding: 15px 10px 0; */
     box-shadow: 0 2px 3px rgba(0,0,0,0.08);
-    margin-top: 20px;
+    margin-top: 10px;
 }
 .el-col-cables-content-left-title{
     color: rgb(119, 119, 119);
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-style: normal;
-    border-bottom: 1px solid #777;
+    border-bottom: 1px solid #ddd;
     background: #F5F5F5;
     padding: 10px 10px 10px;
     /* font-weight: 400;

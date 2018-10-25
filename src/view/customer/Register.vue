@@ -78,8 +78,7 @@ export default {
             password: that.registerForm.password,
             userClass: 2
           }
-          api.post('/user/register', params).then(res => {
-            var data = res.data
+          api.post('/user/register', params).then(data => {
             if (data.code === '0') {
               // this.$router.push('/login')
               alert('Createed Success')
@@ -87,9 +86,7 @@ export default {
                 email: data.user.email,
                 password: data.user.password
               }
-              api.post('/user/login', params).then(loginRes => {
-                console.log(loginRes)
-                var loginData = loginRes.data
+              api.post('/user/login', params).then(loginData => {
                 if (loginData.code === '0') {
                   // sessionStorage.setItem('user', JSON.stringify(data.user))
                   this.$store.commit('$_setStorage', JSON.stringify(loginData.user))

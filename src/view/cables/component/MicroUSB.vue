@@ -1,12 +1,14 @@
 <template>
   <div class="micro-usb">
     <el-row class="micro-usb-row">
-      <el-col :span="6" v-for="(o, index) in 6" :key="o" :offset="index > 0 ? 2 : 0" class="micro-usb-row-col">
+      <el-col :span="6" v-for="item in productList" :key="item.id"  class="micro-usb-row-col">
         <el-card :body-style="{ padding: '0px' }" class="micro-usb-row-col-card" shadow="hover">
-          <router-link :to="{name: 'Products',params: { productId: 123}}"><img src="@/assets/factory-scene/57b6cf5a9e40b.jpg" class="image"></router-link>
+          <router-link :to="{name: 'Products',params: { productId: item.id}}">
+            <img src="@/assets/factory-scene/57b6cf5a9e40b.jpg" class="image">
+          </router-link>
         </el-card>
-        <router-link :to="{name: 'Products',params: { productId: 123}}">
-          <span class="micro-usb-row-col-span">Car Chargers</span>
+        <router-link :to="{name: 'Products',params: { productId: item.id}}">
+          <span class="micro-usb-row-col-span">{{item.name}}</span>
         </router-link>
       </el-col>
     </el-row>
@@ -15,9 +17,9 @@
         background
         @size-change="handleSizeChange"
         @current-change="handleCurrentChange"
-        :current-page="currentPage"
+        :current-page="pageNum"
         :page-sizes="[10, 20, 30, 40]"
-        :page-size="100"
+        :page-size="10"
         layout="total, sizes, prev, pager, next, jumper"
         :total="400">
       </el-pagination>
@@ -26,23 +28,46 @@
 </template>
 
 <script>
-
+import api from '@/utils/api'
 export default {
   name: 'MicroUsb',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
       imgUrl: require('@/assets/1539869424.jpg'),
-      currentPage: 5
+      currentPage: 5,
+      pageNum:1,
+      productList:[]
     }
   },
   methods: {
-    handleSizeChange () {
-      // console.log(`每页 ${val} 条`);
+    handleSizeChange (val) {
+      console.log(`每页 ${val} 条`)
     },
-    handleCurrentChange () {
-      // console.log(`当前页: ${val}`);
+    handleCurrentChange (val) {
+      this.pageNum = val
+      this.getMicroUsbList()
+      console.log(`当前页: ${val}`)
+    },
+    getMicroUsbList () {
+      let that = this
+      let params = {
+        type:"1",
+        pageSize:10,
+        pageNum:this.pageNum
+      }
+      console.log(params)
+      api.post("/product/query-power-products",params).then(res => {
+        let data = res.data
+        if(data.code === '0'){
+          that.productList = data.list
+          console.log(that.productList)
+        }
+      })
     }
+  },
+  created () {
+    this.getMicroUsbList()
   }
 }
 </script>

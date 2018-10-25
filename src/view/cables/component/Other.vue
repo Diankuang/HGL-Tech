@@ -39,10 +39,10 @@ export default {
   },
   methods: {
     handleSizeChange (val) {
-      console.log(`每页 ${val} 条`);
+      console.log(val)
     },
     handleCurrentChange (val) {
-      console.log(`当前页: ${val}`);
+      console.log(val)
     }
   }
 }
