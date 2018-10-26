@@ -102,7 +102,7 @@ export default {
     margin: 0px;
     padding: 0px;
     background-color:#545c64;
-    position: absolute;
+    /* position: sabsolute; */
     width: 100%;
     z-index: 1;
     /* height: 100px; */

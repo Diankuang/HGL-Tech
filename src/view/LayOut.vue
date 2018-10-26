@@ -9,11 +9,11 @@
                 </el-breadcrumb-item>
             </el-breadcrumb>
         </el-col> -->
-         <el-row>
+         <!-- <el-row>
             <div class="my-account-row-div"></div>
             <div class="grid-content bg-purple-dark"></div>
-        </el-row>
-        <el-col :span="24" class="breadcrumb-container">
+        </el-row> -->
+        <el-col :span="24" :xs="24" class="breadcrumb-container">
             <el-breadcrumb separator-class="el-icon-arrow-right">
                 <el-breadcrumb-item v-for="item in $route.matched" :key="item.path" :to="{ path: item.path }">
                     <!-- <router-link  class="breadcrumb-a">{{item.name }}</router-link> -->
@@ -25,110 +25,6 @@
            <router-view/>
         </el-main>
         <myfooter></myfooter>
-        <!-- <el-footer>
-            <el-row class="footer-row">
-                <el-col :span="6" class="footer-col">
-                    <strong class="title">CORPORATE</strong>
-                     <ul class="footer-ul">
-                        <li>
-                            <i class="el-icon-caret-right"></i><a href="https://www.visiontek.com/about-visiontek" title="About us">About us</a>
-                        </li>
-                        <li>
-                            <i class="el-icon-caret-right"></i><a href="https://www.visiontek.com/contact" title="Contact us">Contact us</a>
-                        </li>
-                         <li>
-                            <i class="el-icon-caret-right"></i><a href="https://www.visiontek.com/customer/account" title="My account">My account</a>
-                        </li>
-                         <li>
-                            <i class="el-icon-caret-right"></i><a href="https://www.visiontek.com/sales/order/history" title="Orders history">Orders history</a>
-                        </li>
-                         <li>
-                            <i class="el-icon-caret-right"></i><a href="https://www.visiontek.com/catalogsearch/advanced" title="Advanced search">Advanced search</a>
-                        </li>
-                         <li>
-                            <i class="el-icon-caret-right"></i><a href="https://www.visiontek.com/news.html" title="News">News</a>
-                        </li>
-                         <li>
-                            <i class="el-icon-caret-right"></i><a href="https://www.visiontek.com/reviews-awards.html" title="Reviews &amp; Awards">Reviews &amp; Awards</a>
-                        </li>
-                    </ul>
-                </el-col>
-                <el-col :span="6">
-                    <strong class="title">CONTACT INFORMATION</strong>
-                    <ul class="footer-ul">
-                        <li>
-                            <p><i class="el-icon-location"></i><b>Address:</b><br><span class="contact-span">105 Prairie Lake Rd Unit C, East Dundee, IL 60118</span></p>
-                            </li>
-                        <li>
-                            <p><i class="el-icon-phone"></i><b>Phone:</b><br><span>(866) 883-5411</span></p>
-                        </li>
-                         <li>
-                            <p><i class="el-icon-message"></i><b>Email:</b><br> <a href="mailto:support@visiontek.com">support@visiontek.com</a></p>
-                        </li>
-                         <li>
-                            <p><i class="el-icon-time"></i><b>Working Days/Hours::</b><br><span> Mon - Fri / 8:00AM - 5:00PM CST</span></p>
-                        </li>
-                    </ul>
-                </el-col>
-                <el-col :span="6">
-                    <strong class="title">CUSTOMER SERVICE</strong>
-                     <ul class="footer-ul">
-                       <li>
-                            <i class="el-icon-caret-right"></i><a href="https://www.visiontek.com/about-visiontek" title="About us">Product Support</a>
-                        </li>
-                        <li>
-                            <i class="el-icon-caret-right"></i><a href="https://www.visiontek.com/contact" title="Contact us">Terms of Service</a>
-                        </li>
-                         <li>
-                            <i class="el-icon-caret-right"></i><a href="https://www.visiontek.com/customer/account" title="My account">Privacy Policy</a>
-                        </li>
-                         <li>
-                            <i class="el-icon-caret-right"></i><a href="https://www.visiontek.com/sales/order/history" title="Orders history">Warranty Information</a>
-                        </li>
-                         <li>
-                            <i class="el-icon-caret-right"></i><a href="https://www.visiontek.com/catalogsearch/advanced" title="Advanced search">Warranty Registration</a>
-                        </li>
-                         <li>
-                            <i class="el-icon-caret-right"></i><a href="https://www.visiontek.com/news.html" title="News">RMA Request</a>
-                        </li>
-                    </ul>
-                </el-col>
-                <el-col :span="6">
-                    <strong class="title">BE THE FIRST TO KNOW</strong>
-                    <ul class="footer-ul">
-                        <li>
-                            <span>Get all the latest information on Events,<br>Sales and Offers. Sign up for newsletter today.</span>
-                        </li>
-                        <li  style="margin-top:20px;">
-                            <span for="footer_newsletter">Enter your email address</span>
-                            <el-form :model="form" :rules="rules" ref="form" label-width="100px" class="demo-ruleForm">
-                                <el-input v-model="form.email"></el-input>
-                                <el-button type="primary" @click="onSubmit('form')"><span>Subscribe</span></el-button>
-                                <el-form-item style="margin-left:0px;" prop="email">
-                                    <el-input v-model="form.email"></el-input>
-                                    <el-button type="primary" @click="onSubmit('form')"><span>Subscribe</span></el-button>
-                                </el-form-item>
-                            </el-form>
-                        </li>
-                    </ul>
-                    <p style="margin-bottom: 15px;line-height: 1.5;">Get all the latest information on Events,<br>Sales and Offers. Sign up for newsletter today.</p>
-                    <label for="footer_newsletter" style="margin-top:50px;margin-bottom:15px;">Enter your email address</label>
-                    <form class="form subscribe" novalidate="novalidate" action="https://www.visiontek.com/newsletter/subscriber/new/" method="post" id="newsletter-validate-detail">
-                        <div class="field newsletter">
-                            <label class="label" for="footer_newsletter"><span>Sign Up for Our Newsletter:</span></label>
-                            <div class="control">
-                                <input name="email" type="email" id="footer_newsletter" data-validate="{required:true, 'validate-email':true}">
-                            </div>
-                        </div>
-                        <div class="actions">
-                            <button class="action subscribe primary" title="Subscribe" type="submit">
-                                <span>Subscribe</span>
-                            </button>
-                        </div>
-                    </form>
-                </el-col>
-            </el-row>
-        </el-footer> -->
     </div>
 </template>
 

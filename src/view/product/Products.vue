@@ -1,12 +1,12 @@
 <template>
   <div class="products">
     <el-row class="products-row">
-      <el-col :span="17" class="products-row-col-left">
-        <el-col class="products-row-col-left-col-left" :span="7">
+      <el-col :span="17" class="products-row-col-left" :xs="24">
+        <el-col class="products-row-col-left-col-left" :span="8" :xs="24">
           <div class="block">
             <el-carousel trigger="click"  indicator-position="none" @change='change1()'>
               <el-carousel-item v-for="item in imgList" :key="item.id">
-                <img :src="item.idView" style="wight:100%;height:100%">
+                <img :src="item.idView" >
               </el-carousel-item>
             </el-carousel>
           </div>
@@ -18,33 +18,32 @@
             </ul>
           </div>
         </el-col>
-        <el-col class="products-row-col-left-col-right" :span="17">
-          <h1><span class="products-row-col-left-col-right-span">WD-288-010Q</span></h1>
-          <el-col class="products-row-col-left-col-right-1" :span="24">
+        <el-col class="products-row-col-left-col-right" :span="16" :xs="24">
+          <h1><span class="products-row-col-left-col-right-span">{{product.name}}</span></h1>
+          <el-col class="products-row-col-left-col-right-1" :span="24" :xs="24">
             <a class="action" href="https://www.visiontek.com/hdmi-pivot-cable-3-ft-m-m.html#review-form">
               Be the first to review this productId
             </a>
           </el-col>
           <el-col class="products-row-col-left-col-right-2">
-            <h1><span class="products-row-col-left-col-right-span">$119.05</span></h1>
+            <h1><span class="products-row-col-left-col-right-span">${{product.price}}</span></h1>
           </el-col>
           <el-col class="products-row-col-left-col-right-2"></el-col>
-          <el-col class="products-row-col-left-col-right-3" :span="24">
+          <el-col class="products-row-col-left-col-right-3" :span="24" :xs="24">
             <p>DDR4 is the latest generation of RAM for newer desktop computers and notebooks. It offers increased speed and efficiency over DDR3 memory. Along with its increased speed, DDR4 is also more efficient, using a maximum of 1.2 Volts compared to DDR3’s maximum 1.65 Volts.</p>
             <p><strong><span>Features:</span></strong></p>
-            <ul>
-              <li><strong>Size:</strong>&nbsp;1 x 8GB module</li>
-              <li><strong>Technology:</strong>&nbsp;DDR4 SDRAM</li>
-              <li><strong>Speed:</strong>&nbsp;PC4-19200 2400MHz</li>
-              <li><strong>Latency Timings:</strong>&nbsp;CL17</li>
-              <li><strong>Voltage:</strong>&nbsp;1.2V</li>
-              <li><strong>Warranty:</strong>&nbsp;Limited Lifetime</li>
-            </ul>
+            <el-row>
+              <ul>
+                <el-col  :span="12" :xs="24"  v-for="(value,key,index) in product"  :key="index" class="products-row-col-left-col-right-3">
+                <li><strong>{{key}}：</strong>&nbsp;{{value}}</li>
+                </el-col>
+              </ul>
+            </el-row>
           </el-col>
         </el-col>
-        <el-col class="products-row-col-left-col-right-4" :span="24">
-          <el-tabs v-model="activeName" type="card" @tab-click="handleClick" :value="detail">
-            <el-tab-pane label="Detail" name="detail">
+        <el-col class="products-row-col-left-col-right-4" :span="24" :xs="24">
+          <el-tabs v-model="activeName" type="card" @tab-click="handleClick" value="Detail">
+            <el-tab-pane label="Detail" name="Detail">
               <ul>
                 <li><strong>Size:</strong>&nbsp;1 x 8GB module</li>
                 <li><strong>Technology:</strong>&nbsp;DDR4 SDRAM</li>
@@ -57,15 +56,15 @@
           </el-tabs>
         </el-col>
       </el-col>
-      <el-col :span="5" :offset="2" class="products-row-col-right">
+      <el-col :span="5" :offset="2" class="products-row-col-right" :xs="24">
         <el-row class="products-row-col-right-questions">
-          <LatestNews></LatestNews>
+          <img :src="techSupport">
         </el-row>
         <e-row class="products-row-col-right-latest-news">
           <LatestNews></LatestNews>
         </e-row>
         <el-row class="products-row-col-right-latest-faq">
-          <LatestNews></LatestNews>
+          <LatestFAQ></LatestFAQ>
         </el-row>
       </el-col>
     </el-row>
@@ -74,7 +73,8 @@
 
 <script>
 import api from '@/utils/api'
-import LatestNews from '@/view/latest-news/LatestNews'
+import LatestNews from '@/view/latest/LatestNews'
+import LatestFAQ from '@/view/latest/LatestFAQ'
 export default {
   name: 'Products',
   data () {
@@ -92,7 +92,8 @@ export default {
       product:{},
       productPicture:[],
       img: '',
-      activeName: 'detail'
+      activeName: 'Detail',
+      techSupport: require('@/assets/images/Tech-Support.jpg')
     }
   },
   created () {
@@ -133,7 +134,7 @@ export default {
       console.log(tab, event);
     }
   },
-  components: {LatestNews},
+  components: {LatestNews,LatestFAQ},
   watch: {
     change1(val, oldVal) {
       // this.resetItemPosition(oldVal);
@@ -208,15 +209,19 @@ export default {
     -webkit-margin-start: 0px;
     -webkit-margin-end: 0px;
 }
-.products-row-col-left-col-right-3 ul{
+.products-row-col-left-col-right-3 li{
     display: block;
     list-style-type: disc;
     -webkit-margin-before: 1em;
     -webkit-margin-after: 1em;
     -webkit-margin-start: 0px;
     -webkit-margin-end: 0px;
-    -webkit-padding-start: 40px;
+    -webkit-padding-start: 20px;
+    margin: 5px 5px 0px 0px;
 }
+/* .products-row-col-left-col-right-3 ul li{
+    margin: 10px 10px 10px 10px; 
+} */
 .products-row-col-left-col-right-4{
     margin: 30px 10px 10px 0;
 }

@@ -52,13 +52,12 @@ export default {
     getMicroUsbList () {
       let that = this
       let params = {
-        type:"1",
+        type:"Wireless charger",
         pageSize:10,
         pageNum:this.pageNum
       }
       console.log(params)
-      api.post("/product/query-power-products",params).then(res => {
-        let data = res.data
+      api.post("/product/query-power-products",params).then(data => {
         if(data.code === '0'){
           that.productList = data.list
           console.log(that.productList)

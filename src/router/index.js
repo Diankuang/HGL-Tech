@@ -65,6 +65,7 @@ export default new Router({
           path: '/about-us',
           name: 'AboutUs',
           component: AboutUs,
+          redirect: 'structure',
           children: [
             {
               path: '/structure',

@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import LatestNews from '@/view/latest-news/LatestNews'
+import LatestNews from '@/view/latest/LatestNews'
 export default {
   name: 'Cables',
   data () {
