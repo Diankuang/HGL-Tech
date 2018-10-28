@@ -6,7 +6,7 @@
       </el-row>
       <el-row class="el-row-address-book-content">
         <el-form :label-position="labelPosition" :model="userFrom" ref="address-bookForm" >
-            <el-col :span="11" class="el-row-address-book-content-col">
+            <el-col :span="11" :xs="24" class="el-row-address-book-content-col">
                 <el-card shadow="never" class="el-row-address-book-content-col-card">
                     <strong><span class="address-book-row-content-col-title-span">CONTACT INFORMATION</span></strong>
                     <el-form-item prop="firstName" label="First Name" class="address-book-form-item" :rules="[{ required: true, message: 'This is a required field.'}]">
@@ -29,7 +29,7 @@
                     </el-form-item>
                 </el-card>
             </el-col>
-            <el-col :span="11" :offset="2" class="el-row-address-book-content-col">
+            <el-col :span="11" :offset="2" :xs="24" class="el-row-address-book-content-col">
                 <el-card shadow="never" class="el-row-address-book-content-col-card">
                     <strong><span class="address-book-row-content-col-title-span">ADDRESS</span></strong>
                     <el-form-item prop="password" label="Street Address" class="address-book-form-item" :rules="[{ required: true, message: 'This is a required field.'}]">

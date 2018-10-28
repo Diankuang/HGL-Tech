@@ -1,14 +1,21 @@
 <template>
   <div class="micro-usb">
     <el-row class="micro-usb-row">
-      <el-col :span="6" v-for="item in productList" :key="item.id"  class="micro-usb-row-col">
+      <el-col :span="6" :xs="24" v-for="item in productList" :key="item.id"  class="micro-usb-row-col">
         <el-card :body-style="{ padding: '0px' }" class="micro-usb-row-col-card" shadow="hover">
-          <router-link :to="{name: 'Products',params: { productId: item.id}}">
+          <!-- <router-link :to="{name: 'Products',params: { productId: item.id}}">
             <img src="@/assets/factory-scene/57b6cf5a9e40b.jpg" class="image">
           </router-link>
         </el-card>
         <router-link :to="{name: 'Products',params: { productId: item.id}}">
           <span class="micro-usb-row-col-span">{{item.name}}</span>
+        </router-link> -->
+        <router-link :to="{path: '/power-bank/'+item.id}">
+            <img :src="img+item.picture" class="image">
+          </router-link>
+        </el-card>
+        <router-link :to="{path: '/power-bank/'+item.id}">
+          <p class="micro-usb-row-col-p">{{item.name}}</p>
         </router-link>
       </el-col>
     </el-row>
@@ -36,8 +43,9 @@ export default {
       msg: 'Welcome to Your Vue.js App',
       imgUrl: require('@/assets/1539869424.jpg'),
       currentPage: 5,
-      pageNum:1,
-      productList:[]
+      pageNum: 1,
+      img: 'http://pbzoyemzp.bkt.clouddn.com/image/',
+      productList: []
     }
   },
   methods: {
@@ -52,13 +60,13 @@ export default {
     getMicroUsbList () {
       let that = this
       let params = {
-        type:"Wireless charger",
-        pageSize:10,
-        pageNum:this.pageNum
+        type: 'Wireless charger',
+        pageSize: 10,
+        pageNum: this.pageNum
       }
       console.log(params)
-      api.post("/product/query-power-products",params).then(data => {
-        if(data.code === '0'){
+      api.post('/product/query-power-products', params).then(data => {
+        if (data.code === '0') {
           that.productList = data.list
           console.log(that.productList)
         }

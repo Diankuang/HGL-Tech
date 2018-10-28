@@ -1,11 +1,11 @@
 <template>
   <div class="about-us">
     <el-row class="el-row-about-us">
-        <el-col :span="4" class="el-col-about-us-content-left">
-            <el-col :span="24" class="el-col-about-us-content-left-title">
+        <el-col :span="4" :xs="24" class="el-col-about-us-content-left">
+            <el-col :span="24" :xs="24" class="el-col-about-us-content-left-title">
                 <strong>About us</strong>
             </el-col>
-            <el-col :span="24" class="el-col-about-us-content-left-content">
+            <el-col :span="24" :xs="24" class="el-col-about-us-content-left-content">
                 <ul class="el-col-about-us-content-left-content-ul">
                     <li>
                         <router-link to="structure">Structure</router-link>
@@ -16,10 +16,10 @@
                 </ul>
             </el-col>
         </el-col>
-        <el-col :span="15" class="el-col-about-us-content-center">
+        <el-col :span="15" :xs="24" class="el-col-about-us-content-center">
             <router-view></router-view>
         </el-col>
-        <el-col :span="5" class="el-col-about-us-content-right">
+        <el-col :span="5" :xs="24" class="el-col-about-us-content-right">
             <LatestNews></LatestNews>
         </el-col>
     </el-row>

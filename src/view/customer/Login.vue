@@ -5,7 +5,7 @@
         <strong>Customer Login</strong>
       </el-row>
       <el-row class="el-row-login-content">
-        <el-col :span="10" class="el-row-login-content-col">
+        <el-col :span="10" :xs="24" class="el-row-login-content-col">
           <el-card shadow="never" class="el-row-login-content-col-card">
             <strong>Login Customers</strong>
             <el-form :label-position="labelPosition" :model="loginForm" ref="loginForm" class="demo-dynamic login-form" size="mini">
@@ -26,7 +26,7 @@
             </el-form>
           </el-card>
         </el-col>
-        <el-col :span="10" :offset="4" class="el-row-login-content-col">
+        <el-col :span="10" :offset="4" :xs="24" class="el-row-login-content-col">
           <el-card shadow="never" class="el-row-login-content-col-card">
             <strong>New Customers</strong>
             <p>Creating an account has many benefits: check out faster, keep more than one address, track orders and more.</p>

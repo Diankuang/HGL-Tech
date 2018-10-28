@@ -1,0 +1,114 @@
+<template>
+  <div class="huawei">
+    <el-row class="huawei-row">
+      <el-col :span="6" :xs="24" v-for="item in temperList" :key="item.id"  class="huawei-row-col">
+        <el-card :body-style="{ padding: '0px' }" class="huawei-row-col-card" shadow="hover">
+           <router-link :to="{path: '/temper-pro/'+item.id}">
+            <img :src="img+item.picture" class="image">
+          </router-link>
+          <router-link :to="{path: '/temper-pro/'+item.id}">
+            <p class="huawei-row-col-p">{{item.name}}</p>
+          </router-link>
+        </el-card>
+      </el-col>
+    </el-row>
+    <el-row class="huawei-row-pagination">
+      <el-pagination
+        background
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+        :current-page="pageNum"
+        :page-sizes="[10, 20, 30, 40]"
+        :page-size="pageSize"
+        layout="total, sizes, prev, pager, next, jumper"
+        :total="total">
+      </el-pagination>
+    </el-row>
+  </div>
+</template>
+
+<script>
+import api from '@/utils/api'
+export default {
+  name: 'Huawei',
+  data () {
+    return {
+      msg: 'Welcome to Your Vue.js App',
+      imgUrl: require('@/assets/1539869424.jpg'),
+      currentPage: 5,
+      pageNum: 1,
+      pageSize: 10,
+      total: 0,
+      temperList: [],
+      img: 'http://pbzoyemzp.bkt.clouddn.com/image/',
+      imageUrl: require('@/assets/temper/201804180940274027.jpg')
+    }
+  },
+  methods: {
+    handleSizeChange (val) {
+      this.pageSize = val
+      console.log(`每页 ${val} 条`)
+    },
+    handleCurrentChange (val) {
+      this.pageNum = val
+      this.getMicroUsbList()
+      console.log(`当前页: ${val}`)
+    },
+    getMicroUsbList () {
+      debugger
+      let that = this
+      let params = {
+        type: '2',
+        pageSize: that.pageSize,
+        pageNum: that.pageNum
+      }
+      console.log(params)
+      api.post('/temper/query-temper', params).then(data => {
+        if (data.code === '0') {
+          that.temperList = data.list
+          that.total = data.total
+          console.log(that.temperList)
+        }
+      })
+    }
+  },
+  created () {
+    this.getMicroUsbList()
+  }
+}
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+.huawei{
+  margin: 0px;
+  padding: 0px;
+}
+.huawei-col-img{
+  width: 100%
+}
+.time {
+  font-size: 13px;
+  color: #999;
+}
+.huawei-row-col-card{
+}
+.image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  margin: 20px 0 20px 0;
+}
+.huawei-row-col{
+  margin-left: 0px;
+  margin-bottom: 20px;
+  text-align: center
+}
+.huawei-row-col-p{
+    margin: 0px 0px 21px 0px;
+}
+.el-pagination.is-background.el-pager li {
+  background-color:#000;
+  color:#fff;
+}
+</style>

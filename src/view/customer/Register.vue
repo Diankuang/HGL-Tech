@@ -6,7 +6,7 @@
       </el-row>
       <el-row class="el-row-register-content">
         <el-form :label-position="labelPosition" :model="registerForm" ref="registerForm" class="demo-dynamic register-form">
-            <el-col :span="10" class="el-row-register-content-col">
+            <el-col :span="10" :xs="24" class="el-row-register-content-col">
                 <el-card shadow="never" class="el-row-register-content-col-card">
                     <strong>PERSONAL INFORMATION</strong>
                     <el-form-item prop="firstName" label="First Name" class="register-form-item" :rules="[{ required: true, message: 'This is a required field.'}]">
@@ -24,7 +24,7 @@
                     </el-form-item>
                 </el-card>
             </el-col>
-            <el-col :span="10" :offset="4" class="el-row-register-content-col">
+            <el-col :span="10" :offset="4" :xs="24" class="el-row-register-content-col">
                 <el-card shadow="never" class="el-row-register-content-col-card">
                     <strong>SIGN-IN INFORMATION</strong>
                     <el-form-item prop="email" label="Email" class="register-form-item" :rules="[

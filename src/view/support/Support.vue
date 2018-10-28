@@ -1,31 +1,29 @@
 <template>
-  <div class="cables">
-    <el-row class="el-row-cables">
-        <el-col :span="4" class="el-col-cables-content-left" :xs="24">
-            <el-col :span="24" class="el-col-cables-content-left-title" :xs="24">
+  <div class="support">
+    <el-row class="el-row-support">
+        <el-col :span="4" :xs="24" class="el-col-support-content-left">
+            <el-col :span="24" :xs="24" class="el-col-support-content-left-title">
                 <strong>About us</strong>
             </el-col>
-            <el-col :span="24" class="el-col-cables-content-left-content" :xs="24">
-                <ul class="el-col-cables-content-left-content-ul">
+            <el-col :span="24" :xs="24" class="el-col-support-content-left-content">
+                <ul class="el-col-support-content-left-content-ul">
                     <li>
-                        <router-link to="micro-usb">Micro USB</router-link>
+                        <router-link to="faq">FAQ</router-link>
                     </li>
                      <li>
-                        <router-link to="type-c">Type-C</router-link>
+                        <router-link to="map">Map</router-link>
                     </li>
                     <li>
-                        <router-link to="lightning">Lightning</router-link>
-                    </li>
-                     <li>
-                        <router-link to="other">Other</router-link>
+                        <router-link to="after-sale-policy">After sale Policy</router-link>
                     </li>
                 </ul>
             </el-col>
+            <el-col :span="24" :xs="24"></el-col>
         </el-col>
-        <el-col :span="15" class="el-col-cables-content-center" :xs="24">
+        <el-col :span="15" :xs="24" class="el-col-support-content-center">
             <router-view></router-view>
         </el-col>
-        <el-col :span="5" class="el-col-cables-content-right" :xs="24">
+        <el-col :span="5" :xs="24" class="el-col-support-content-right">
             <LatestNews></LatestNews>
         </el-col>
     </el-row>
@@ -35,7 +33,7 @@
 <script>
 import LatestNews from '@/view/latest/LatestNews'
 export default {
-  name: 'Cables',
+  name: 'Support',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
@@ -48,10 +46,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.el-row-cables{
+.el-row-support{
   text-align: left;
 }
-.el-col-cables-content-left{
+.el-col-support-content-left{
     display: block;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -61,7 +59,7 @@ export default {
     box-shadow: 0 2px 3px rgba(0,0,0,0.08);
     margin-top: 10px;
 }
-.el-col-cables-content-left-title{
+.el-col-support-content-left-title{
     color: rgb(119, 119, 119);
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-style: normal;
@@ -72,7 +70,7 @@ export default {
     line-height: 1.4;
     font-size: 1.3rem; */
 }
-.el-col-cables-content-left-content{
+.el-col-support-content-left-content{
     font-size: 13px;
     background-color: rgb(251, 251, 251);
     margin: 0px;
@@ -83,18 +81,18 @@ export default {
     /* border-top: 0px; */
     border-radius: 0px 0px 7px 7px;
 }
-.el-col-cables-content-left-content-ul{
+.el-col-support-content-left-content-ul{
     list-style:none;
     line-height:30px;
     padding-top: 10px;
     text-align: left;
 }
-.el-col-cables-content-center{
+.el-col-support-content-center{
     padding: 10px 15px 15px;
 }
-.el-col-cables-content-right{
+.el-col-support-content-right{
     display: block;
     background: #fff;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 </style>

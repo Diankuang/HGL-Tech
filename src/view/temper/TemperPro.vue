@@ -1,51 +1,51 @@
 <template>
-  <div class="power-bank">
-    <el-row class="power-bank-row">
-      <el-col :span="17" class="power-bank-row-col-left" :xs="24">
-        <el-col class="power-bank-row-col-left-col-left" :span="8" :xs="24">
+  <div class="temper-pro">
+    <el-row class="temper-pro-row">
+      <el-col :span="17" class="temper-pro-row-col-left" :xs="24">
+        <el-col class="temper-pro-row-col-left-col-left" :span="8" :xs="24">
           <div class="big-img">
             <el-carousel trigger="click"  indicator-position="none" @change='change1()'>
-              <el-carousel-item v-for="item in productPicture" :key="item.id">
-                <img :src="img+item.picture" >
+              <el-carousel-item v-for="item in temperPic" :key="item.id">
+                <img :src="img+item.picture" style="width:100%;height:100%">
               </el-carousel-item>
             </el-carousel>
           </div>
           <div class="little-img" >
             <ul class="little-img-ul">
-                <li v-for="item in productPicture" :key="item.id" @click='getIndex(item.idView)' class="little-img-ul-li">
+                <li v-for="item in temperPic" :key="item.id" @click='getIndex(item.idView)' class="little-img-ul-li">
                     <img :src="img+item.picture" style="width: 50px; height: 50px" >
                 </li>
             </ul>
           </div>
         </el-col>
-        <el-col class="power-bank-row-col-left-col-right" :span="16" :xs="24">
-          <h1><span class="power-bank-row-col-left-col-right-span">{{product.name}}</span></h1>
-          <el-col class="power-bank-row-col-left-col-right-1" :span="24" :xs="24">
+        <el-col class="temper-pro-row-col-left-col-right" :span="16" :xs="24">
+          <h1><span class="temper-pro-row-col-left-col-right-span">{{temper.name}}</span></h1>
+          <el-col class="temper-pro-row-col-left-col-right-1" :span="24" :xs="24">
             <a class="action" href="https://www.visiontek.com/hdmi-pivot-cable-3-ft-m-m.html#review-form">
               Be the first to review this productId
             </a>
           </el-col>
-          <el-col class="power-bank-row-col-left-col-right-2">
-            <h1><span class="power-bank-row-col-left-col-right-span">${{product.price}}</span></h1>
+          <el-col class="temper-pro-row-col-left-col-right-2">
+            <h1><span class="temper-pro-row-col-left-col-right-span">${{temper.price}}</span></h1>
           </el-col>
-          <el-col class="power-bank-row-col-left-col-right-2"></el-col>
-          <el-col class="power-bank-row-col-left-col-right-3" :span="24" :xs="24">
-            <p>{{product.introductions}}</p>
+          <el-col class="temper-pro-row-col-left-col-right-2"></el-col>
+          <el-col class="temper-pro-row-col-left-col-right-3" :span="24" :xs="24">
+            <p>{{temper.introductions}}</p>
             <p><strong><span>Features:</span></strong></p>
             <el-row>
               <ul>
-                <el-col  :span="12" :xs="24"  v-for="(value,key,index) in product"  :key="index" class="power-bank-row-col-left-col-right-3">
+                <el-col  :span="12" :xs="24"  v-for="(value,key,index) in temper"  :key="index" class="temper-pro-row-col-left-col-right-3">
                 <li v-if="key !== 'introductions' && value !== '' && key !== 'id'"><strong>{{key}}：</strong>&nbsp;{{value}}</li>
                 </el-col>
               </ul>
             </el-row>
           </el-col>
         </el-col>
-        <el-col class="power-bank-row-col-left-col-right-4" :span="24" :xs="24">
+        <el-col class="temper-pro-row-col-left-col-right-4" :span="24" :xs="24">
           <el-tabs v-model="activeName" type="card" @tab-click="handleClick" value="Detail">
             <el-tab-pane label="Detail" name="Detail">
               <ul>
-                <li v-for="item in productPicture" :key="item.id">
+                <li v-for="item in temperPic" :key="item.id">
                   <img :src="img+item.picture">
                 </li>
               </ul>
@@ -53,14 +53,14 @@
           </el-tabs>
         </el-col>
       </el-col>
-      <el-col :span="5" :offset="2" class="power-bank-row-col-right" :xs="24">
-        <el-row class="power-bank-row-col-right-questions">
+      <el-col :span="5" :offset="2" class="temper-pro-row-col-right" :xs="24">
+        <el-row class="temper-pro-row-col-right-questions">
           <img :src="techSupport">
         </el-row>
-        <e-row class="power-bank-row-col-right-latest-news">
+        <e-row class="temper-pro-row-col-right-latest-news">
           <LatestNews></LatestNews>
         </e-row>
-        <el-row class="power-bank-row-col-right-latest-faq">
+        <el-row class="temper-pro-row-col-right-latest-faq">
           <LatestFAQ></LatestFAQ>
         </el-row>
       </el-col>
@@ -73,7 +73,7 @@ import api from '@/utils/api'
 import LatestNews from '@/view/latest/LatestNews'
 import LatestFAQ from '@/view/latest/LatestFAQ'
 export default {
-  name: 'PowerBank',
+  name: 'TemperPro',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
@@ -86,8 +86,8 @@ export default {
         {id: 4, idView: require('@/assets/images/4.jpg')}
       ],
       ImgUrl: require('@/assets/images/1.jpg'),
-      product: {},
-      productPicture: [],
+      temper: {},
+      temperPic: [],
       img: 'http://pbzoyemzp.bkt.clouddn.com/image/',
       activeName: 'Detail',
       techSupport: require('@/assets/images/Tech-Support.jpg')
@@ -109,15 +109,17 @@ export default {
       this.ImgUrl = imgUrl
     },
     getProductDetail () {
+      debugger
+      console.log(this.$route.params.productId)
       let that = this
       let param = {
-        productId: '1323764257'
+        temperId: this.$route.params.productId
       }
-      api.postC('/product/query-power-pro-detail', param).then(data => {
+      api.postC('/temper/query-Temper-detail', param).then(data => {
         console.log(data)
         if (data.code === '0') {
-          that.product = data.product
-          that.productPicture = data.productPicture
+          that.temper = data.tTemper
+          that.temperPic = data.tTemperPic
         }
       })
     },
@@ -131,6 +133,7 @@ export default {
     }
   },
   components: {LatestNews, LatestFAQ},
+  props: [],
   watch: {
     change1 (val, oldVal) {
       // this.resetItemPosition(oldVal);
@@ -143,11 +146,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.power-bank{
+.temper-pro{
   margin: 0px;
   padding: 0px;
 }
-.power-bank-row{
+.temper-pro-row{
   text-align: left;
 }
 .big-img{
@@ -166,21 +169,21 @@ export default {
   margin: 5px 5px 0 0;
 }
 
-.power-bank-row-col{
+.temper-pro-row-col{
   margin-left: 0px;
   margin-bottom: 20px;
   text-align: center
 }
-.power-bank-row-col-left-col-right{
+.temper-pro-row-col-left-col-right{
   padding: 0px 20px 0px;
 }
-.power-bank-row-col-left-col-right-span{
+.temper-pro-row-col-left-col-right-span{
     font-size: 28px;
     font-weight: 600;
     line-height: 1;
     color: #555;
 }
-.power-bank-row-col-left-col-right-1{
+.temper-pro-row-col-left-col-right-1{
     padding: 0 15px 0 10px;
     display: inline-block;
     vertical-align: middle;
@@ -189,11 +192,11 @@ export default {
     margin-bottom: 10px;
     margin-top: 10px;
 }
-.power-bank-row-col-left-col-right-1 a{
+.temper-pro-row-col-left-col-right-1 a{
     color: #bdbdbd;
     text-decoration: none;
 }
-.power-bank-row-col-left-col-right-2{
+.temper-pro-row-col-left-col-right-2{
     border-bottom: 1px #ebebeb solid;
     display: table;
     width: 100%;
@@ -201,7 +204,7 @@ export default {
     display: table-cell;
     vertical-align: top;
 }
-.power-bank-row-col-left-col-right-3{
+.temper-pro-row-col-left-col-right-3{
     color: #777;
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-style: normal;
@@ -209,14 +212,14 @@ export default {
     line-height: 1.4;
     font-size: 0.8rem;
 }
-.power-bank-row-col-left-col-right-3 p{
+.temper-pro-row-col-left-col-right-3 p{
     display: block;
     -webkit-margin-before: 0.9em;
     -webkit-margin-after: 0.9em;
     -webkit-margin-start: 0px;
     -webkit-margin-end: 0px;
 }
-.power-bank-row-col-left-col-right-3 li{
+.temper-pro-row-col-left-col-right-3 li{
     display: block;
     list-style-type: disc;
     -webkit-margin-before: 1em;
@@ -226,7 +229,7 @@ export default {
     -webkit-padding-start: 20px;
     margin: 5px 5px 0px 0px;
 }
-.power-bank-row-col-left-col-right-4{
+.temper-pro-row-col-left-col-right-4{
     margin: 30px 10px 10px 0;
 }
 </style>

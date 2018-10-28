@@ -1,7 +1,7 @@
 <template>
   <div class="factory-scene">
     <el-row class="factory-scene-row">
-      <el-col :span="6" v-for="(o, index) in 6" :key="o" :offset="index > 0 ? 2 : 0" class="factory-scene-row-col">
+      <el-col :span="6" :xs="24" v-for="(o, index) in 6" :key="o" :offset="index > 0 ? 2 : 0" class="factory-scene-row-col">
         <el-card :body-style="{ padding: '0px' }" class="factory-scene-row-col-card">
           <router-link to="/login"><img src="@/assets/factory-scene/57ae8adfa1fea.jpg" class="image"></router-link>
         </el-card>

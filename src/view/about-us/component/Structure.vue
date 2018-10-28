@@ -1,6 +1,6 @@
 <template>
   <div class="structure">
-    <el-col class="el-col-structure" :span="24">
+    <el-col class="el-col-structure" :span="24" :xs="24">
       <img :src="imgUrl" class="structure-col-img">
     </el-col>
   </div>

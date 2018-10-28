@@ -1,24 +1,28 @@
 <template>
   <div class="type-c">
     <el-row class="type-c-row">
-      <el-col :span="6" v-for="(o, index) in 6" :key="o" :offset="index > 0 ? 2 : 0" class="type-c-row-col">
+      <el-col :span="6" :xs="24" v-for="item in productList" :key="item.id"  class="type-c-row-col">
         <el-card :body-style="{ padding: '0px' }" class="type-c-row-col-card" shadow="hover">
-          <router-link to="/login"><img src="@/assets/factory-scene/57b6cf5a9e40b.jpg" class="image"></router-link>
+          <!-- <router-link :to="{name: 'Products',params: { productId: item.id}}">
+            <img src="@/assets/factory-scene/57b6cf5a9e40b.jpg" class="image">
+          </router-link> -->
+          <router-link :to="{path: '/power-bank/'+item.id}">
+            <img :src="img+item.picture" class="image">
+          </router-link>
         </el-card>
-        <router-link to="/login">
-          <span class="type-c-row-col-span">Car Chargers</span>
+        <router-link :to="{path: '/power-bank/'+item.id}">
+          <p class="type-c-row-col-p">{{item.name}}</p>
         </router-link>
       </el-col>
     </el-row>
     <el-row class="type-c-row-pagination">
       <el-pagination
         background
-        background-color="#000"
         @size-change="handleSizeChange"
         @current-change="handleCurrentChange"
-        :current-page="currentPage"
+        :current-page="pageNum"
         :page-sizes="[10, 20, 30, 40]"
-        :page-size="100"
+        :page-size="10"
         layout="total, sizes, prev, pager, next, jumper"
         :total="400">
       </el-pagination>
@@ -27,14 +31,17 @@
 </template>
 
 <script>
-
+import api from '@/utils/api'
 export default {
   name: 'TypeC',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
       imgUrl: require('@/assets/1539869424.jpg'),
-      currentPage: 5
+      currentPage: 5,
+      pageNum: 1,
+      img: 'http://pbzoyemzp.bkt.clouddn.com/image/',
+      productList: []
     }
   },
   methods: {
@@ -42,8 +49,28 @@ export default {
       console.log(`每页 ${val} 条`)
     },
     handleCurrentChange (val) {
-      console.log(`当前页: val`)
+      this.pageNum = val
+      this.getMicroUsbList()
+      console.log(`当前页: ${val}`)
+    },
+    getMicroUsbList () {
+      let that = this
+      let params = {
+        type: 'Wireless charger',
+        pageSize: 10,
+        pageNum: this.pageNum
+      }
+      console.log(params)
+      api.post('/product/query-power-products', params).then(data => {
+        if (data.code === '0') {
+          that.productList = data.list
+          console.log(that.productList)
+        }
+      })
     }
+  },
+  created () {
+    this.getMicroUsbList()
   }
 }
 </script>
@@ -64,10 +91,15 @@ export default {
 .image {
   width: 100%;
   display: block;
+  height: 300px;
 }
 .type-c-row-col{
   margin-left: 0px;
   margin-bottom: 20px;
   text-align: center
+}
+.el-pagination.is-background.el-pager li {
+  background-color:#000;
+  color:#fff;
 }
 </style>

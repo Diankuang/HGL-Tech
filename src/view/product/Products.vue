@@ -89,8 +89,8 @@ export default {
         {id: 4, idView: require('@/assets/images/4.jpg')}
       ],
       ImgUrl: require('@/assets/images/1.jpg'),
-      product:{},
-      productPicture:[],
+      product: {},
+      productPicture: [],
       img: '',
       activeName: 'Detail',
       techSupport: require('@/assets/images/Tech-Support.jpg')
@@ -114,34 +114,33 @@ export default {
     getProductDetail () {
       let that = this
       let param = {
-        productId:'6582116488'
+        productId: '6582116488'
       }
-      let productId='6582116488'
-      api.postC('/product/query-power-pro-detail',param).then(data => {
+      api.postC('/product/query-power-pro-detail', param).then(data => {
         console.log(data)
-        if(data.code === '0'){
+        if (data.code === '0') {
           that.product = data.product
           that.productPicture = data.productPicture
         }
       })
     },
-    change1(val, oldVal) {
+    change1 (val, oldVal) {
       // this.resetItemPosition(oldVal);
       // this.$emit('change', val, oldVal);
       console.log('--------------')
     },
-    handleClick(tab, event) {
-      console.log(tab, event);
+    handleClick (tab, event) {
+      console.log(tab, event)
     }
   },
-  components: {LatestNews,LatestFAQ},
+  components: {LatestNews, LatestFAQ},
   watch: {
-    change1(val, oldVal) {
+    change1 (val, oldVal) {
       // this.resetItemPosition(oldVal);
       // this.$emit('change', val, oldVal);
       console.log('--------------')
     }
-  },
+  }
 }
 </script>
 
@@ -219,9 +218,6 @@ export default {
     -webkit-padding-start: 20px;
     margin: 5px 5px 0px 0px;
 }
-/* .products-row-col-left-col-right-3 ul li{
-    margin: 10px 10px 10px 10px; 
-} */
 .products-row-col-left-col-right-4{
     margin: 30px 10px 10px 0;
 }

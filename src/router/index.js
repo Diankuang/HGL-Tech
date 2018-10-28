@@ -26,8 +26,19 @@ import TypeC from '@/view/cables/component/Type-C'
 import Lightning from '@/view/cables/component/Lightning'
 import Other from '@/view/cables/component/Other'
 import PowerBank from '@/view/cables/PowerBank'
-import Products from '@/view/product/Products'
+import Temper from '@/view/temper/Temper'
+import TemperPro from '@/view/temper/TemperPro'
+import IPhone from '@/view/temper/component/IPhone'
+import Huawei from '@/view/temper/component/Huawei'
+import Oppo from '@/view/temper/component/Oppo'
+import Vivo from '@/view/temper/component/Vivo'
+import Samsung from '@/view/temper/component/Samsung'
+import Others from '@/view/temper/component/Others'
 
+import Support from '@/view/support/Support'
+import FAQ from '@/view/support/component/FAQ'
+import AfterSalePolicy from '@/view/support/component/AfterSalePolicy'
+import Map from '@/view/support/component/Map'
 // import LatestNews from '@/view/latest-news/LatestNews'
 
 Vue.use(Router)
@@ -43,7 +54,7 @@ export default new Router({
       children: [
         {
           path: '/banner',
-          name: 'Banner',
+          name: '',
           component: Banner
         },
         {
@@ -109,13 +120,13 @@ export default new Router({
         },
         {
           path: '/power-bank/:productId',
-          name: 'Power-Bank',
+          name: 'Products',
           component: PowerBank
         },
         {
-          path: '/products/:productId',
-          name: 'Products',
-          component: Products
+          path: '/temper-pro/:productId',
+          name: 'Temper',
+          component: TemperPro
         },
         {
           path: '/my-account',
@@ -174,6 +185,67 @@ export default new Router({
               path: '/my-wish-list',
               name: 'My Wish List',
               component: MyWishList
+            }
+          ]
+        },
+        {
+          path: '/temper',
+          name: 'Temper',
+          component: Temper,
+          redirect: '/iPhone',
+          children: [
+            {
+              path: '/iPhone',
+              name: 'iPhone',
+              component: IPhone
+            },
+            {
+              path: '/huawei',
+              name: 'Huawei',
+              component: Huawei
+            },
+            {
+              path: '/oppo',
+              name: 'Oppo',
+              component: Oppo
+            },
+            {
+              path: '/vivo',
+              name: 'Vivo',
+              component: Vivo
+            },
+            {
+              path: '/samsung',
+              name: 'Samsung',
+              component: Samsung
+            },
+            {
+              path: '/others',
+              name: 'Others',
+              component: Others
+            }
+          ]
+        },
+        {
+          path: '/support',
+          name: 'Support',
+          component: Support,
+          redirect: '/faq',
+          children: [
+            {
+              path: '/faq',
+              name: 'Frequently Asked Questions',
+              component: FAQ
+            },
+            {
+              path: '/after-sale-policy',
+              name: 'After Sale Policy',
+              component: AfterSalePolicy
+            },
+            {
+              path: '/map',
+              name: 'Map',
+              component: Map
             }
           ]
         }

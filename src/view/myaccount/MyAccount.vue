@@ -1,7 +1,7 @@
 <template>
   <div class="my-account">
     <el-row class="tac">
-        <el-col :sm="5" :xs="5">
+        <el-col :sm="5" :xs="24">
           <!-- <strong> My Account</strong> -->
           <el-row>
             <h3> My Account</h3>
@@ -27,7 +27,7 @@
             </el-menu>
           </el-row>
         </el-col>
-        <el-col :sm="19" :xs="19" class="my-account-col-router">
+        <el-col :sm="19" :xs="24" class="my-account-col-router">
             <router-view></router-view>
         </el-col>
     </el-row>

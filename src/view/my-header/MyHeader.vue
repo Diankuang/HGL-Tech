@@ -26,7 +26,7 @@
                 active-text-color="#ffd04b"
                 name="">
                      <!-- <el-menu-item index="/"><img src="@/assets/logo.png"></el-menu-item> -->
-                    <el-menu-item index="banner">Home</el-menu-item>
+                    <el-menu-item index="/">Home</el-menu-item>
                     <el-submenu index="2">
                         <template slot="title"><router-link to="/about-us">About us</router-link>
                         </template>
@@ -40,19 +40,19 @@
                         <el-menu-item index="other">Others</el-menu-item>
                     </el-submenu>
                     <el-submenu index="4">
-                        <template slot="title">Temper</template>
-                        <el-menu-item index="4-1">iPhone</el-menu-item>
-                        <el-menu-item index="4-2">Huawei</el-menu-item>
-                        <el-menu-item index="4-3">Samsung</el-menu-item>
-                        <el-menu-item index="4-4">Oppo</el-menu-item>
-                        <el-menu-item index="4-5">Vivo</el-menu-item>
-                        <el-menu-item index="4-6">Others</el-menu-item>
+                        <template slot="title"><router-link to="/temper">Temper</router-link></template>
+                        <el-menu-item index="iPhone">iPhone</el-menu-item>
+                        <el-menu-item index="huawei">Huawei</el-menu-item>
+                        <el-menu-item index="samsung">Samsung</el-menu-item>
+                        <el-menu-item index="oppo">Oppo</el-menu-item>
+                        <el-menu-item index="vivo">Vivo</el-menu-item>
+                        <el-menu-item index="others">Others</el-menu-item>
                     </el-submenu>
                     <el-submenu index="5">
-                        <template slot="title">Support</template>
-                        <el-menu-item index="5-1">FAQ</el-menu-item>
-                        <el-menu-item index="5-2">Map</el-menu-item>
-                        <el-menu-item index="5-3">After sale Policy</el-menu-item>
+                        <template slot="title"><router-link to="/support">Support</router-link></template>
+                        <el-menu-item index="faq">FAQ</el-menu-item>
+                        <el-menu-item index="map">Map</el-menu-item>
+                        <el-menu-item index="after-sale-policy">After sale Policy</el-menu-item>
                     </el-submenu>
                     <el-submenu index="6">
                         <template slot="title">Contact us</template>

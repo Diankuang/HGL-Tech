@@ -3,7 +3,7 @@
         <el-carousel indicator-position="outside" :height = "imgHeight-28+'px'">
         <el-carousel-item v-for="item in imgList" :key="item.id" :style = "imgClass" >
             <el-row>
-            <el-col :span="24"><img ref="imgHeight+'px'" :src="item.idView" class="banner_img"/></el-col>
+            <el-col :span="24" :xs="24"><img ref="imgHeight+'px'" :src="item.idView" class="banner_img"/></el-col>
             </el-row>
         </el-carousel-item>
         </el-carousel>

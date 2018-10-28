@@ -5,7 +5,7 @@
         <strong>Account Information</strong>
       </el-row>
       <el-row class="account-row-content">
-        <el-col :sm="10" :xs="10" :span="10" class="account-row-content-col">
+        <el-col :sm="10" :xs="24" :span="10" class="account-row-content-col">
           <el-row class="account-row-content-col-title">
             <strong><span class="account-row-content-col-title-span">CONTACT INFORMATION</span></strong>
           </el-row>
@@ -17,7 +17,7 @@
             <router-link to="forgot-password"  style="padding-left:20px;" class="account-row-content-col-actions-span">Forgot Your Password?</router-link>
           </el-row>
         </el-col>
-        <el-col :sm="11" :xs="11" :span="11" :offset="3" class="account-row-content-col">
+        <el-col :sm="11" :xs="24" :span="11" :offset="3" class="account-row-content-col">
           <el-row class="account-row-content-col-title">
             <strong><span class="account-row-content-col-title-span">NEWSLETTERS</span></strong>
           </el-row>
