@@ -24,10 +24,10 @@
             </el-row>
           </el-card>
         </el-col>
-        <el-col :span="10" :xs="24" class="el-row-contact-content-col">
+        <el-col :span="10" :xs="24" class="el-row-contact-content-col" >
           <el-card shadow="never" class="el-row-contact-content-col-card2">
             <strong>Write Us</strong><br>
-            <p>Creating an account has many benefits: check out faster, keep more than one address, track orders and more.</p>
+            <!-- <p>Creating an account has many benefits: check out faster, keep more than one address, track orders and more.</p> -->
              <el-form :label-position="labelPosition" :model="contactForm" label-width="80px" ref="contactForm" class="demo-dynamic contact-form" size="mini">
               <el-form-item prop="name" label="Name" class="contact-form-item" :rules="[
                 { required: true, message: 'Name can not be null', trigger: 'blur' }]">
@@ -51,7 +51,6 @@
               </el-form-item>
               <el-form-item class="contact-form-item">
                 <el-button type="primary" class="sign-in" @click="submitForm('contactForm')"> Sign In</el-button>
-                <a href="forgot-password" class="contact-a-a">Sign InForgot Your Password?</a>
               </el-form-item>
             </el-form>
           </el-card>
@@ -62,7 +61,7 @@
 </template>
 
 <script>
-// import api from '@/utils/api'
+import api from '@/utils/api'
 
 export default {
   name: 'ContactUs',
@@ -71,9 +70,13 @@ export default {
       msg: 'Welcome to Your Vue.js App',
       labelPosition: 'right',
       contactForm: {
+        name: '',
+        tel: '',
         email: '',
-        password: ''
-      }
+        contect: '',
+        code: ''
+      },
+      currentCode: ''
     }
   },
   methods: {
@@ -85,6 +88,25 @@ export default {
     //   // console.log(res)
     // },
     submitForm (contactFrom) {
+      let that = this
+      console.log(that.contactFrom)
+      this.$refs[contactFrom].validate((valid) => {
+        if (valid) {
+          let params = that.contactForm
+          api.post('/contact/add-contact', params).then(data => {
+            console.log(data)
+            if (data.code === '0') {
+              // sessionStorage.setItem('user', JSON.stringify(data.user))
+              // this.$store.commit('$_setStorage', JSON.stringify(data.user))
+              // this.$store.commit('$_setLogin', '1')
+              // this.$router.push('/my-account')
+            }
+          })
+        } else {
+          console.log('error submit!!')
+          return false
+        }
+      })
     }
   }
 }

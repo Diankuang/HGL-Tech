@@ -6,25 +6,25 @@
                 <strong class="title">CORPORATE</strong>
                     <ul class="footer-ul">
                     <li>
-                        <i class="el-icon-caret-right"></i><a href="https://www.visiontek.com/about-visiontek" title="About us">About us</a>
+                        <i class="el-icon-caret-right"></i><router-link to="/about-us">About us</router-link>
                     </li>
                     <li>
-                        <i class="el-icon-caret-right"></i><a href="https://www.visiontek.com/contact" title="Contact us">Contact us</a>
+                        <i class="el-icon-caret-right"></i><router-link to="/contact-us">Contact us</router-link>
                     </li>
                         <li>
-                        <i class="el-icon-caret-right"></i><a href="https://www.visiontek.com/customer/account" title="My account">My account</a>
+                        <i class="el-icon-caret-right"></i><router-link to="/my-account">My account</router-link>
                     </li>
                         <li>
                         <i class="el-icon-caret-right"></i><a href="https://www.visiontek.com/sales/order/history" title="Orders history">Orders history</a>
                     </li>
                         <li>
-                        <i class="el-icon-caret-right"></i><a href="https://www.visiontek.com/catalogsearch/advanced" title="Advanced search">Advanced search</a>
+                        <!-- <i class="el-icon-caret-right"></i><a href="https://www.visiontek.com/catalogsearch/advanced" title="Advanced search">Advanced search</a> -->
                     </li>
                         <li>
                         <i class="el-icon-caret-right"></i><a href="https://www.visiontek.com/news.html" title="News">News</a>
                     </li>
                         <li>
-                        <i class="el-icon-caret-right"></i><a href="https://www.visiontek.com/reviews-awards.html" title="Reviews &amp; Awards">Reviews &amp; Awards</a>
+                        <!-- <i class="el-icon-caret-right"></i><a href="https://www.visiontek.com/reviews-awards.html" title="Reviews &amp; Awards">Reviews &amp; Awards</a> -->
                     </li>
                 </ul>
             </el-col>
@@ -50,24 +50,9 @@
             </el-col>
             <el-col :sm="6" :xs="24">
                 <strong class="title">CUSTOMER SERVICE</strong>
-                <!-- <el-menu
-                    router
-                    :default-active="$router.path"
-                    @select="handleSelect"
-                        class="el-menu-vertical-demo footer-menu"
-                    background-color="#F5F5F5"
-                    color="#777777"
-                    >
-                        <el-menu-item index="product-support"><i class="el-icon-caret-right"></i>Product Support</el-menu-item>
-                        <el-menu-item index="terms-of-service"><i class="el-icon-caret-right"></i>Terms of Service</el-menu-item>
-                        <el-menu-item index="privacy-policy"><i class="el-icon-caret-right"></i>Privacy Policy</el-menu-item>
-                        <el-menu-item index="warranty-innformation"><i class="el-icon-caret-right"></i>Warranty Information</el-menu-item>
-                        <el-menu-item index="warranty-registration"><i class="el-icon-caret-right"></i>Warranty Registration</el-menu-item>
-                        <el-menu-item index="rma-request"><i class="el-icon-caret-right"></i>RMA Request</el-menu-item>
-                </el-menu> -->
                     <ul class="footer-ul">
                     <li>
-                        <i class="el-icon-caret-right"></i><a href="https://www.visiontek.com/about-visiontek" title="About us">Product Support</a>
+                        <i class="el-icon-caret-right"></i><router-link to="/support"> Support</router-link>
                     </li>
                     <li>
                         <i class="el-icon-caret-right"></i><a href="https://www.visiontek.com/contact" title="Contact us">Terms of Service</a>
