@@ -55,7 +55,7 @@
                         <el-menu-item index="after-sale-policy">After sale Policy</el-menu-item>
                     </el-submenu>
                     <el-submenu index="6">
-                        <template slot="title">Contact us</template>
+                        <template slot="title"><router-link to="/contact-us">Contact us</router-link></template>
                         <el-menu-item index="6-1">Online Message</el-menu-item>
                     </el-submenu>
                 </el-menu>

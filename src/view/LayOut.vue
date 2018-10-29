@@ -29,8 +29,8 @@
 </template>
 
 <script>
-import myheader from '@/view/my-header/MyHeader'
-import myfooter from '@/view/my-footer/MyFooter'
+import myheader from '@/view/common/MyHeader'
+import myfooter from '@/view/common/MyFooter'
 export default {
   name: 'LayOut',
   data () {

@@ -39,6 +39,7 @@ import Support from '@/view/support/Support'
 import FAQ from '@/view/support/component/FAQ'
 import AfterSalePolicy from '@/view/support/component/AfterSalePolicy'
 import Map from '@/view/support/component/Map'
+import ContactUs from '@/view/common/ContactUs'
 // import LatestNews from '@/view/latest-news/LatestNews'
 
 Vue.use(Router)
@@ -248,6 +249,11 @@ export default new Router({
               component: Map
             }
           ]
+        },
+        {
+          path: '/contact-us',
+          name: 'Contact Us',
+          component: ContactUs
         }
       ]
     }
