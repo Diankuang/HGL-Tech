@@ -5,7 +5,18 @@
             <strong>Terms Of Service</strong>
           </el-row>
           <el-row class="el-row-termsservice-title">
-            <el-col :span="6" :xs="24" class="el-col-termsservice-title">
+              <el-col :span="24" :xs="24" class="el-col-termsservice-content-col">
+                    <strong>Information We Collect</strong><br>
+                    <p>We receive and may store any information you enter on our websites. For example, we collect information from you when you place an order, or use any of our services.</p><br>
+                    <p>The information we collect from you includes things like:</p><br>
+                    <span>Your name</span><br>
+                    <span>Your address</span><br>
+                    <span>Your company information</span><br>
+                    <span>Your e-mail address</span><br>
+                    <span>Your phone number</span><br>
+                    <span>Your payment information</span><br>
+                </el-col>
+            <!-- <el-col :span="6" :xs="24" class="el-col-termsservice-title">
                 <strong>This Privacy Policy tells you:</strong><br>
                 <p>What information we collect?</p><br>
                 <p>How do we use the information we collect?</p><br>
@@ -62,8 +73,8 @@
                 <el-col :span="24" :xs="24"  class="el-col-termsservice-content-col">
                     <strong>Privacy Policy Updates</strong><br>
                     <p>We may need to update our Privacy Policy as our customers grow and evolve. If we make significant changes to the Privacy Policy, we'll post a prominent message on our website(s).</p>
-                </el-col>
-            </el-col>
+                </el-col> -->
+            <!-- </el-col> -->
           </el-row>
         </el-row>
     </div>
@@ -114,13 +125,14 @@ export default {
     border-left: 1px solid #ddd;
 }
 .el-col-termsservice-content-col{
-    margin: 0 0 20px 10px;
+    margin: 20px 0 20px 10px;
+    text-align: left;
 }
 .el-col-termsservice-content-col p{
-    margin: 5px 0 0 20px;
+    /* margin: 5px 0 0 20px; */
 }
 .el-col-termsservice-content-col span{
-    margin: 0 0 0 40px;
+    /* margin: 0 0 0 40px; */
     font-size: 14px;
 }
 </style>
