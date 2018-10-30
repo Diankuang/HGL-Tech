@@ -1,10 +1,15 @@
 <template>
     <div id="my-footer">
         <el-footer>
-        <el-row class="footer-row">
-            <el-col :sm="6" class="footer-col" :xs="24">
-                <strong class="title">CORPORATE</strong>
-                    <ul class="footer-ul">
+        <el-row class="footer-row" type="flex">
+            <el-col :span="5" class="footer-col" :offset="2"  :xs="24">
+                <!-- <el-row><i class="el-icon-caret-right"></i><router-link to="/about-us">About us</router-link></el-row>
+                <el-row><i class="el-icon-caret-right"></i><router-link to="/contact-us">Contact us</router-link></el-row>
+                <el-row><i class="el-icon-caret-right"></i><router-link to="/my-account">My account</router-link></el-row>
+                <el-row><i class="el-icon-caret-right"></i><a href="https://www.visiontek.com/sales/order/history" title="Orders history">Orders history</a></el-row> -->
+                <ul class="footer-ul">
+                <!-- <ul style="list-style:none"> -->
+                    <li><strong class="title">CORPORATE</strong></li>
                     <li>
                         <i class="el-icon-caret-right"></i><router-link to="/about-us">About us</router-link>
                     </li>
@@ -28,12 +33,13 @@
                     </li>
                 </ul>
             </el-col>
-            <el-col :sm="6" :xs="24">
-                <strong class="title">CONTACT INFORMATION</strong>
+            <el-col :span="5" :xs="24">
                 <ul class="footer-ul">
+                <!-- <ul> -->
+                    <li><strong class="title">CONTACT INFORMATION</strong></li>
                     <li>
                         <p><i class="el-icon-location"></i><b>Address:</b><br><span class="contact-span">105 Prairie Lake Rd Unit C, East Dundee, IL 60118</span></p>
-                        </li>
+                    </li>
                     <li>
                         <!-- <i class="el-icon-phone"></i> -->
                         <p><i class="el-icon-phone"></i><b>Phone:</b><br><span class="contact-span">(866) 883-5411</span></p>
@@ -48,17 +54,17 @@
                     </li>
                 </ul>
             </el-col>
-            <el-col :sm="6" :xs="24">
-                <strong class="title">CUSTOMER SERVICE</strong>
+            <el-col :span="5" :xs="24">
                     <ul class="footer-ul">
+                        <li> <strong class="title">CUSTOMER SERVICE</strong></li>
                     <li>
                         <i class="el-icon-caret-right"></i><router-link to="/support"> Support</router-link>
                     </li>
                     <li>
-                        <i class="el-icon-caret-right"></i><a href="https://www.visiontek.com/contact" title="Contact us">Terms of Service</a>
+                        <i class="el-icon-caret-right"></i><router-link to="/terms-of-service">Terms of Service</router-link>
                     </li>
                         <li>
-                        <i class="el-icon-caret-right"></i><a href="https://www.visiontek.com/customer/account" title="My account">Privacy Policy</a>
+                        <i class="el-icon-caret-right"></i><router-link to="privacy-policy">Privacy Policy</router-link>
                     </li>
                         <li>
                         <i class="el-icon-caret-right"></i><a href="https://www.visiontek.com/sales/order/history" title="Orders history">Warranty Information</a>
@@ -71,9 +77,9 @@
                     </li>
                 </ul>
             </el-col>
-            <el-col :sm="6" :xs="24">
-                <strong class="title">BE THE FIRST TO KNOW</strong>
+            <el-col :span="5" :xs="24">
                 <ul class="footer-ul">
+                    <li><strong class="title">BE THE FIRST TO KNOW</strong></li>
                     <li>
                         <span class="contact-span">Get all the latest information on Events,<br>Sales and Offers. Sign up for newsletter today.</span>
                     </li>
@@ -144,7 +150,9 @@ export default {
     /* margin-bottom:20px; */
     line-height:30px;
     padding-top: 20px;
-    text-align: left;
+    /* text-align: left; */
+    text-align:center;
+    text-align:left
 }
 .el-menu-item, .el-submenu__title {
     height: 30px;

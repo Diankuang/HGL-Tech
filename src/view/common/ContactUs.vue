@@ -50,7 +50,8 @@
                 <el-input v-model="contactForm.code"></el-input>
               </el-form-item>
               <el-form-item class="contact-form-item">
-                <el-button type="primary" class="sign-in" @click="submitForm('contactForm')"> Sign In</el-button>
+                <el-button type="primary" class="sign-in" @click="submitForm('contactForm')">submit</el-button>
+                <el-button @click="resetForm('contactForm')">reset</el-button>
               </el-form-item>
             </el-form>
           </el-card>
@@ -107,6 +108,9 @@ export default {
           return false
         }
       })
+    },
+    resetForm (contactFrom) {
+      this.$refs[contactFrom].resetFields()
     }
   }
 }

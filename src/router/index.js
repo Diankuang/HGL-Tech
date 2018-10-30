@@ -40,6 +40,8 @@ import FAQ from '@/view/support/component/FAQ'
 import AfterSalePolicy from '@/view/support/component/AfterSalePolicy'
 import Map from '@/view/support/component/Map'
 import ContactUs from '@/view/common/ContactUs'
+import PrivacyPolicy from '@/view/common/PrivacyPolicy'
+import TermsOfService from '@/view/common/TermsOfService'
 // import LatestNews from '@/view/latest-news/LatestNews'
 
 Vue.use(Router)
@@ -254,6 +256,16 @@ export default new Router({
           path: '/contact-us',
           name: 'Contact Us',
           component: ContactUs
+        },
+        {
+          path: '/privacy-policy',
+          name: 'Privacy Policy',
+          component: PrivacyPolicy
+        },
+        {
+          path: '/terms-of-service',
+          name: 'Terms of Service',
+          component: TermsOfService
         }
       ]
     }

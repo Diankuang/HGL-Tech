@@ -83,4 +83,7 @@ export default {
 .el-collapse-item.el-collapse-item__header{
   line-height: 20px;
 }
+.faq-content p{
+  margin-left: 20px;
+}
 </style>
