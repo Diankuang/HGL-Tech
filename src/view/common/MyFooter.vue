@@ -63,18 +63,15 @@
                     <li>
                         <i class="el-icon-caret-right"></i><router-link to="/terms-of-service">Terms of Service</router-link>
                     </li>
-                        <li>
-                        <i class="el-icon-caret-right"></i><router-link to="privacy-policy">Privacy Policy</router-link>
+                    <li>
+                        <i class="el-icon-caret-right"></i><router-link to="/privacy-policy">Privacy Policy</router-link>
                     </li>
-                        <li>
-                        <i class="el-icon-caret-right"></i><a href="https://www.visiontek.com/sales/order/history" title="Orders history">Warranty Information</a>
+                    <li>
+                        <i class="el-icon-caret-right"></i><router-link to="/warranty-safety">Warranty & Safety</router-link>
                     </li>
-                        <li>
-                        <i class="el-icon-caret-right"></i><a href="https://www.visiontek.com/catalogsearch/advanced" title="Advanced search">Warranty Registration</a>
-                    </li>
-                        <li>
+                    <!-- <li>
                         <i class="el-icon-caret-right"></i><a href="https://www.visiontek.com/news.html" title="News">RMA Request</a>
-                    </li>
+                    </li> -->
                 </ul>
             </el-col>
             <el-col :span="5" :xs="24">

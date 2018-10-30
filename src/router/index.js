@@ -42,6 +42,7 @@ import Map from '@/view/support/component/Map'
 import ContactUs from '@/view/common/ContactUs'
 import PrivacyPolicy from '@/view/common/PrivacyPolicy'
 import TermsOfService from '@/view/common/TermsOfService'
+import WarrantySafety from '@/view/common/Warranty&Safety'
 // import LatestNews from '@/view/latest-news/LatestNews'
 
 Vue.use(Router)
@@ -266,6 +267,11 @@ export default new Router({
           path: '/terms-of-service',
           name: 'Terms of Service',
           component: TermsOfService
+        },
+        {
+          path: '/warranty-safety',
+          name: 'Warranty & Safety',
+          component: WarrantySafety
         }
       ]
     }
