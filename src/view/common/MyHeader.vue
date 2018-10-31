@@ -28,19 +28,22 @@
                      <!-- <el-menu-item index="/"><img src="@/assets/logo.png"></el-menu-item> -->
                     <el-menu-item index="/">Home</el-menu-item>
                     <el-submenu index="2">
-                        <template slot="title"><router-link to="/about-us">About us</router-link>
+                        <!-- <template slot="title">About us -->
+                        <template slot="title"><router-link class="el-menu-router-link" to="/about-us"><span>About us</span></router-link>
                         </template>
                         <el-menu-item index="structure">Structure</el-menu-item>
                     </el-submenu>
                     <el-submenu index="3">
-                        <template slot="title"><router-link to="/cables">Cables</router-link></template>
+                        <!-- <template slot="title" index="/cables">Cables</template> -->
+                        <template slot="title"><router-link class="header-router-link" to="/cables">Cables</router-link></template>
                         <el-menu-item index="micro-usb">Micro USB</el-menu-item>
                         <el-menu-item index="type-c">Type-C</el-menu-item>
                         <el-menu-item index="lightning">Lightning </el-menu-item>
                         <el-menu-item index="other">Others</el-menu-item>
                     </el-submenu>
                     <el-submenu index="4">
-                        <template slot="title"><router-link to="/temper">Temper</router-link></template>
+                        <!-- <template slot="title">Temper</template> -->
+                        <template slot="title"><router-link class="el-menu-router-link" to="/temper">Temper</router-link></template>
                         <el-menu-item index="iPhone">iPhone</el-menu-item>
                         <el-menu-item index="huawei">Huawei</el-menu-item>
                         <el-menu-item index="samsung">Samsung</el-menu-item>
@@ -49,15 +52,18 @@
                         <el-menu-item index="others">Others</el-menu-item>
                     </el-submenu>
                     <el-submenu index="5">
-                        <template slot="title"><router-link to="/support">Support</router-link></template>
+                        <!-- <template slot="title">Support</template> -->
+                        <template slot="title"><router-link class="el-menu-router-link" to="/support">Support</router-link></template>
                         <el-menu-item index="faq">FAQ</el-menu-item>
                         <el-menu-item index="map">Map</el-menu-item>
                         <el-menu-item index="after-sale-policy">After sale Policy</el-menu-item>
                     </el-submenu>
-                    <el-submenu index="6">
-                        <template slot="title"><router-link to="/contact-us">Contact us</router-link></template>
-                        <el-menu-item index="6-1">Online Message</el-menu-item>
-                    </el-submenu>
+                    <el-menu-item index="/contact-us">Contact us</el-menu-item>
+                    <!-- <el-submenu index="6"> -->
+                         <!-- <template slot="title">Contact us</template> -->
+                        <!-- <template slot="title"><router-link class="el-menu-router-link" to="/contact-us">Contact us</router-link></template> -->
+                        <!-- <el-menu-item index="/contact-us">Contact us</el-menu-item> -->
+                    <!-- </el-submenu> -->
                 </el-menu>
             </el-row>
         </el-header>
@@ -142,4 +148,17 @@ export default {
 .header-a:link{
     color: #fff;
 }
+.el-menu-router-link{
+    color: #fff;
+}
+.el-menu-router-link:link{
+    color: #fff;
+}
+/* .el-menu-router-link:active{
+    background-color: #ffd04b;
+    color: #ffd04b;
+} */
+/* .el-menu-router-link span:hover{
+    background-color: #ffd04b;
+} */
 </style>

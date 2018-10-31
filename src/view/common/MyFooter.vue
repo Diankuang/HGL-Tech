@@ -3,12 +3,7 @@
         <el-footer>
         <el-row class="footer-row" type="flex">
             <el-col :span="5" class="footer-col" :offset="2"  :xs="24">
-                <!-- <el-row><i class="el-icon-caret-right"></i><router-link to="/about-us">About us</router-link></el-row>
-                <el-row><i class="el-icon-caret-right"></i><router-link to="/contact-us">Contact us</router-link></el-row>
-                <el-row><i class="el-icon-caret-right"></i><router-link to="/my-account">My account</router-link></el-row>
-                <el-row><i class="el-icon-caret-right"></i><a href="https://www.visiontek.com/sales/order/history" title="Orders history">Orders history</a></el-row> -->
                 <ul class="footer-ul">
-                <!-- <ul style="list-style:none"> -->
                     <li><strong class="title">CORPORATE</strong></li>
                     <li>
                         <i class="el-icon-caret-right"></i><router-link to="/about-us">About us</router-link>
@@ -16,19 +11,22 @@
                     <li>
                         <i class="el-icon-caret-right"></i><router-link to="/contact-us">Contact us</router-link>
                     </li>
-                        <li>
+                    <li>
                         <i class="el-icon-caret-right"></i><router-link to="/my-account">My account</router-link>
                     </li>
-                        <li>
-                        <i class="el-icon-caret-right"></i><a href="https://www.visiontek.com/sales/order/history" title="Orders history">Orders history</a>
+                    <li>
+                        <i class="el-icon-caret-right"></i><router-link to="/my-account">My account</router-link>
                     </li>
-                        <li>
-                        <!-- <i class="el-icon-caret-right"></i><a href="https://www.visiontek.com/catalogsearch/advanced" title="Advanced search">Advanced search</a> -->
+                    <li>
+                        <i class="el-icon-caret-right"></i><router-link to="/cables">Cables</router-link>
                     </li>
-                        <li>
-                        <i class="el-icon-caret-right"></i><a href="https://www.visiontek.com/news.html" title="News">News</a>
+                     <li>
+                        <i class="el-icon-caret-right"></i><router-link to="/temper">Temper</router-link>
                     </li>
-                        <li>
+                    <li>
+                        <i class="el-icon-caret-right"></i><router-link to="/news">News</router-link>
+                    </li>
+                    <li>
                         <!-- <i class="el-icon-caret-right"></i><a href="https://www.visiontek.com/reviews-awards.html" title="Reviews &amp; Awards">Reviews &amp; Awards</a> -->
                     </li>
                 </ul>
@@ -41,12 +39,10 @@
                         <p><i class="el-icon-location"></i><b>Address:</b><br><span class="contact-span">105 Prairie Lake Rd Unit C, East Dundee, IL 60118</span></p>
                     </li>
                     <li>
-                        <!-- <i class="el-icon-phone"></i> -->
                         <p><i class="el-icon-phone"></i><b>Phone:</b><br><span class="contact-span">(866) 883-5411</span></p>
                     </li>
-                        <li>
-                        <!-- <i class="el-icon-phone"></i> -->
-                        <p><i class="el-icon-message"></i><b>Email:</b><br> <a href="mailto:support@visiontek.com" style="padding-left: 8px;">support@visiontek.com</a></p>
+                    <li>
+                        <p><i class="el-icon-message"></i><b>Email:</b><br> <a class="footer-a" href="mailto:support@visiontek.com" style="padding-left: 8px;">support@visiontek.com</a></p>
                     </li>
                         <li>
                         <!-- <i class="el-icon-phone"></i> -->
@@ -69,9 +65,6 @@
                     <li>
                         <i class="el-icon-caret-right"></i><router-link to="/warranty-safety">Warranty & Safety</router-link>
                     </li>
-                    <!-- <li>
-                        <i class="el-icon-caret-right"></i><a href="https://www.visiontek.com/news.html" title="News">RMA Request</a>
-                    </li> -->
                 </ul>
             </el-col>
             <el-col :span="5" :xs="24">
@@ -82,10 +75,8 @@
                     </li>
                     <li  style="margin-top:20px;">
                         <span for="footer_newsletter" class="contact-span">Enter your email address</span>
-                        <el-form :model="form" :rules="rules" ref="form" label-width="100px" class="demo-ruleForm">
-                            <el-input v-model="form.email" class="footer-el-input"></el-input>
-                            <el-button type="primary" @click="onSubmit('form')"><span>Subscribe</span></el-button>
-                        </el-form>
+                        <el-input v-model="email" class="footer-el-input" type="email" :rules="[{ required: true, message: 'Content can not be null'}]"></el-input>
+                        <el-button type="primary" @click="onSubmit()"><span>Subscribe</span></el-button>
                     </li>
                 </ul>
             </el-col>
@@ -95,19 +86,13 @@
 </template>
 
 <script>
+import api from '@/utils/api'
+
 export default {
   name: 'MyFooter',
   data () {
     return {
-      form: {
-        email: ''
-      },
-      rules: {
-        email: [
-          { required: true, message: '请输入活动名称', trigger: 'blur' },
-          { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
-        ]
-      }
+      email: ''
     }
   },
   methods: {
@@ -115,16 +100,20 @@ export default {
       console.log(key + '==' + keyPath)
       this.$router.push(keyPath)
     },
-    onSubmit (form) {
-    //   console.log(form)
-      this.$refs[form].validate((valid) => {
-        if (valid) {
-          alert('submit!')
-        } else {
-          console.log('error submit!!')
-          return false
-        }
-      })
+    onSubmit () {
+      let that = this
+      if (that.email === '') {
+        alert('Email Address null')
+        return false
+      } else {
+        let param = {email: that.email}
+        api.postC('/user/subscribe-email', param).then(data => {
+          if (data.code === '0') {
+            alert('Subscribe Success')
+            that.email = ''
+          }
+        })
+      }
     }
   }
 }
@@ -145,7 +134,7 @@ export default {
 .footer-ul{
     list-style:none;
     /* margin-bottom:20px; */
-    line-height:30px;
+    line-height:25px;
     padding-top: 20px;
     /* text-align: left; */
     text-align:center;

@@ -5,7 +5,7 @@
         <strong>Contact us</strong>
       </el-row>
       <el-row class="el-row-contact-content">
-        <el-col :span="10" :xs="24" class="el-row-contact-content-col">
+        <el-col :span="12" :xs="24" class="el-row-contact-content-col">
           <el-card shadow="never" class="el-row-contact-content-col-card1">
             <strong>BJD GROUP CO,. LIMITED</strong>
             <el-row class="el-row-contact-content-col-card-row">
@@ -24,7 +24,7 @@
             </el-row>
           </el-card>
         </el-col>
-        <el-col :span="10" :xs="24" class="el-row-contact-content-col" >
+        <el-col :span="12" :xs="24" class="el-row-contact-content-col" >
           <el-card shadow="never" class="el-row-contact-content-col-card2">
             <strong>Write Us</strong><br>
             <!-- <p>Creating an account has many benefits: check out faster, keep more than one address, track orders and more.</p> -->

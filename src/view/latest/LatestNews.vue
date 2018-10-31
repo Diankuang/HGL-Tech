@@ -39,20 +39,6 @@ export default {
   margin: 0px;
   padding: 0px;
 }
-/* .el-row-latest-news{ */
-    /* font-size: 1.8rem; */
-    /* font-weight: 300;
-    line-height: 1.1;
-    margin-bottom: 1rem;
-    margin-top: 1.5rem;
-        font-size: 16px; */
-    /* color: #777; */
-    /* font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; */
-    /* font-style: normal; */
-    /* font-weight: 400;
-    line-height: 1.4;
-    font-size: 1.3rem; */
-/* } */
 .el-row-latest-news-span{
     color: #777;
     font-size: 17px;
