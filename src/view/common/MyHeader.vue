@@ -18,32 +18,33 @@
                 <el-menu
                 router
                 :default-active="$router.path"
-                class="el-menu-demo demo-header"
+                class="el-menu-demo"
                 mode="horizontal"
                 @select="handleSelect"
                 background-color="#545c64"
                 text-color="#fff"
-                active-text-color="#ffd04b"
-                name="">
+                collapse-transition=true
+                active-text-color="#ffd04b">
                      <!-- <el-menu-item index="/"><img src="@/assets/logo.png"></el-menu-item> -->
                     <el-menu-item index="/">Home</el-menu-item>
                     <el-submenu index="2">
-                        <!-- <template slot="title">About us -->
-                        <template slot="title"><router-link class="el-menu-router-link" to="/about-us"><span>About us</span></router-link>
-                        </template>
+                        <!-- <template slot="title"><el-menu-item index="about-us">About us</el-menu-item></template> -->
+                        <template slot="title"><router-link class="el-menu-router-link" to="/about-us"><span>About us</span></router-link></template>
                         <el-menu-item index="structure">Structure</el-menu-item>
                     </el-submenu>
                     <el-submenu index="3">
-                        <!-- <template slot="title" index="/cables">Cables</template> -->
-                        <template slot="title"><router-link class="header-router-link" to="/cables">Cables</router-link></template>
+                        <!-- <template slot="title"><el-menu-item  index="cables">Cables</el-menu-item></template> -->
+                        <template slot="title">Cables</template>
+                        <!-- <template slot="title"><router-link class="header-router-link" to="/cables">Cables</router-link></template> -->
                         <el-menu-item index="micro-usb">Micro USB</el-menu-item>
                         <el-menu-item index="type-c">Type-C</el-menu-item>
                         <el-menu-item index="lightning">Lightning </el-menu-item>
                         <el-menu-item index="other">Others</el-menu-item>
                     </el-submenu>
                     <el-submenu index="4">
-                        <!-- <template slot="title">Temper</template> -->
-                        <template slot="title"><router-link class="el-menu-router-link" to="/temper">Temper</router-link></template>
+                        <!-- <template slot="title"><el-menu-item  index="temper">Temper</el-menu-item></template> -->
+                        <template slot="title">Temper</template>
+                        <!-- <template slot="title"><router-link class="el-menu-router-link" to="/temper">Temper</router-link></template> -->
                         <el-menu-item index="iPhone">iPhone</el-menu-item>
                         <el-menu-item index="huawei">Huawei</el-menu-item>
                         <el-menu-item index="samsung">Samsung</el-menu-item>
@@ -52,7 +53,8 @@
                         <el-menu-item index="others">Others</el-menu-item>
                     </el-submenu>
                     <el-submenu index="5">
-                        <!-- <template slot="title">Support</template> -->
+                        <!-- <template slot="title"><el-menu-item index="supoort">Support</el-menu-item></template> -->
+                        <template slot="title">Support</template>
                         <template slot="title"><router-link class="el-menu-router-link" to="/support">Support</router-link></template>
                         <el-menu-item index="faq">FAQ</el-menu-item>
                         <el-menu-item index="map">Map</el-menu-item>
