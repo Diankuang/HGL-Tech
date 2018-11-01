@@ -44,10 +44,10 @@ export default {
 </script>
 
 <style scope>
-* {
+/* * {
     margin: 0;
     padding: 0;
-}
+} */
 .el-carousel {
     overflow: hidden;
     position: relative;

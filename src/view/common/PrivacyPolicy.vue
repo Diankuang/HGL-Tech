@@ -92,6 +92,9 @@ export default {
 </script>
 
 <style>
+#privacy-policy{
+  padding: 20px;
+}
 .privacy-policy-row{
   display: block;
   border: 1px solid #ececec;

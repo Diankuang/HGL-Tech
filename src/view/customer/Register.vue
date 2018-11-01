@@ -110,6 +110,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.register{
+  padding: 20px;
+}
 .el-row-register-strong{
   text-align: left;
 }

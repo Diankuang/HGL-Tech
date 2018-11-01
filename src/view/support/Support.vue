@@ -50,6 +50,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.support{
+    padding: 20px;
+}
 .el-row-support{
   text-align: left;
 }

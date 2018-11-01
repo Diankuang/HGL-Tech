@@ -68,67 +68,6 @@ export default {
 </script>
 
 <style scoped>
-/* .el-footer{
-    padding: 0 0;
-}
-.footer-row{
-    background-color: #F5F5F5;
-    margin: 0px;
-    padding: 30px 40px;
-    position: relative;
-    min-height: 1px;
-}
-.footer-ul{
-    list-style:none;
-    line-height:30px;
-    padding-top: 20px;
-    text-align: left;
-}
-.el-menu-item, .el-submenu__title {
-    height: 30px;
-    position: relative;
-    line-height: 1;
-    color: #777;
-    padding: 8px 15px;
-    text-align: left;
-}
-.footer-col{
-    position: relative;
-}
-p{
-    display: inline-block;
-    vertical-align: top;
-    margin: 0;
-}
-.el-form-item__content{
-    margin-left: 0px;
-}
-.el-input {
-    position: relative;
-    font-size: 14px;
-    display: inline-block;
-    width: 50%;
-    height: 30px;
-}
-.el-input__inner {
-    height: 30px;
-}
-.el-button--primary {
-    color: #fff;
-    background-color: rgb(3, 7, 12);
-    border-color: rgb(3, 7, 12);
-}
-a{
-    color: #777777;
-}
-a:link {color: #777777; text-decoration:none;}
-a:hover {color: #777777; text-decoration:underline;}
-span{
-    color: #777777;
-}
-.contact-span{
-    padding-left: 8px;
-} */
 .breadcrumb-container{
     padding: 10px;
     margin: 0;
@@ -152,5 +91,9 @@ span{
 }
 .el-icon-arrow-right{
     padding: 5px;
+}
+.el-main{
+   padding: 0px;
+   width: 100%;
 }
 </style>

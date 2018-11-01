@@ -42,6 +42,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.about-us{
+    padding: 20px;
+}
 .el-row-about-us{
   text-align: left;
 }

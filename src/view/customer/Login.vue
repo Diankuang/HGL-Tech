@@ -93,6 +93,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.login{
+  padding: 20px;
+}
 .el-row-login-strong{
   text-align: left;
 }

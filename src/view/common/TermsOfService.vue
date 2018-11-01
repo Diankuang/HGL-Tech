@@ -55,6 +55,9 @@ export default {
 </script>
 
 <style>
+#termsservice{
+    padding: 20px;
+}
 .termsservice-row{
   display: block;
   border: 1px solid #ececec;

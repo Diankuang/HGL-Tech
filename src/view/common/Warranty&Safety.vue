@@ -21,6 +21,7 @@
                         <li><span>Verify the power requirement of the device you intend to charge before operating your charger, charging with the wrong voltage or wattage may harm your device.</span></li>
                     </ul>
                 </el-col>
+                <el-col :span="24" :xs="24" class="el-col-warranty-safety-content-col" style="height:20px;"></el-col>
           </el-row>
         </el-row>
     </div>
@@ -40,6 +41,9 @@ export default {
 </script>
 
 <style>
+#warranty-safety{
+    padding: 20px;
+}
 .warranty-safety-row{
   display: block;
   border: 1px solid #ececec;
