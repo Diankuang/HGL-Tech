@@ -55,7 +55,7 @@
                     <el-submenu index="5">
                         <!-- <template slot="title"><el-menu-item index="supoort">Support</el-menu-item></template> -->
                         <template slot="title">Support</template>
-                        <template slot="title"><router-link class="el-menu-router-link" to="/support">Support</router-link></template>
+                        <!-- <template slot="title"><router-link class="el-menu-router-link" to="/support">Support</router-link></template> -->
                         <el-menu-item index="faq">FAQ</el-menu-item>
                         <el-menu-item index="map">Map</el-menu-item>
                         <el-menu-item index="after-sale-policy">After sale Policy</el-menu-item>
