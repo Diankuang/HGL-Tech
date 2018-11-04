@@ -150,7 +150,6 @@ export default {
       this.ImgUrl = imgUrl
     },
     getProductDetail () {
-      debugger
       console.log(this.$route.params.productId)
       let that = this
       let param = {

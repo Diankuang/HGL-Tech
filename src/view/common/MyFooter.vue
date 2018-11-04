@@ -15,9 +15,6 @@
                         <i class="el-icon-caret-right"></i><router-link to="/my-account">My account</router-link>
                     </li>
                     <li>
-                        <i class="el-icon-caret-right"></i><router-link to="/my-account">My account</router-link>
-                    </li>
-                    <li>
                         <i class="el-icon-caret-right"></i><router-link to="/cables">Cables</router-link>
                     </li>
                      <li>

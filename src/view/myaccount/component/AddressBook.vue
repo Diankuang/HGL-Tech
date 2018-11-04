@@ -87,7 +87,6 @@ export default {
   methods: {
     submitForm (formName) {
       let that = this
-      debugger
       this.$refs[formName].validate((valid) => {
         if (valid) {
           let params = that.userFrom

@@ -17,7 +17,6 @@ export default {
       this.$store.replaceState(Object.assign(this.$store.state, JSON.parse(sessionStorage.getItem('user'))))
     }
     window.addEventListener('beforeunload', () => {
-      debugger
       const user = this.$store.state.user
       console.log(user)
       if (user != null) {
