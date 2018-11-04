@@ -1,5 +1,16 @@
 <template>
   <div class="micro-usb">
+    <el-row class="micro-usb-row-select">
+      MicroUsb Type
+      <el-select v-model="type" placeholder="Select Type" class="usb-el-select" @change="getMicroUsbList()">
+        <el-option label="Wireles schargers" value="1"></el-option>
+        <el-option label="Car Chargers" value="2"></el-option>
+        <el-option label="Single USB Chargers" value="3"></el-option>
+        <el-option label="Wall Chargers" value="4"></el-option>
+        <el-option label="Multi-function" value="5"></el-option>
+        <el-option label="Power Socket" value="6"></el-option>
+      </el-select>
+    </el-row>
     <el-row class="micro-usb-row">
       <el-col :span="6" :xs="24" v-for="item in productList" :key="item.id"  class="micro-usb-row-col">
         <el-card :body-style="{ padding: '0px' }" class="micro-usb-row-col-card" shadow="hover">
@@ -14,8 +25,9 @@
             <img :src="img+item.picture" class="image">
           </router-link>
         </el-card>
+        <i class="el-icon-star-on"></i>
         <router-link :to="{path: '/power-bank/'+item.id}">
-          <p class="micro-usb-row-col-p">{{item.name}}</p>
+          {{item.name}}
         </router-link>
       </el-col>
     </el-row>
@@ -26,9 +38,9 @@
         @current-change="handleCurrentChange"
         :current-page="pageNum"
         :page-sizes="[10, 20, 30, 40]"
-        :page-size="10"
+        :page-size="pageSize"
         layout="total, sizes, prev, pager, next, jumper"
-        :total="400">
+        :total="total">
       </el-pagination>
     </el-row>
   </div>
@@ -44,31 +56,37 @@ export default {
       imgUrl: require('@/assets/1539869424.jpg'),
       currentPage: 5,
       pageNum: 1,
-      img: 'http://pbzoyemzp.bkt.clouddn.com/image/',
-      productList: []
+      pageSize: 10,
+      total: 0,
+      img: 'http://47.107.57.42/img/',
+      productList: [],
+      type: '1'
     }
   },
   methods: {
     handleSizeChange (val) {
-      console.log(`每页 ${val} 条`)
+      // console.log(`每页 ${val} 条`)
+      this.pageSize = val
+      this.getMicroUsbList()
     },
     handleCurrentChange (val) {
       this.pageNum = val
       this.getMicroUsbList()
-      console.log(`当前页: ${val}`)
     },
     getMicroUsbList () {
       let that = this
       let params = {
-        type: 'Wireless charger',
-        pageSize: 10,
+        type: that.type,
+        pageSize: that.pageNum,
         pageNum: this.pageNum
       }
       console.log(params)
       api.post('/product/query-power-products', params).then(data => {
         if (data.code === '0') {
           that.productList = data.list
-          console.log(that.productList)
+          that.total = data.total
+        } else {
+          alert('source not found')
         }
       })
     }
@@ -105,5 +123,14 @@ export default {
 .el-pagination.is-background.el-pager li {
   background-color:#000;
   color:#fff;
+}
+.usb-el-select .el-input__inner{
+  border: 1px #0000 solid;
+}
+.micro-usb-row-select{
+  margin-bottom: 20px;
+}
+.micro-usb-row-col-card{
+  margin-bottom: 20px;
 }
 </style>

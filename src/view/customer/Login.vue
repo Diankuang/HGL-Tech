@@ -78,6 +78,7 @@ export default {
               // sessionStorage.setItem('user', JSON.stringify(data.user))
               this.$store.commit('$_setStorage', JSON.stringify(data.user))
               this.$store.commit('$_setLogin', '1')
+              // this.$store.commit('$_setUserId', data.user.userId)
               this.$router.push('/my-account')
             }
           })

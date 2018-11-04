@@ -45,6 +45,10 @@ import TermsOfService from '@/view/common/TermsOfService'
 import WarrantySafety from '@/view/common/Warranty&Safety'
 // import LatestNews from '@/view/latest-news/LatestNews'
 
+import AddProducts from '@/view/product/AddProducts'
+import AddMicroUsb from '@/view/product/component/AddMicroUSB'
+import AddTemper from '@/view/product/component/AddTemper'
+
 Vue.use(Router)
 
 export default new Router({
@@ -272,6 +276,23 @@ export default new Router({
           path: '/warranty-safety',
           name: 'Warranty & Safety',
           component: WarrantySafety
+        },
+        {
+          path: '/add-products',
+          name: 'Add Products',
+          component: AddProducts,
+          children: [
+            {
+              path: '/add-usb',
+              name: 'AddMicroUsb',
+              component: AddMicroUsb
+            },
+            {
+              path: '/add-temper',
+              name: 'Add Temper',
+              component: AddTemper
+            }
+          ]
         }
       ]
     }

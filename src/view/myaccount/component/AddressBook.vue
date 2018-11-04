@@ -5,7 +5,7 @@
         <strong>Create New Customer Account</strong>
       </el-row>
       <el-row class="el-row-address-book-content">
-        <el-form :label-position="labelPosition" :model="userFrom" ref="address-bookForm" >
+        <el-form :label-position="labelPosition" :model="userFrom" ref="userFrom" >
             <el-col :span="11" :xs="24" class="el-row-address-book-content-col">
                 <el-card shadow="never" class="el-row-address-book-content-col-card">
                     <strong><span class="address-book-row-content-col-title-span">CONTACT INFORMATION</span></strong>
@@ -25,7 +25,7 @@
                         <el-input v-model="userFrom.fax"></el-input>
                     </el-form-item>
                     <el-form-item class="address-book-form">
-                        <el-button type="primary" class="sign-in" @click="submitForm('userFrom')">Create an Account</el-button>
+                        <el-button type="primary" class="sign-in" @click="submitForm('userFrom')">Save Address</el-button>
                     </el-form-item>
                 </el-card>
             </el-col>
@@ -56,6 +56,8 @@
 </template>
 
 <script>
+import api from '@/utils/api'
+
 export default {
   name: 'AddressBook',
   data () {
@@ -63,6 +65,7 @@ export default {
       msg: 'Welcome to Your Vue.js App',
       labelPosition: 'top',
       userFrom: {
+        userId: '4563258971',
         firstName: '',
         lastName: '',
         password: '',
@@ -83,10 +86,18 @@ export default {
   },
   methods: {
     submitForm (formName) {
-      console.log(formName)
+      let that = this
+      debugger
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          alert('submit!')
+          let params = that.userFrom
+          api.post('/user/save-address', params).then(data => {
+            if (data.code === '0') {
+              alert('Save Address Success')
+            } else {
+              alert('Try Again Please')
+            }
+          })
         } else {
           console.log('error submit!!')
           return false

@@ -17,12 +17,12 @@
                 <!-- <el-menu-item index="account-dashboard" class="qqqqqq"><i class="el-icon-caret-right"></i>Account Dashboard</el-menu-item> -->
                 <el-menu-item index="account-information"><i class="el-icon-caret-right"></i>Account Information</el-menu-item>
                 <el-menu-item index="address-book"><i class="el-icon-caret-right"></i>Address Book</el-menu-item>
-                <el-menu-item index="my-downloadable-products"><i class="el-icon-caret-right"></i>My Downloadable Products</el-menu-item>
-                <el-menu-item index="my-orders"><i class="el-icon-caret-right"></i>My Orders</el-menu-item>
-                <el-menu-item index="my-product-reviews"><i class="el-icon-caret-right"></i>My Product Reviews</el-menu-item>
-                <el-menu-item index="newsletter-subscriptions"><i class="el-icon-caret-right"></i>Newsletter Subscriptions</el-menu-item>
-                <el-menu-item index="my-credit-cards"><i class="el-icon-caret-right"></i>My Credit Cards</el-menu-item>
-                <el-menu-item index="billing-agreements"><i class="el-icon-caret-right"></i>Billing Agreements</el-menu-item>
+                <!-- <el-menu-item index="my-downloadable-products"><i class="el-icon-caret-right"></i>My Downloadable Products</el-menu-item> -->
+                <!-- <el-menu-item index="my-orders"><i class="el-icon-caret-right"></i>My Orders</el-menu-item> -->
+                <!-- <el-menu-item index="my-product-reviews"><i class="el-icon-caret-right"></i>My Product Reviews</el-menu-item> -->
+                <!-- <el-menu-item index="newsletter-subscriptions"><i class="el-icon-caret-right"></i>Newsletter Subscriptions</el-menu-item> -->
+                <!-- <el-menu-item index="my-credit-cards"><i class="el-icon-caret-right"></i>My Credit Cards</el-menu-item> -->
+                <!-- <el-menu-item index="billing-agreements"><i class="el-icon-caret-right"></i>Billing Agreements</el-menu-item> -->
                 <el-menu-item index="my-wish-list"><i class="el-icon-caret-right"></i>My Wish List</el-menu-item>
             </el-menu>
           </el-row>
@@ -69,6 +69,7 @@ export default {
 <style scoped>
 .my-account{
     text-align: left;
+    padding: 20px;
 }
 .my-account-menu{
   border-right:0px;

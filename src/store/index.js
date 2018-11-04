@@ -4,11 +4,13 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 const key = 'user'
 const isLogin = 'isLogin'
+const userId = 'userId'
 const store = new Vuex.Store({
   state () {
     return {
       user: null,
-      isLogin: '0'
+      isLogin: '0',
+      userId: ''
     }
   },
   getters: {
@@ -21,6 +23,10 @@ const store = new Vuex.Store({
     }
   },
   mutations: {
+    $_setUserId (state, value) {
+      state.userId = value
+      sessionStorage.setItem(userId, value)
+    },
     $_setLogin (state, value) {
       state.isLogin = value
       sessionStorage.setItem(isLogin, value)

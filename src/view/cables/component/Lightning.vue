@@ -26,9 +26,9 @@
         @current-change="handleCurrentChange"
         :current-page="pageNum"
         :page-sizes="[10, 20, 30, 40]"
-        :page-size="10"
+        :page-size="pageSize"
         layout="total, sizes, prev, pager, next, jumper"
-        :total="400">
+        :total="total">
       </el-pagination>
     </el-row>
   </div>
@@ -44,31 +44,34 @@ export default {
       imgUrl: require('@/assets/1539869424.jpg'),
       currentPage: 5,
       pageNum: 1,
-      img: 'http://pbzoyemzp.bkt.clouddn.com/image/',
+      total: 0,
+      pageSize: 10,
+      img: 'http://47.107.57.42/img/',
       productList: []
     }
   },
   methods: {
     handleSizeChange (val) {
-      console.log(`每页 ${val} 条`)
+      // console.log(`每页 ${val} 条`)
     },
     handleCurrentChange (val) {
       this.pageNum = val
       this.getMicroUsbList()
-      console.log(`当前页: ${val}`)
+      // console.log(`当前页: ${val}`)
     },
     getMicroUsbList () {
       let that = this
       let params = {
-        type: 'Wireless charger',
-        pageSize: 10,
+        type: '1',
+        pageSize: that.pageNum,
         pageNum: this.pageNum
       }
-      console.log(params)
       api.post('/product/query-power-products', params).then(data => {
         if (data.code === '0') {
           that.productList = data.list
-          console.log(that.productList)
+          that.total = data.total
+        } else {
+          alert('source not found')
         }
       })
     }
@@ -105,5 +108,8 @@ export default {
 .el-pagination.is-background.el-pager li {
   background-color:#000;
   color:#fff;
+}
+.lightning-row-col-card{
+  margin-bottom: 20px;
 }
 </style>

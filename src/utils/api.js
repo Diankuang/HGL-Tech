@@ -3,6 +3,7 @@
 import axios from 'axios'
 import qs from 'qs'
 
+// axios.defaults.baseURL = 'http://localhost:9002'
 axios.defaults.baseURL = 'http://47.107.57.42:9002/'
 
 axios.interceptors.request.use(config => {

@@ -3,10 +3,35 @@
     <el-row class="temper-pro-row">
       <el-col :span="17" class="temper-pro-row-col-left" :xs="24">
         <el-col class="temper-pro-row-col-left-col-left" :span="8" :xs="24">
-          <div class="big-img">
+          <el-col :span="24" :xs="24" class="big-img">
+            <!-- <el-carousel trigger="click"  indicator-position="none" @change='change1()' class="big-img-carousel">
+              <el-carousel-item v-for="item in productPicture" :key="item.id">
+                <img :src="img+item.picture" style="width:100%;height:100%" >
+              </el-carousel-item>
+            </el-carousel> -->
+            <swiper :options="swiperOptionTop" ref="swiperTop" class="gallery-top">
+            <!-- <swiper :options="swiperOptionTop" id="gallery"> -->
+              <swiper-slide v-for="item in temperPic" :key="item.id" class="banner-col-top-col-slide">
+                  <img :src="img+item.picture" style="width:100%;height:100%" >
+              </swiper-slide>
+            </swiper>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </el-col>
+          <el-col class="little-img" >
+            <swiper :options="swiperOptionThumbs" ref="swiperThumbs" class="gallery-thumbs">
+            <!-- <swiper :options="swiperOptionBottom" id = "thumbs"> -->
+            <swiper-slide v-for="item in temperPic" :key="item.id">
+              <!-- <el-col style="border: 1px #000000 solid"> -->
+                <img :src="img+item.picture" style="width:100%;height:100%" >
+              <!-- </el-col> -->
+            </swiper-slide>
+          </swiper>
+          </el-col>
+          <!-- <div class="big-img">
             <el-carousel trigger="click"  indicator-position="none" @change='change1()'>
               <el-carousel-item v-for="item in temperPic" :key="item.id">
-                <img :src="img+item.picture" style="width:100%;height:100%">
+                <img :src="img+item.picture" 3>
               </el-carousel-item>
             </el-carousel>
           </div>
@@ -16,7 +41,7 @@
                     <img :src="img+item.picture" style="width: 50px; height: 50px" >
                 </li>
             </ul>
-          </div>
+          </div> -->
         </el-col>
         <el-col class="temper-pro-row-col-left-col-right" :span="16" :xs="24">
           <h1><span class="temper-pro-row-col-left-col-right-span">{{temper.name}}</span></h1>
@@ -35,7 +60,7 @@
             <el-row>
               <ul>
                 <el-col  :span="12" :xs="24"  v-for="(value,key,index) in temper"  :key="index" class="temper-pro-row-col-left-col-right-3">
-                <li v-if="key !== 'introductions' && value !== '' && key !== 'id'"><strong>{{key}}：</strong>&nbsp;{{value}}</li>
+                <li v-if="key !== 'introductions' && value !== '' && key !== 'id' && key !== 'type'" ><strong>{{key}}：</strong>&nbsp;{{value}}</li>
                 </el-col>
               </ul>
             </el-row>
@@ -72,6 +97,7 @@
 import api from '@/utils/api'
 import LatestNews from '@/view/latest/LatestNews'
 import LatestFAQ from '@/view/latest/LatestFAQ'
+import { swiper, swiperSlide } from 'vue-awesome-swiper'
 export default {
   name: 'TemperPro',
   data () {
@@ -88,9 +114,24 @@ export default {
       ImgUrl: require('@/assets/images/1.jpg'),
       temper: {},
       temperPic: [],
-      img: 'http://pbzoyemzp.bkt.clouddn.com/image/',
+      img: 'http://47.107.57.42/img/',
       activeName: 'Detail',
-      techSupport: require('@/assets/images/Tech-Support.jpg')
+      techSupport: require('@/assets/images/Tech-Support.jpg'),
+      swiperOptionTop: {
+        autoplay: true,
+        interval: 1000,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev'
+        }
+      },
+      swiperOptionThumbs: {
+        spaceBetween: 10,
+        centeredSlides: true,
+        slidesPerView: 'auto',
+        touchRatio: 0.2,
+        slideToClickedSlide: true
+      }
     }
   },
   created () {
@@ -132,7 +173,7 @@ export default {
       console.log(tab, event)
     }
   },
-  components: {LatestNews, LatestFAQ},
+  components: {LatestNews, LatestFAQ, swiper, swiperSlide},
   props: [],
   watch: {
     change1 (val, oldVal) {
@@ -140,6 +181,19 @@ export default {
       // this.$emit('change', val, oldVal);
       console.log('--------------')
     }
+  },
+  computed: {
+    swiper () {
+      return this.$refs.mySwiper.swiper
+    }
+  },
+  mounted () {
+    this.$nextTick(() => {
+      const swiperTop = this.$refs.swiperTop.swiper
+      const swiperThumbs = this.$refs.swiperThumbs.swiper
+      swiperTop.controller.control = swiperThumbs
+      swiperThumbs.controller.control = swiperTop
+    })
   }
 }
 </script>
@@ -231,5 +285,22 @@ export default {
 }
 .temper-pro-row-col-left-col-right-4{
     margin: 30px 10px 10px 0;
+}
+.temper-pro-row-col-left-col-left{
+  position: relative;
+  border: #777 1px solid;
+}
+.gallery-thumbs {
+    height: 15%!important;
+    box-sizing: border-box;
+    /* padding: 10px 0; */
+}
+.gallery-thumbs .swiper-slide {
+  width: 25%;
+  height: 100%;
+  opacity: 0.4;
+}
+.gallery-thumbs .swiper-slide-active {
+    opacity: 1;
 }
 </style>

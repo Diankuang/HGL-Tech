@@ -1,18 +1,18 @@
 <template>
-  <div class="vivo">
-    <el-row class="vivo-row">
-      <el-col :span="6" :xs="24" v-for="item in temperList" :key="item.id"  class="vivo-row-col">
-        <el-card :body-style="{ padding: '0px' }" class="vivo-row-col-card" shadow="hover">
-          <router-link :to="{path: '/temper-pro/'+item.id}">
+  <div class="Vivo">
+    <el-row class="Vivo-row">
+      <el-col :span="6" :xs="24" v-for="item in temperList" :key="item.id"  class="Vivo-row-col">
+        <el-card :body-style="{ padding: '0px' }" class="Vivo-row-col-card" shadow="hover">
+           <router-link :to="{path: '/temper-pro/'+item.id}">
             <img :src="img+item.picture" class="image">
           </router-link>
           <router-link :to="{path: '/temper-pro/'+item.id}">
-            <p class="vivo-row-col-p">{{item.name}}</p>
+            <p class="Vivo-row-col-p">{{item.name}}</p>
           </router-link>
         </el-card>
       </el-col>
     </el-row>
-    <el-row class="vivo-row-pagination">
+    <el-row class="Vivo-row-pagination">
       <el-pagination
         background
         @size-change="handleSizeChange"
@@ -40,57 +40,52 @@ export default {
       pageSize: 10,
       total: 0,
       temperList: [],
-      img: 'http://pbzoyemzp.bkt.clouddn.com/image/',
+      img: 'http://47.107.57.42/img/',
       imageUrl: require('@/assets/temper/201804180940274027.jpg')
     }
   },
   methods: {
     handleSizeChange (val) {
       this.pageSize = val
-      console.log(`每页 ${val} 条`)
+      this.getTemperList()
     },
     handleCurrentChange (val) {
       this.pageNum = val
-      this.getMicroUsbList()
-      console.log(`当前页: ${val}`)
+      this.getTemperList()
     },
-    getMicroUsbList () {
+    getTemperList () {
       let that = this
       let params = {
         type: '5',
         pageSize: that.pageSize,
         pageNum: that.pageNum
       }
-      console.log(params)
       api.post('/temper/query-temper', params).then(data => {
         if (data.code === '0') {
           that.temperList = data.list
           that.total = data.total
-          console.log(that.temperList)
         }
       })
     }
   },
   created () {
-    this.getMicroUsbList()
+    this.getTemperList()
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.vivo{
+.Vivo{
   margin: 0px;
   padding: 0px;
 }
-.vivo-col-img{
+.Vivo-col-img{
   width: 100%
 }
 .time {
   font-size: 13px;
   color: #999;
-}
-.vivo-row-col-card{
 }
 .image {
   width: 100%;
@@ -98,12 +93,12 @@ export default {
   display: block;
   margin: 20px 0 20px 0;
 }
-.vivo-row-col{
+.Vivo-row-col{
   margin-left: 0px;
   margin-bottom: 20px;
   text-align: center
 }
-.vivo-row-col-p{
+.Vivo-row-col-p{
     margin: 0px 0px 21px 0px;
 }
 .el-pagination.is-background.el-pager li {

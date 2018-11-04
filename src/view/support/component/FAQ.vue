@@ -2,12 +2,12 @@
   <div id="faq">
       <el-row class="faq-row">
         <el-collapse accordion  @change="onChange()">
-            <el-collapse-item v-for="item in allFaqList" :key="item.id" style="line-height:20px;">
-                <template slot="title" class="tem-faq" style="line-height:20px;">
-                    <i class="el-icon-plus" v-if="i == 1"></i>
-                    <i class="el-icon-plus" v-if="i == 0"></i>
-                    <span style="font-size:17px;line-height:20px">Question:</span>
-                    <span style="font-size:14px;line-height:20px">{{item.title}}</span>
+            <el-collapse-item v-for="item in allFaqList" :key="item.id" class="fap-el-collapse">
+                <template slot="title" class="tem-faq">
+                    <!-- <span style="font-size:17px;line-height:20px">Question:</span>
+                    <span style="font-size:14px;line-height:20px">{{item.title}}</span> -->
+                    Question:
+                    {{item.title}}
                 </template>
                 <div v-if="item.content1" class="faq-content"><p>{{item.content1}}</p></div>
                 <div v-if="item.content2" class="faq-content"><p>{{item.content2}}</p></div>
@@ -15,15 +15,6 @@
                 <div v-if="item.content4" class="faq-content"><p>{{item.content4}}</p></div>
             </el-collapse-item>
         </el-collapse>
-        <!-- <ul class="fag-row-ul">
-          <li v-for="item in allFaqList" :key="item.id">
-            <h3>Question:<span style="font-size:14px;">{{item.title}}</span></h3>
-            <p>{{item.content1}}</p>
-            <p>{{item.content2}}</p>
-            <p>{{item.content3}}</p>
-            <p>{{item.content4}}</p>
-          </li>
-        </ul> -->
       </el-row>
   </div>
 </template>
@@ -85,5 +76,8 @@ export default {
 }
 .faq-content p{
   margin-left: 20px;
+}
+.el-collapse-item .el-collapse-item{
+line-height: 20px;
 }
 </style>

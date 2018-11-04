@@ -8,9 +8,11 @@ import store from './store/index'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import 'element-ui/lib/theme-chalk/index.css'
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+import 'swiper/dist/css/swiper.css'
 
 Vue.config.productionTip = false
-Vue.use(ElementUI)
+Vue.use(ElementUI, VueAwesomeSwiper)
 Vue.use(VueAxios, axios)
 /* eslint-disable no-new */
 new Vue({

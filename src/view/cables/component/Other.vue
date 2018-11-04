@@ -1,34 +1,46 @@
 <template>
-  <div class="other">
-    <el-row class="other-row">
-      <el-col :span="6" :xs="24" v-for="item in productList" :key="item.id"  class="other-row-col">
-        <el-card :body-style="{ padding: '0px' }" class="other-row-col-card" shadow="hover">
+  <div class="micro-usb">
+    <el-row class="micro-usb-row-select">
+      MicroUsb Type
+      <el-select v-model="type" placeholder="Select Type" class="usb-el-select" @change="getMicroUsbList()">
+        <el-option label="Wireles schargers" value="1"></el-option>
+        <el-option label="Car Chargers" value="2"></el-option>
+        <el-option label="Single USB Chargers" value="3"></el-option>
+        <el-option label="Wall Chargers" value="4"></el-option>
+        <el-option label="Multi-function" value="5"></el-option>
+        <el-option label="Power Socket" value="6"></el-option>
+      </el-select>
+    </el-row>
+    <el-row class="micro-usb-row">
+      <el-col :span="6" :xs="24" v-for="item in productList" :key="item.id"  class="micro-usb-row-col">
+        <el-card :body-style="{ padding: '0px' }" class="micro-usb-row-col-card" shadow="hover">
           <!-- <router-link :to="{name: 'Products',params: { productId: item.id}}">
             <img src="@/assets/factory-scene/57b6cf5a9e40b.jpg" class="image">
           </router-link>
         </el-card>
         <router-link :to="{name: 'Products',params: { productId: item.id}}">
-          <span class="other-row-col-span">{{item.name}}</span>
+          <span class="micro-usb-row-col-span">{{item.name}}</span>
         </router-link> -->
         <router-link :to="{path: '/power-bank/'+item.id}">
             <img :src="img+item.picture" class="image">
           </router-link>
         </el-card>
+        <i class="el-icon-star-on"></i>
         <router-link :to="{path: '/power-bank/'+item.id}">
-          <p class="other-row-col-p">{{item.name}}</p>
+          {{item.name}}
         </router-link>
       </el-col>
     </el-row>
-    <el-row class="other-row-pagination">
+    <el-row class="micro-usb-row-pagination">
       <el-pagination
         background
         @size-change="handleSizeChange"
         @current-change="handleCurrentChange"
         :current-page="pageNum"
         :page-sizes="[10, 20, 30, 40]"
-        :page-size="10"
+        :page-size="pageSize"
         layout="total, sizes, prev, pager, next, jumper"
-        :total="400">
+        :total="total">
       </el-pagination>
     </el-row>
   </div>
@@ -37,38 +49,42 @@
 <script>
 import api from '@/utils/api'
 export default {
-  name: 'Other',
+  name: 'MicroUsb',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
       imgUrl: require('@/assets/1539869424.jpg'),
       currentPage: 5,
       pageNum: 1,
-      img: 'http://pbzoyemzp.bkt.clouddn.com/image/',
-      productList: []
+      pageSize: 10,
+      total: 0,
+      img: 'http://47.107.57.42/img/',
+      productList: [],
+      type: '1'
     }
   },
   methods: {
     handleSizeChange (val) {
-      console.log(`每页 ${val} 条`)
+      // console.log(`每页 ${val} 条`)
     },
     handleCurrentChange (val) {
       this.pageNum = val
       this.getMicroUsbList()
-      console.log(`当前页: ${val}`)
     },
     getMicroUsbList () {
       let that = this
       let params = {
-        type: 'Wireless charger',
-        pageSize: 10,
+        type: that.type,
+        pageSize: that.pageNum,
         pageNum: this.pageNum
       }
       console.log(params)
       api.post('/product/query-power-products', params).then(data => {
         if (data.code === '0') {
           that.productList = data.list
-          console.log(that.productList)
+          that.total = data.total
+        } else {
+          alert('source not found')
         }
       })
     }
@@ -81,11 +97,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.other{
+.micro-usb{
   margin: 0px;
   padding: 0px;
 }
-.other-col-img{
+.micro-usb-col-img{
   width: 100%
 }
 .time {
@@ -97,7 +113,7 @@ export default {
   display: block;
   height: 300px;
 }
-.other-row-col{
+.micro-usb-row-col{
   margin-left: 0px;
   margin-bottom: 20px;
   text-align: center
@@ -105,5 +121,14 @@ export default {
 .el-pagination.is-background.el-pager li {
   background-color:#000;
   color:#fff;
+}
+.usb-el-select .el-input__inner{
+  border: 1px #0000 solid;
+}
+.micro-usb-row-select{
+  margin-bottom: 20px;
+}
+.micro-usb-row-col-card{
+  margin-bottom: 20px;
 }
 </style>

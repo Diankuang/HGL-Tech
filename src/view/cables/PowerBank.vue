@@ -3,20 +3,26 @@
     <el-row class="power-bank-row">
       <el-col :span="17" class="power-bank-row-col-left" :xs="24">
         <el-col class="power-bank-row-col-left-col-left" :span="8" :xs="24">
-          <div class="big-img">
-            <el-carousel trigger="click"  indicator-position="none" @change='change1()'>
-              <el-carousel-item v-for="item in productPicture" :key="item.id">
-                <img :src="img+item.picture" >
-              </el-carousel-item>
-            </el-carousel>
-          </div>
-          <div class="little-img" >
-            <ul class="little-img-ul">
-                <li v-for="item in productPicture" :key="item.id" @click='getIndex(item.idView)' class="little-img-ul-li">
-                    <img :src="img+item.picture" style="width: 50px; height: 50px" >
-                </li>
-            </ul>
-          </div>
+          <el-col :span="24" :xs="24" class="big-img">
+            <swiper :options="swiperOptionTop" ref="swiperTop" class="gallery-top">
+            <!-- <swiper :options="swiperOptionTop" id="gallery"> -->
+              <swiper-slide v-for="item in productPicture" :key="item.id" class="banner-col-top-col-slide">
+                  <img :src="img+item.picture" style="width:100%;height:100%" >
+              </swiper-slide>
+            </swiper>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </el-col>
+          <el-col class="little-img" >
+            <swiper :options="swiperOptionThumbs" ref="swiperThumbs" class="gallery-thumbs">
+            <!-- <swiper :options="swiperOptionBottom" id = "thumbs"> -->
+            <swiper-slide v-for="item in productPicture" :key="item.id">
+              <!-- <el-col style="border: 1px #000000 solid"> -->
+                <img :src="img+item.picture" style="width:100%;height:100%" >
+              <!-- </el-col> -->
+            </swiper-slide>
+          </swiper>
+          </el-col>
         </el-col>
         <el-col class="power-bank-row-col-left-col-right" :span="16" :xs="24">
           <h1><span class="power-bank-row-col-left-col-right-span">{{product.name}}</span></h1>
@@ -72,6 +78,7 @@
 import api from '@/utils/api'
 import LatestNews from '@/view/latest/LatestNews'
 import LatestFAQ from '@/view/latest/LatestFAQ'
+import { swiper, swiperSlide } from 'vue-awesome-swiper'
 export default {
   name: 'PowerBank',
   data () {
@@ -88,9 +95,27 @@ export default {
       ImgUrl: require('@/assets/images/1.jpg'),
       product: {},
       productPicture: [],
-      img: 'http://pbzoyemzp.bkt.clouddn.com/image/',
+      img: 'http://47.107.57.42/img/',
       activeName: 'Detail',
-      techSupport: require('@/assets/images/Tech-Support.jpg')
+      techSupport: require('@/assets/images/Tech-Support.jpg'),
+      bottomSwiper: '',
+      mySwiper: '',
+      swiperOptionTop: {
+        // notNextTick: true,
+        autoplay: true,
+        interval: 1000,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev'
+        }
+      },
+      swiperOptionThumbs: {
+        spaceBetween: 10,
+        slidesPerView: 'auto',
+        touchRatio: 0.2,
+        slideToClickedSlide: true,
+        centeredSlides: true
+      }
     }
   },
   created () {
@@ -111,32 +136,54 @@ export default {
     getProductDetail () {
       let that = this
       let param = {
-        productId: '1323764257'
+        productId: this.$route.params.productId
       }
       api.postC('/product/query-power-pro-detail', param).then(data => {
         console.log(data)
         if (data.code === '0') {
           that.product = data.product
+          let type = that.product.type
+          if (type === '1') {
+            that.product.type = 'Wireles schargers'
+          }
+          if (type === '2') {
+            that.product.type = 'Car Chargers'
+          }
+          if (type === '3') {
+            that.product.type = 'Single USB Chargers'
+          }
+          if (type === '4') {
+            that.product.type = 'Wall Chargers'
+          }
+          if (type === '5') {
+            that.product.type = 'Multi-function'
+          }
+          if (type === '6') {
+            that.product.type = 'Power Socket'
+          }
           that.productPicture = data.productPicture
+        } else {
+          alert(data.msg)
         }
       })
     },
-    change1 (val, oldVal) {
-      // this.resetItemPosition(oldVal);
-      // this.$emit('change', val, oldVal);
-      console.log('--------------')
-    },
     handleClick (tab, event) {
-      console.log(tab, event)
+      // console.log(tab, event)
     }
   },
-  components: {LatestNews, LatestFAQ},
-  watch: {
-    change1 (val, oldVal) {
-      // this.resetItemPosition(oldVal);
-      // this.$emit('change', val, oldVal);
-      console.log('--------------')
-    }
+  components: {LatestNews, LatestFAQ, swiper, swiperSlide},
+  // computed: {
+  //   swiper () {
+  //     return this.$refs.mySwiper.swiper
+  //   }
+  // },
+  mounted () {
+    this.$nextTick(() => {
+      const swiperTop = this.$refs.swiperTop.swiper
+      const swiperThumbs = this.$refs.swiperThumbs.swiper
+      swiperTop.controller.control = swiperThumbs
+      swiperThumbs.controller.control = swiperTop
+    })
   }
 }
 </script>
@@ -152,20 +199,9 @@ export default {
 }
 .big-img{
   border:#ddd 1px solid;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
-/* .little-img-ul li{
-  list-style: none;
-  float:left;
-  border:#ddd 1px solid;
-  margin: 5px 5px 0 0;
-} */
-.little-img-ul-li{
-  list-style: none;
-  float:left;
-  border:#000 1px solid;
-  margin: 5px 5px 0 0;
-}
-
 .power-bank-row-col{
   margin-left: 0px;
   margin-bottom: 20px;
@@ -173,6 +209,7 @@ export default {
 }
 .power-bank-row-col-left-col-right{
   padding: 0px 20px 0px;
+  position: relative;
 }
 .power-bank-row-col-left-col-right-span{
     font-size: 28px;
@@ -228,5 +265,47 @@ export default {
 }
 .power-bank-row-col-left-col-right-4{
     margin: 30px 10px 10px 0;
+}
+.el-carousel__arrow .el-carousel__arrow--left{
+  left: 0px;
+}
+.el-carousel__arrow--right{
+  right: 0px;
+}
+.big-img-carousel .el-carousel__arrow--right,.big-img-carousel .el-carousel__arrow--left {
+  height: 100%;
+  width: 50px;
+  font-size: 50px;
+  color: black;
+  border-radius: 0%;
+}
+.big-img-carousel .el-carousel__arrow{
+  height: 100%;
+}
+/* .swiper-button-prev{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23007aff'%2F%3E%3C%2Fsvg%3E");} */
+/*改变了颜色和加粗的样式*/
+/* .swiper-button-prev{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l4.2%2C4.2L8.4%2C22l17.8%2C17.8L22%2C44L0%2C22z'%20fill%3D'%23ff6600'%2F%3E%3C%2Fsvg%3E");} */
+.power-bank-row-col-left-col-left{
+  position: relative;
+  border: #777 1px solid;
+}
+/* .little-img{
+  height: 20%;
+  box-sizing: border-box;
+  padding: 10px 0;
+  position: relative;
+} */
+.gallery-thumbs {
+    height: 15%!important;
+    box-sizing: border-box;
+    /* padding: 10px 0; */
+}
+.gallery-thumbs .swiper-slide {
+  width: 25%;
+  height: 100%;
+  opacity: 0.4;
+}
+.gallery-thumbs .swiper-slide-active {
+    opacity: 1;
 }
 </style>

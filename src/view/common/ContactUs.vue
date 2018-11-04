@@ -118,6 +118,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.el-row-contact{
+  padding: 20px;
+}
 .el-row-contact-strong{
   text-align: left;
 }

@@ -40,40 +40,36 @@ export default {
       pageSize: 10,
       total: 0,
       temperList: [],
-      img: 'http://pbzoyemzp.bkt.clouddn.com/image/',
+      img: 'http://47.107.57.42/img/',
       imageUrl: require('@/assets/temper/201804180940274027.jpg')
     }
   },
   methods: {
     handleSizeChange (val) {
       this.pageSize = val
-      console.log(`每页 ${val} 条`)
+      this.getTemperList()
     },
     handleCurrentChange (val) {
       this.pageNum = val
-      this.getMicroUsbList()
-      console.log(`当前页: ${val}`)
+      this.getTemperList()
     },
-    getMicroUsbList () {
-      debugger
+    getTemperList () {
       let that = this
       let params = {
         type: '2',
         pageSize: that.pageSize,
         pageNum: that.pageNum
       }
-      console.log(params)
       api.post('/temper/query-temper', params).then(data => {
         if (data.code === '0') {
           that.temperList = data.list
           that.total = data.total
-          console.log(that.temperList)
         }
       })
     }
   },
   created () {
-    this.getMicroUsbList()
+    this.getTemperList()
   }
 }
 </script>
@@ -90,8 +86,6 @@ export default {
 .time {
   font-size: 13px;
   color: #999;
-}
-.huawei-row-col-card{
 }
 .image {
   width: 100%;
