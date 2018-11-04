@@ -302,4 +302,7 @@ export default {
 .gallery-thumbs .swiper-slide-active {
     opacity: 1;
 }
+.swiper-button-next, .swiper-button-prev{
+  top: 40%;
+}
 </style>
