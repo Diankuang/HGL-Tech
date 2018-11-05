@@ -15,14 +15,14 @@
         </el-col>
         <el-col :span="24" :xs="24" class="banner-col-bottom-col">
           <swiper :options="swiperOption" ref="mySwiper">
-            <swiper-slide v-for="item in miniImg" :key="item.id" class="banner-col-bottom-col-slide">
+            <swiper-slide v-for="item in newArrival" :key="item.id" class="banner-col-bottom-col-slide">
               <el-col style="padding:10px;">
               <router-link :to="{path: '/power-bank/'+item.id}">
-                <img :src="img+item.idView" class="banner_img" style="width:100%;height:100%;margin-bottom: 10px;"/>
+                <img :src="img+item.picture" class="banner_img" style="width:100%;height:100%;margin-bottom: 10px;"/>
               </router-link>
               <i class="el-icon-star-on"></i>
               <router-link :to="{path: '/power-bank/'+item.id}">
-                {{item.idView}}
+                {{item.name}}
               </router-link>
               </el-col>
             </swiper-slide>
@@ -33,7 +33,7 @@
 </template>
 
 <script>
-// import api from '@/utils/api'
+import api from '@/utils/api'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 
 export default {
@@ -65,7 +65,8 @@ export default {
         interval: 1000,
         grabCursor: true
         // autoplayDisableOnInteraction: false
-      }
+      },
+      newArrival: []
     }
   },
   methods: {
@@ -80,8 +81,15 @@ export default {
       this.imgClass = 'height:  ' + window.innerHeight + 'px;'
       console.warn('重新计算', this.imgHeight)
     },
-    getNewArrivsls () {
-
+    getNewArrivals () {
+      let that = this
+      api.post('/product/query-all', null).then(data => {
+        if (data.code === '0') {
+          that.newArrival = data.list
+        } else {
+          alert('Source not found')
+        }
+      })
     }
   },
   created () {
@@ -89,7 +97,7 @@ export default {
 
     this.hh()
     window.addEventListener('resize', that.hh, false)
-    // this.initSwiper()
+    this.getNewArrivals()
   },
   components: {
     swiper,

@@ -34,14 +34,12 @@ export default {
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
-      imgUrl: require('@/assets/1539869424.jpg'),
       currentPage: 5,
       pageNum: 1,
       pageSize: 10,
       total: 0,
       temperList: [],
-      img: 'http://47.107.57.42/img/',
-      imageUrl: require('@/assets/temper/201804180940274027.jpg')
+      img: 'http://47.107.57.42/img/'
     }
   },
   methods: {

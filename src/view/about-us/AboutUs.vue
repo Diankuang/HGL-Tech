@@ -8,11 +8,11 @@
             <el-col :span="24" :xs="24" class="el-col-about-us-content-left-content">
                 <ul class="el-col-about-us-content-left-content-ul">
                     <li>
-                        <router-link to="structure">Structure</router-link>
+                        <router-link to="/structure">Structure</router-link>
                     </li>
-                    <!-- <li>
-                        <router-link to="factory-scene">Factory Scene</router-link>
-                    </li> -->
+                    <li>
+                        <router-link to="/terms-of-service">Teams of Service</router-link>
+                    </li>
                 </ul>
             </el-col>
         </el-col>

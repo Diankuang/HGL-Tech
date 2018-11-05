@@ -95,6 +95,11 @@ export default new Router({
               path: '/factory-scene',
               name: 'FactoryScene',
               component: FactoryScene
+            },
+            {
+              path: '/terms-of-service',
+              name: 'Terms of Service',
+              component: TermsOfService
             }
           ]
         },

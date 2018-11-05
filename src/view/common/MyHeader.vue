@@ -31,6 +31,7 @@
                         <!-- <template slot="title"><el-menu-item index="about-us">About us</el-menu-item></template> -->
                         <template slot="title"><router-link class="el-menu-router-link" to="/about-us"><span>About us</span></router-link></template>
                         <el-menu-item index="structure">Structure</el-menu-item>
+                        <el-menu-item index="terms-of-service">Teams of Service</el-menu-item>
                     </el-submenu>
                     <el-submenu index="3">
                         <!-- <template slot="title"><el-menu-item  index="cables">Cables</el-menu-item></template> -->

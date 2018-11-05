@@ -40,8 +40,7 @@ export default {
       pageSize: 10,
       total: 0,
       temperList: [],
-      img: 'http://47.107.57.42/img/',
-      imageUrl: require('@/assets/temper/201804180940274027.jpg')
+      img: 'http://47.107.57.42/img/'
     }
   },
   methods: {
