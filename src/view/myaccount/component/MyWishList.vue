@@ -29,7 +29,8 @@ export default {
       msg: 'Welcome to Your Vue.js App',
       imgList: [
         {id: 1, idView: require('@/assets/images/timg.jpg')}
-      ]
+      ],
+      currentDate: '2018-11-05'
     }
   }
 }
