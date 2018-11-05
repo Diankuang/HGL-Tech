@@ -3,11 +3,11 @@
         <el-header>
             <el-row class="header-row">
                 <ul class="header-ul">
-                    <li><span class="header-span">Welcome to VisionTek</span></li>
-                    <li v-if="user"><router-link to="my-account" class="header-router-link">{{user.firstName}}&nbsp;{{user.lastName}}</router-link></li>
+                    <li><span class="header-span">Welcome to BJD</span></li>
+                    <li v-if="user !== null && user !== ''"><router-link to="my-account" class="header-router-link">{{user.firstName}}&nbsp;{{user.lastName}}</router-link></li>
                     <li><router-link to="faq" class="header-router-link">FAQ</router-link></li>
-                    <li v-if="!user"><router-link to="login" class="header-router-link">Sign In</router-link></li>
-                    <li v-if="user"><router-link to="logout" class="header-router-link" @click.native="logout()">Sign Out</router-link></li>
+                    <li v-if="user === null"><router-link to="login" class="header-router-link">Sign In</router-link></li>
+                    <li v-if="user !== null && user !== ''"><router-link to="logout" class="header-router-link" @click.native="logout()">Sign Out</router-link></li>
                     <!-- <li v-if="user"><span class="header-router-link">Sign Out</span></li> -->
                     <li v-if="!user"><router-link to="/register" class="header-router-link">Create an Account</router-link></li>
                     <li><a class="header-a"><i class="el-icon-search"></i></a></li>
@@ -92,14 +92,16 @@ export default {
       console.log('logout ')
       api.get('/user/logout', null).then(res => {
         console.log(res)
-        this.$store.commit('$_setStorage', null)
-        this.$store.commit('$_setLogin', '0')
+        sessionStorage.removeItem('user')
+        // this.$store.commit('$_setStorage', null)
+        // this.$store.commit('$_setLogin', '0')
+        this.$router.push('/')
       })
     }
   },
   computed: {
     user () {
-      return JSON.parse(this.$store.state.user)
+      return JSON.parse(sessionStorage.getItem('user'))
     }
   }
 }

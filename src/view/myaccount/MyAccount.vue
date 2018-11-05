@@ -24,6 +24,7 @@
                 <!-- <el-menu-item index="my-credit-cards"><i class="el-icon-caret-right"></i>My Credit Cards</el-menu-item> -->
                 <!-- <el-menu-item index="billing-agreements"><i class="el-icon-caret-right"></i>Billing Agreements</el-menu-item> -->
                 <el-menu-item index="my-wish-list"><i class="el-icon-caret-right"></i>My Wish List</el-menu-item>
+                <el-menu-item index="/add-products"><i class="el-icon-caret-right"></i>Add Products</el-menu-item>
             </el-menu>
           </el-row>
         </el-col>
@@ -39,12 +40,8 @@ export default {
   name: 'MyAccount',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App',
-      user: []
+      msg: 'Welcome to Your Vue.js App'
     }
-  },
-  created () {
-    this.getSessionStorage()
   },
   methods: {
     handleOpen (key, keyPath) {
@@ -61,6 +58,12 @@ export default {
       var that = this
       const user = JSON.parse(sessionStorage.getItem('user'))
       that.user = user
+    }
+  },
+  computed: {
+    user () {
+      debugger
+      return JSON.parse(this.$store.state.user)
     }
   }
 }

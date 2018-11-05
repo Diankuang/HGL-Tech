@@ -10,26 +10,10 @@
                 @open="handleOpen"
                 @select="handleSelect"
                 @close="handleClose">
-                <el-submenu index="1">
-                    <template slot="title">
-                    <span>Add Cables</span>
-                    </template>
-                    <el-menu-item index="add-usb">Add Micro USB</el-menu-item>
-                    <el-menu-item index="1-2">Add Type-C</el-menu-item>
-                    <el-menu-item index="1-3">Add Lightning</el-menu-item>
-                    <el-menu-item index="1-4-1">Add Other</el-menu-item>
-                </el-submenu>
-                 <!-- <el-submenu index="2">
-                    <template slot="title">
-                    <span>Add Temper</span>
-                    </template>
-                    <el-menu-item index="1-1">Add iPhone</el-menu-item>
-                    <el-menu-item index="1-2">Add HuaWei</el-menu-item>
-                    <el-menu-item index="1-3">Add Samsung</el-menu-item>
-                    <el-menu-item index="1-4-1">Add Oppo</el-menu-item>
-                    <el-menu-item index="1-4-1">Add Vivo</el-menu-item>
-                    <el-menu-item index="1-4-1">Add Others</el-menu-item>
-                </el-submenu> -->
+                <el-menu-item index="add-usb"><i class="el-icon-menu"></i>Add Micro USB</el-menu-item>
+                <el-menu-item index="1-2"><i class="el-icon-menu"></i>Add Type-C</el-menu-item>
+                <el-menu-item index="1-3"><i class="el-icon-menu"></i>Add Lightning</el-menu-item>
+                <el-menu-item index="1-4-1"><i class="el-icon-menu"></i>Add Other</el-menu-item>
                 <el-menu-item index="add-temper">
                     <i class="el-icon-menu"></i>
                     <span slot="title">Add Temper</span>
@@ -37,10 +21,6 @@
                 <el-menu-item index="3">
                     <i class="el-icon-menu"></i>
                     <span slot="title">Add News</span>
-                </el-menu-item>
-                <el-menu-item index="4">
-                    <i class="el-icon-setting"></i>
-                    <span slot="title">导航四</span>
                 </el-menu-item>
                 </el-menu>
             </el-col>

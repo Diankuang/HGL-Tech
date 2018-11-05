@@ -43,7 +43,7 @@ export default {
   },
   computed: {
     userInfo () {
-      return JSON.parse(this.$store.state.user)
+      return JSON.parse(sessionStorage.getItem('user'))
     }
   }
 }

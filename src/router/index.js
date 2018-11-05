@@ -281,6 +281,7 @@ export default new Router({
           path: '/add-products',
           name: 'Add Products',
           component: AddProducts,
+          redirect: '/add-usb',
           children: [
             {
               path: '/add-usb',

@@ -81,9 +81,6 @@ export default {
       confirmPasswprd: ''
     }
   },
-  created () {
-    this.getRow(this.userInfo)
-  },
   methods: {
     submitForm (formName) {
       let that = this
@@ -111,7 +108,7 @@ export default {
   computed: {
     userInfo () {
       // let user = JSON.parse(this.$store.state.user)
-      return JSON.parse(this.$store.state.user)
+      return JSON.parse(sessionStorage.getItem('user'))
     }
   }
 }
