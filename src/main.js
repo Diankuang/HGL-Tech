@@ -10,10 +10,12 @@ import VueAxios from 'vue-axios'
 import 'element-ui/lib/theme-chalk/index.css'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
+import VueUEditor from 'vue-ueditor'
 
 Vue.config.productionTip = false
 Vue.use(ElementUI, VueAwesomeSwiper)
 Vue.use(VueAxios, axios)
+Vue.use(VueUEditor)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

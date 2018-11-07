@@ -48,6 +48,7 @@ import WarrantySafety from '@/view/common/Warranty&Safety'
 import AddProducts from '@/view/product/AddProducts'
 import AddMicroUsb from '@/view/product/component/AddMicroUSB'
 import AddTemper from '@/view/product/component/AddTemper'
+import AddNews from '@/view/product/component/AddNews'
 
 Vue.use(Router)
 
@@ -297,6 +298,11 @@ export default new Router({
               path: '/add-temper',
               name: 'Add Temper',
               component: AddTemper
+            },
+            {
+              path: '/add-news',
+              name: 'Add News',
+              component: AddNews
             }
           ]
         }
