@@ -10,6 +10,7 @@ import VueAxios from 'vue-axios'
 import 'element-ui/lib/theme-chalk/index.css'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
+<<<<<<< HEAD
 import VueQuillEditor from 'vue-quill-editor'
 // require styles 引入样式
 import 'quill/dist/quill.core.css'
@@ -24,6 +25,12 @@ import '../static/UE/ueditor.parse.min.js'
 Vue.config.productionTip = false
 Vue.use(ElementUI, VueAwesomeSwiper)
 Vue.use(VueAxios, axios, VueQuillEditor)
+=======
+
+Vue.config.productionTip = false
+Vue.use(ElementUI, VueAwesomeSwiper)
+Vue.use(VueAxios, axios)
+>>>>>>> 0687c25336a63863a7d76ec4b5fa0e84bd1efb73
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

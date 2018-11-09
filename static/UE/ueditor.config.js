@@ -19,11 +19,18 @@
      * 因此，UEditor提供了针对不同页面的编辑器可单独配置的根路径，具体来说，在需要实例化编辑器的页面最顶部写上如下代码即可。当然，需要令此处的URL等于对应的配置。
      * window.UEDITOR_HOME_URL = "/xxxx/xxxx/";
      */
+<<<<<<< HEAD:static/UE/ueditor.config.js
     // window.UEDITOR_HOME_URL = "/vue2-management-platform/static/UE/"  // vue2-management-platform是为gh-pages添加，本地开发写"/static/UE/"足以
   window.UEDITOR_HOME_URL = "/static/UE/"
   var URL = window.UEDITOR_HOME_URL || getUEBasePath();
   
      /**
+=======
+  // window.UEDITOR_HOME_URL = "/xxxx/xxxx/";
+  var URL = '/static/ueditor1_4_3_3/' || getUEBasePath();
+
+    /**
+>>>>>>> 0687c25336a63863a7d76ec4b5fa0e84bd1efb73:static/ueditor1_4_3_3/ueditor.config.js
      * 配置项主体。注意，此处所有涉及到路径的配置别遗漏URL变量。
      */
     window.UEDITOR_CONFIG = {
