@@ -18,7 +18,11 @@
                     <i class="el-icon-menu"></i>
                     <span slot="title">Add Temper</span>
                 </el-menu-item>
-                <el-menu-item index="add-news">
+                <!-- <el-menu-item index="add-news">
+                    <i class="el-icon-menu"></i>
+                    <span slot="title">Add News</span>
+                </el-menu-item> -->
+                <el-menu-item index="editor">
                     <i class="el-icon-menu"></i>
                     <span slot="title">Add News</span>
                 </el-menu-item>

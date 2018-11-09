@@ -49,6 +49,7 @@ import AddProducts from '@/view/product/AddProducts'
 import AddMicroUsb from '@/view/product/component/AddMicroUSB'
 import AddTemper from '@/view/product/component/AddTemper'
 import AddNews from '@/view/product/component/AddNews'
+import editor from '@/view/product/component/editor'
 
 Vue.use(Router)
 
@@ -303,6 +304,11 @@ export default new Router({
               path: '/add-news',
               name: 'Add News',
               component: AddNews
+            },
+            {
+              path: '/editor',
+              name: 'editor',
+              component: editor
             }
           ]
         }
