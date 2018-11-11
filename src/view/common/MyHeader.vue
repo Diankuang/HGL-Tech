@@ -4,7 +4,7 @@
             <el-row class="header-row">
                 <ul class="header-ul">
                     <li><span class="header-span">Welcome to BJD</span></li>
-                    <li v-if="user !== null && user !== ''"><router-link to="my-account" class="header-router-link">{{user.firstName}}&nbsp;{{user.lastName}}</router-link></li>
+                    <li v-if="user !== null && user !== ''"><router-link to="/my-account" class="header-router-link">{{user.firstName}}&nbsp;{{user.lastName}}</router-link></li>
                     <li><router-link to="faq" class="header-router-link">FAQ</router-link></li>
                     <li v-if="user === null"><router-link to="login" class="header-router-link">Sign In</router-link></li>
                     <li v-if="user !== null && user !== ''"><router-link to="logout" class="header-router-link" @click.native="logout()">Sign Out</router-link></li>
@@ -32,6 +32,7 @@
                         <template slot="title"><router-link class="el-menu-router-link" to="/about-us"><span>About us</span></router-link></template>
                         <el-menu-item index="structure">Structure</el-menu-item>
                         <el-menu-item index="terms-of-service">Teams of Service</el-menu-item>
+                        <el-menu-item index="news">BJD News</el-menu-item>
                     </el-submenu>
                     <el-submenu index="3">
                         <!-- <template slot="title"><el-menu-item  index="cables">Cables</el-menu-item></template> -->

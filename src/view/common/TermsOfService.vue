@@ -66,7 +66,7 @@ export default {
   border-top: 4px solid #000000;
   padding: 15px 10px 0;
   box-shadow: 0 2px 3px rgba(0,0,0,0.08);
-  margin-top: 20px;
+  /* margin-top: 20px; */
 }
 .el-row-termsservice-strong{
     font-size: 24px;

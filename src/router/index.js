@@ -20,6 +20,7 @@ import Register from '@/view/customer/Register'
 import AboutUs from '@/view/about-us/AboutUs'
 import Structure from '@/view/about-us/component/Structure'
 import FactoryScene from '@/view/about-us/component/FactoryScene'
+import News from '@/view/about-us/component/News'
 import Cables from '@/view/cables/Cables'
 import MicroUSB from '@/view/cables/component/MicroUSB'
 import TypeC from '@/view/cables/component/Type-C'
@@ -49,7 +50,10 @@ import AddProducts from '@/view/product/AddProducts'
 import AddMicroUsb from '@/view/product/component/AddMicroUSB'
 import AddTemper from '@/view/product/component/AddTemper'
 import AddNews from '@/view/product/component/AddNews'
-import editor from '@/view/product/component/editor'
+import AddNews111 from '@/view/product/component/AddNews111'
+import NewsDetail from '@/view/common/NewsDetail'
+// import quill from '@/view/product/component/quill'
+// import editor from '@/view/product/component/ueditor'
 
 Vue.use(Router)
 
@@ -102,6 +106,11 @@ export default new Router({
               path: '/terms-of-service',
               name: 'Terms of Service',
               component: TermsOfService
+            },
+            {
+              path: '/news',
+              name: 'BJD News',
+              component: News
             }
           ]
         },
@@ -133,16 +142,7 @@ export default new Router({
             }
           ]
         },
-        {
-          path: '/power-bank/:productId',
-          name: 'Products',
-          component: PowerBank
-        },
-        {
-          path: '/temper-pro/:productId',
-          name: 'Temper',
-          component: TemperPro
-        },
+
         {
           path: '/my-account',
           name: 'my-account',
@@ -306,11 +306,26 @@ export default new Router({
               component: AddNews
             },
             {
-              path: '/editor',
-              name: 'editor',
-              component: editor
+              path: '/add-news-111',
+              name: 'Add News',
+              component: AddNews111
             }
           ]
+        },
+        {
+          path: '/power-bank/:productId',
+          name: 'Products',
+          component: PowerBank
+        },
+        {
+          path: '/temper-pro/:productId',
+          name: 'Temper',
+          component: TemperPro
+        },
+        {
+          path: '/news-detail/:newsId',
+          name: 'BJD News',
+          component: NewsDetail
         }
       ]
     }

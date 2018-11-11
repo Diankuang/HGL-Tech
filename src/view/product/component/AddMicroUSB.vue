@@ -180,7 +180,7 @@ export default {
       },
       dialogImageUrl: '',
       dialogVisible: false,
-      uploadPath: 'http://47.107.57.42:9002/',
+      uploadPath: 'http://gugualao.top/',
       orderNo: 0
     }
   },

@@ -13,15 +13,18 @@
                     <li>
                         <router-link to="/terms-of-service">Teams of Service</router-link>
                     </li>
+                    <li>
+                        <router-link to="/news">BJD News</router-link>
+                    </li>
                 </ul>
             </el-col>
         </el-col>
-        <el-col :span="15" :xs="24" class="el-col-about-us-content-center">
+        <el-col :span="20" :xs="24" class="el-col-about-us-content-center">
             <router-view></router-view>
         </el-col>
-        <el-col :span="5" :xs="24" class="el-col-about-us-content-right">
+        <!-- <el-col :span="5" :xs="24" class="el-col-about-us-content-right">
             <LatestNews></LatestNews>
-        </el-col>
+        </el-col> -->
     </el-row>
   </div>
 </template>

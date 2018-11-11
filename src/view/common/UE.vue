@@ -1,10 +1,9 @@
 <template>
   <div>
-    <script :id="id" type="text/plain"></script>
+    <script :id=id type="text/plain"></script>
   </div>
 </template>
 <script>
-// import UE from 'ue'
 export default {
   name: 'UE',
   data () {
@@ -32,12 +31,10 @@ export default {
     console.log('上传这堆错误不用理会，上传接口需自行开发配置')
   },
   methods: {
-    getUEContent () {
-      // 获取内容方法
+    getUEContent () { // 获取内容方法
       return this.editor.getContent()
     },
-    getUEContentTxt () {
-      // 获取纯文本内容方法
+    getUEContentTxt () { // 获取纯文本内容方法
       return this.editor.getContentTxt()
     }
   },
