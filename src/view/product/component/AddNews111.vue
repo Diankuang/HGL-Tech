@@ -38,7 +38,7 @@
   </div>
 </template>
 <script>
-import UE from '@/view/common/ue'
+import UE from '@/components/ue/ueditor'
 import api from '@/utils/api'
 
 export default {

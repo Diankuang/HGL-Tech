@@ -16,6 +16,6 @@
     }
   },
   "ignore": [
-    "./static/UE/*"
+    "/static/UE/*"
   ]
 }
