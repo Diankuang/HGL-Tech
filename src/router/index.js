@@ -290,6 +290,7 @@ export default new Router({
           name: 'Add Products',
           component: AddProducts,
           redirect: '/add-usb',
+          meta: {auth: true},
           children: [
             {
               path: '/add-usb',
@@ -304,11 +305,13 @@ export default new Router({
             {
               path: '/add-news',
               name: 'Add News',
+              meta: {auth: true},
               component: AddNews
             },
             {
               path: '/add-news-111',
               name: 'Add News',
+              meta: {auth: true},
               component: AddNews111
             }
           ]

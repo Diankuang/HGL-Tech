@@ -3,8 +3,8 @@
     <el-row class="el-row-latest-news">
       <span class="el-row-latest-news-span">Latest News</span>
       <ul class="el-row-latest-news-ul">
-          <li class="el-row-latest-news-ul-li" v-for="item in ulList" :key="item.path">
-              <router-link to="item.path">{{item.title}}</router-link>
+          <li class="el-row-latest-news-ul-li" v-for="item in newsList" :key="item.id">
+              <router-link :to="{path: '/news-detail/'+item.newsId}">{{item.title}}</router-link>
           </li>
       </ul>
     </el-row>
@@ -12,7 +12,7 @@
 </template>
 
 <script>
-
+import api from '@/utils/api'
 export default {
   name: 'LatestNews',
   data () {
@@ -26,10 +26,23 @@ export default {
         {path: 'news-info4', title: 'VisionTek Unveils Radeon RX Vega 64 Editions'},
         {path: 'news-info5', title: 'VisionTek Adds The Radeon RX 550 To Its GPU Family'},
         {path: 'news-info6', title: 'VisionTek Launches Radeon RX 580 8GB and RX 570 4GB Overclocked Editions'}
-      ]
+      ],
+      newsList: []
     }
   },
-  methods: {}
+  methods: {
+    queryNewsList () {
+      let that = this
+      api.post('/news/query-news-title', null).then(data => {
+        if (data.code === '0') {
+          that.newsList = data.list
+        }
+      })
+    }
+  },
+  created () {
+    this.queryNewsList()
+  }
 }
 </script>
 
