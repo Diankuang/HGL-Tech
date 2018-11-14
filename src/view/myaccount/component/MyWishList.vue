@@ -22,6 +22,8 @@
 </template>
 
 <script>
+import api from '@/utils/api'
+
 export default {
   name: 'MyWishList',
   data () {
@@ -30,8 +32,35 @@ export default {
       imgList: [
         {id: 1, idView: require('@/assets/images/timg.jpg')}
       ],
-      currentDate: '2018-11-05'
+      currentDate: '2018-11-05',
+      wishList: []
     }
+  },
+  methods: {
+    getMyWishList () {
+      let that = this
+      let params = {
+        userId: this.userInfo.userId
+      }
+      api.postC('/user/query-my-wish-List', params).then(data => {
+        if (data.code === '0') {
+          that.wishList = data.list
+          debugger
+          console.log(that.wishList)
+        } else {
+
+        }
+      })
+    }
+  },
+  computed: {
+    userInfo () {
+      // let user = JSON.parse(this.$store.state.user)
+      return JSON.parse(sessionStorage.getItem('user'))
+    }
+  },
+  created () {
+    this.getMyWishList()
   }
 }
 </script>

@@ -36,6 +36,8 @@ export default {
       api.post('/news/query-news-title', null).then(data => {
         if (data.code === '0') {
           that.newsList = data.list
+          debugger
+          console.log(that.newsList)
         }
       })
     }
@@ -60,9 +62,17 @@ export default {
 }
 .el-row-latest-news-ul{
     list-style:none;
-    line-height:30px;
+    line-height:20px;
     padding-top: 10px;
     text-align: left;
-    font-size: 12px;
+    font-size: 13px;
+}
+.el-row-latest-news-ul-li{
+    text-decoration: none;
+    outline: none;
+    border-bottom: 1px solid #dddddd;
+    display: block;
+    margin: 10px 0 10px 0;
+    padding-bottom: 5px;
 }
 </style>
