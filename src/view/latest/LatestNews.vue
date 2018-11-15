@@ -63,9 +63,9 @@ export default {
 .el-row-latest-news-ul{
     list-style:none;
     line-height:20px;
-    padding-top: 10px;
+    /* padding-top: 10px; */
     text-align: left;
-    font-size: 13px;
+    font-size: 12px;
 }
 .el-row-latest-news-ul-li{
     text-decoration: none;

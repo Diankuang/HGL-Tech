@@ -58,7 +58,7 @@ export default {
       pageNum: 1,
       pageSize: 10,
       total: 0,
-      img: 'http://47.107.57.42/img/',
+      img: 'http://www.gugualao.top/img/',
       productList: [],
       type: '1'
     }

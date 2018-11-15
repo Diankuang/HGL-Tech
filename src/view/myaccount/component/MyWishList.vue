@@ -1,14 +1,14 @@
 <template>
   <div class="my-wish-list">
     <el-row>
-      <el-col :span="8" :xs="24" v-for="(o, index) in 2" :key="o" :offset="index > 0 ? 2 : 0">
+      <el-col :span="4" :xs="24" v-for="item in wishList" :key="item.id">
         <el-card :body-style="{ padding: '0px' }" shadow="hover">
           <router-link to="register">
-            <img :src="imgList.idView" class="image">
+            <img :src="img+item.picture" class="image" style="heght:100%;width:100%">
           </router-link>
           <div style="padding: 14px;">
             <router-link to="register">
-              <span>好吃的汉堡</span>
+              <span>{{item.name}}</span>
             </router-link>
             <div class="bottom clearfix">
               <time class="time">{{ currentDate }}</time>
@@ -33,7 +33,8 @@ export default {
         {id: 1, idView: require('@/assets/images/timg.jpg')}
       ],
       currentDate: '2018-11-05',
-      wishList: []
+      wishList: [],
+      img: 'http://www.gugualao.top/img/'
     }
   },
   methods: {
