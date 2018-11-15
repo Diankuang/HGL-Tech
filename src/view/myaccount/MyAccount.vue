@@ -24,7 +24,7 @@
                 <!-- <el-menu-item index="my-credit-cards"><i class="el-icon-caret-right"></i>My Credit Cards</el-menu-item> -->
                 <!-- <el-menu-item index="billing-agreements"><i class="el-icon-caret-right"></i>Billing Agreements</el-menu-item> -->
                 <el-menu-item index="my-wish-list"><i class="el-icon-caret-right"></i>My Wish List</el-menu-item>
-                <el-menu-item index="/add-products"><i class="el-icon-caret-right"></i>Add Products</el-menu-item>
+                <el-menu-item index="add-products"><i class="el-icon-caret-right"></i>Add Products</el-menu-item>
             </el-menu>
           </el-row>
         </el-col>
@@ -62,7 +62,6 @@ export default {
   },
   computed: {
     user () {
-      debugger
       return JSON.parse(this.$store.state.user)
     }
   }
