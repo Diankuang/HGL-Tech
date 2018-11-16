@@ -1,20 +1,18 @@
 <template>
-  <div class="Vivo">
-    <el-row class="Vivo-row">
-      <el-col :span="6" :xs="24" v-for="item in temperList" :key="item.id"  class="Vivo-row-col">
-        <el-card :body-style="{ padding: '0px' }" class="Vivo-row-col-card" shadow="hover">
+  <div class="type">
+    <el-row class="type-row">
+      <el-col :span="6" :xs="24" v-for="item in temperList" :key="item.id"  class="type-row-col">
+        <el-card :body-style="{ padding: '0px' }" class="type-row-col-card" shadow="hover">
            <router-link :to="{path: '/temper-pro/'+item.id}">
             <img :src="img+item.picture" class="image">
           </router-link>
-          <h4>{{item.price}}</h4>
-          <el-button icon="el-icon-star-on" circle style="padding:5px;" @click="addWishList(item)"></el-button>
           <router-link :to="{path: '/temper-pro/'+item.id}">
-            <p class="Vivo-row-col-p">{{item.name}}</p>
+            <p class="type-row-col-p">{{item.name}}</p>
           </router-link>
         </el-card>
       </el-col>
     </el-row>
-    <el-row class="Vivo-row-pagination">
+    <el-row class="type-row-pagination">
       <el-pagination
         background
         @size-change="handleSizeChange"
@@ -32,11 +30,10 @@
 <script>
 import api from '@/utils/api'
 export default {
-  name: 'Vivo',
+  name: 'Type',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
-      imgUrl: require('@/assets/1539869424.jpg'),
       currentPage: 5,
       pageNum: 1,
       pageSize: 10,
@@ -57,7 +54,7 @@ export default {
     getTemperList () {
       let that = this
       let params = {
-        type: '5',
+        type: this.$route.params.type,
         pageSize: that.pageSize,
         pageNum: that.pageNum
       }
@@ -67,25 +64,6 @@ export default {
           that.total = data.total
         }
       })
-    },
-    addWishList (item) {
-      let that = this
-      let params = { 
-        userId: that.userInfo.userId,
-        productId: item.id,
-        flag: 1
-      }
-      api.post('/user/add-wish-list', params).then(data => {
-        if (data.code === '0') {
-          this.$router.push('/my-wish-list')
-        }
-      })
-    }
-   },
-   computed: {
-    userInfo () {
-      // let user = JSON.parse(this.$store.state.user)
-      return JSON.parse(sessionStorage.getItem('user'))
     }
   },
   created () {
@@ -96,11 +74,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.Vivo{
+.type{
   margin: 0px;
   padding: 0px;
 }
-.Vivo-col-img{
+.type-col-img{
   width: 100%
 }
 .time {
@@ -113,12 +91,12 @@ export default {
   display: block;
   margin: 20px 0 20px 0;
 }
-.Vivo-row-col{
+.type-row-col{
   margin-left: 0px;
   margin-bottom: 20px;
   text-align: center
 }
-.Vivo-row-col-p{
+.type-row-col-p{
     margin: 0px 0px 21px 0px;
 }
 .el-pagination.is-background.el-pager li {

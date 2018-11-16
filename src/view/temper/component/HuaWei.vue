@@ -70,7 +70,7 @@ export default {
     },
     addWishList (item) {
       let that = this
-      let params = {
+      let params = { 
         userId: that.userInfo.userId,
         productId: item.id,
         flag: 1

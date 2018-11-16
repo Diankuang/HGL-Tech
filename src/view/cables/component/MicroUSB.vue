@@ -96,7 +96,7 @@ export default {
       let params = {
         userId: that.userInfo.userId,
         productId: item.id,
-        flag: 1
+        flag: 0
       }
       api.post('/user/add-wish-list', params).then(data => {
         if (data.code === '0') {

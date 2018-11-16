@@ -8,7 +8,7 @@
             <el-col :span="24" class="el-col-cables-content-left-content" :xs="24">
                 <ul class="el-col-cables-content-left-content-ul">
                     <li>
-                        <router-link to="micro-usb">Micro USB</router-link>
+                        <router-link to="/micro-usb">Micro USB</router-link>
                     </li>
                      <li>
                         <router-link to="type-c">Type-C</router-link>

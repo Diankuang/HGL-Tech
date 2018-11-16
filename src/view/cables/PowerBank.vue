@@ -51,7 +51,7 @@
           <el-tabs v-model="activeName" type="card" @tab-click="handleClick" value="Detail">
             <el-tab-pane label="Detail" name="Detail">
               <ul>
-                <li v-for="item in productPicture" :key="item.id">
+                <li v-for="item in productDetail" :key="item.id">
                   <img :src="img+item.picture">
                 </li>
               </ul>
@@ -95,7 +95,8 @@ export default {
       ImgUrl: require('@/assets/images/1.jpg'),
       product: {},
       productPicture: [],
-      img: 'http://47.107.57.42/img/',
+      productDetail: [],
+      img: 'http://www.gugualao.top/img/',
       activeName: 'Detail',
       techSupport: require('@/assets/images/Tech-Support.jpg'),
       bottomSwiper: '',
@@ -162,6 +163,11 @@ export default {
             that.product.type = 'Power Socket'
           }
           that.productPicture = data.productPicture
+          api.postC('/product/get-product-detail', param).then(detail => {
+            if(detail.code === '0'){
+              that.productDetail = detail.list
+            }
+          })
         } else {
           alert(data.msg)
         }
@@ -193,6 +199,7 @@ export default {
 .power-bank{
   margin: 0px;
   padding: 0px;
+  overflow: hidden;
 }
 .power-bank-row{
   text-align: left;

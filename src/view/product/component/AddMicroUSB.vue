@@ -2,7 +2,7 @@
     <div id="add-micro-usb">
         <el-row class="add-micro-usb-row">
             <el-col class="add-micro-usb-upload">
-                <strong>上传图片</strong>
+                <strong>上传产品图片</strong>
                 <el-upload
                     :action="uploadPath+'/file/upload'"
                     list-type="picture-card"
@@ -113,11 +113,30 @@
                         <el-input v-model="mictousbForm.certificate"></el-input>
                     </el-form-item>
                     <!-- </el-col> -->
-                    <el-form-item>
+                    <!-- <el-form-item>
                         <el-button type="primary" @click="submitForm('mictousbForm')">Submit</el-button>
                         <el-button @click="resetForm('mictousbForm')">Reset</el-button>
-                    </el-form-item>
+                    </el-form-item> -->
                 </el-form>
+            </el-col>
+             <el-col class="add-micro-usb-upload">
+                <strong>产品详情图片上传</strong>
+                <el-upload
+                    :action="uploadPath+'/file/upload'"
+                    list-type="picture-card"
+                    :on-preview="handlePictureCardPreview"
+                    :on-remove="handleRemove"
+                    accept="img"
+                    :on-success="uploadDetail">
+                    <i class="el-icon-plus"></i>
+                </el-upload>
+                <el-dialog :visible.sync="dialogVisible">
+                    <img width="100%" :src="dialogImageUrl" alt="">
+                </el-dialog>
+            </el-col>
+            <el-col>
+              <el-button type="primary" @click="submitForm('mictousbForm')">Submit</el-button>
+              <el-button @click="resetForm('mictousbForm')">Reset</el-button>
             </el-col>
         </el-row>
     </div>
@@ -152,7 +171,8 @@ export default {
         introductions: '',
         modelNo: '',
         certificate: '',
-        picture: []
+        picture: [],
+        detail: []
       },
       rules: {
         name: [
@@ -180,8 +200,10 @@ export default {
       },
       dialogImageUrl: '',
       dialogVisible: false,
-      uploadPath: 'http://gugualao.top/',
-      orderNo: 0
+      uploadPath: 'http://www.gugualao.top',
+      // uploadPath: 'http://localhost:9002',
+      orderNo: 0,
+      detailOrderNo: 0
     }
   },
   methods: {
@@ -208,7 +230,12 @@ export default {
       this.$refs[formName].resetFields()
     },
     handleRemove (file, fileList) {
+      debugger
       console.log(file, fileList)
+      let params = {fileName: file.response.fileName}
+      api.postC('/file/remove', params).then(data => {
+        alert(data.msg)
+      })
     },
     handlePictureCardPreview (file) {
       this.dialogImageUrl = file.url
@@ -221,6 +248,15 @@ export default {
         that.orderNo = orderNo
         let picture = {orderNo: orderNo, picture: file.fileName}
         that.mictousbForm.picture.push(picture)
+      }
+    },
+    uploadDetail (file) {
+      let that = this
+      if (file.code === '0') {
+        let orderNo = that.detailOrderNo + 1
+        that.detailOrderNo = orderNo
+        let picture = {orderNo: orderNo, picture: file.fileName}
+        that.mictousbForm.detail.push(picture)
       }
     }
   },

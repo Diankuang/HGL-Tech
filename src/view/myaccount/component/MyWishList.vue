@@ -3,22 +3,22 @@
     <el-row>
       <el-col :span="5" :xs="24" v-for="item in wishList" :key="item.id" class="wish-col">
         <el-card class="wish-card" shadow="hover">
-          <router-link v-if="item.status === 1 " :to="{path: '/power-bank/'+item.productId}">
-            <img :src="img+item.picture" class="image" style="heght:100%;width:100%">
+          <router-link v-if="item.type === 0 " :to="{path: '/power-bank/'+item.productId}">
+            <img :src="img+item.picture" class="image" style="height:300px;width:100%">
           </router-link>
-          <router-link v-if="item.status === 0 " :to="{path: '/temper-pro/'+item.productId}">
-            <img :src="img+item.picture" class="image" style="heght:100%;width:100%">
+          <router-link v-if="item.type === 1 " :to="{path: '/temper-pro/'+item.productId}">
+            <img :src="img+item.picture" class="image" style="height:300px;width:100%">
           </router-link>
           <div style="padding: 14px;">
             <!-- <el-button type="text" class="button">操作按钮</el-button> -->
-            <router-link v-if="item.status === 1 " :to="{path: '/power-bank/'+item.productId}">
-              <span>{{item.name}}</span>
+            <h4 style="text-align: center;">${{item.price}}</h4>
+            <router-link v-if="item.type === 0 " :to="{path: '/power-bank/'+item.productId}">
+              <h4 style="text-align: center;">{{item.name}}</h4>
             </router-link>
-            <router-link v-if="item.status === 0 " :to="{path: '/temper-pro/'+item.productId}">
-              <span>{{item.name}}</span>
+            <router-link v-if="item.type === 1 " :to="{path: '/temper-pro/'+item.productId}">
+              <h4 style="text-align: center;">{{item.name}}</h4>
             </router-link>
-            <p>{{item.price}}</p>
-            <div class="bottom clearfix">
+            <div class="bottom clearfix" style="text-align: center;" >
               <!-- <time class="time">{{ currentDate }}</time> -->
               <el-button type="text" class="button" @click="remove(item)">remove</el-button>
             </div>

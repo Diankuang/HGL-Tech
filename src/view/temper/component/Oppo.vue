@@ -6,6 +6,8 @@
            <router-link :to="{path: '/temper-pro/'+item.id}">
             <img :src="img+item.picture" class="image">
           </router-link>
+          <h4>{{item.price}}</h4>
+          <el-button icon="el-icon-star-on" circle style="padding:5px;" @click="addWishList(item)"></el-button>
           <router-link :to="{path: '/temper-pro/'+item.id}">
             <p class="Oppo-row-col-p">{{item.name}}</p>
           </router-link>
@@ -64,6 +66,25 @@ export default {
           that.total = data.total
         }
       })
+    },
+    addWishList (item) {
+      let that = this
+      let params = { 
+        userId: that.userInfo.userId,
+        productId: item.id,
+        flag: 1
+      }
+      api.post('/user/add-wish-list', params).then(data => {
+        if (data.code === '0') {
+          this.$router.push('/my-wish-list')
+        }
+      })
+    }
+   },
+   computed: {
+    userInfo () {
+      // let user = JSON.parse(this.$store.state.user)
+      return JSON.parse(sessionStorage.getItem('user'))
     }
   },
   created () {
