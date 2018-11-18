@@ -213,15 +213,14 @@ export default {
         if (valid) {
           let params = that.mictousbForm
           api.post('/product/add-power-products', params).then(data => {
-            console.log(data)
             if (data.code === '0') {
               alert(data.msg)
+              that.mictousbForm = {}
             } else {
               alert(data.msg)
             }
           })
         } else {
-          console.log('error submit!!')
           return false
         }
       })
@@ -230,8 +229,6 @@ export default {
       this.$refs[formName].resetFields()
     },
     handleRemove (file, fileList) {
-      debugger
-      console.log(file, fileList)
       let params = {fileName: file.response.fileName}
       api.postC('/file/remove', params).then(data => {
         alert(data.msg)

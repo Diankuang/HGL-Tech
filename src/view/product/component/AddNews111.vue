@@ -7,14 +7,6 @@
       <el-col :span="22" :xs="24"><el-input v-model="summarize"></el-input></el-col>
       <el-col class="add-micro-usb-upload">
         <strong>上传图片</strong>
-        <!-- <el-upload
-          class="avatar-uploader"
-          :action="uploadPath+'/file/upload'"
-          :show-file-list="false"
-          :on-success="upload"
-          :before-upload="beforeAvatarUpload">
-          <i class="el-icon-plus avatar-uploader-icon"></i>
-        </el-upload> -->
         <el-upload
             :action="uploadPath+'/file/upload'"
             list-type="picture-card"
@@ -101,7 +93,6 @@ export default {
       this.dialogVisible = true
     },
     upload (file) {
-      debugger
       let that = this
       if (file.code === '0') {
         that.picture = file.fileName

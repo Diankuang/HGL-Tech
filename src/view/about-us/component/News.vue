@@ -6,7 +6,7 @@
             </el-col>
             <el-col :span="24" :xs="24" v-for="item in newsList" :key="item.id" class="news-row-col">
                 <el-col :span="4" :xs="24" class="news-row-col-img">
-                    <router-link :to="{path: '/news-detail/'+item.newsId}"><img :src="img+item.picture" style="width:100%;height:100%;"/></router-link>
+                    <router-link :to="{path: '/news-detail/'+item.newsId}"><img :src="img+item.picture" style="width:200px;height:120px;"/></router-link>
                 </el-col>
                 <el-col :span="19" :xs="24" class="news-row-col-content">
                     <p>
@@ -18,7 +18,7 @@
                             <span>Read More</span>
                             <i class="el-icon-d-arrow-right"></i>
                         </router-link>
-                        <span style="margin-left: 20px;">{{item.time}}</span>
+                        <span style="margin-left: 20px;">{{item.createTime}}</span>
                     </p>
                 </el-col>
             </el-col>
@@ -28,6 +28,7 @@
 
 <script>
 import api from '@/utils/api'
+import formatDate from '@/utils/date.js'
 
 export default {
   name: 'NEWS',
@@ -51,12 +52,21 @@ export default {
       api.post('/news/query-news', null).then(data => {
         if (data.code === '0') {
           that.newsList = data.list
+          that.newsList.forEach(function (item, index, input) {
+            input[index].createTime = that.formatDate(input[index].createTime)
+          })
         }
       })
     }
   },
   created () {
     this.queryNewsList()
+  },
+  filters: {
+    formatDate (time) {
+      var date = new Date(time)
+      return formatDate(date, 'yyyy-MM-dd hh:mm:ss')
+    }
   }
 }
 </script>
@@ -69,7 +79,7 @@ export default {
     border-radius: 8px;
     background: #fff;
     border-top: 4px solid #000000;
-    padding: 15px 10px 0;
+    padding: 15px 10px 0 10px;
     box-shadow: 0 2px 3px rgba(0,0,0,0.08);
 }
 .el-row-news-strong{
@@ -103,4 +113,8 @@ export default {
     font-size: 14px;
     color: #292727;
 }
+/* .news-row-col-img{
+    height: 100%;
+    width: 100%;
+} */
 </style>

@@ -8,22 +8,22 @@
             <el-col :span="24" :xs="24" class="el-col-temper-content-left-content">
                 <ul class="el-col-temper-content-left-content-ul">
                     <li>
-                        <router-link to="iPhone">iPhone</router-link>
+                        <router-link to="/temper/iPhone">iPhone</router-link>
                     </li>
                      <li>
-                        <router-link to="huawei">Huawei</router-link>
+                        <router-link to="/temper/huawei">Huawei</router-link>
                     </li>
                     <li>
-                        <router-link to="samsung">Samsung</router-link>
+                        <router-link to="/temper/samsung">Samsung</router-link>
                     </li>
                     <li>
-                        <router-link to="oppo">Oppo</router-link>
+                        <router-link to="/temper/oppo">Oppo</router-link>
                     </li>
                     <li>
-                        <router-link to="vivo">Vivo</router-link>
+                        <router-link to="/temper/vivo">Vivo</router-link>
                     </li>
                     <li>
-                        <router-link to="others">Others</router-link>
+                        <router-link to="/temper/others">Others</router-link>
                     </li>
                 </ul>
             </el-col>

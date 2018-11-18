@@ -224,6 +224,7 @@ a:hover {color: #777777; text-decoration:underline;} /*鼠标移近：红色、�
 .contact-span{
     padding-left: 8px;
     color: #777777;
+    font-size: 14px;
 }
 .footer-row-bottom{
     margin: 20px 0 20px 0;

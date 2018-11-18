@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
 import Layout from '@/view/Layout'
 // import Home from '@/view/home/Home'
 import Banner from '@/view/banner/Banner'
@@ -28,7 +27,7 @@ import Lightning from '@/view/cables/component/Lightning'
 import Other from '@/view/cables/component/Other'
 import PowerBank from '@/view/cables/PowerBank'
 import Temper from '@/view/temper/Temper'
-import TemperType from '@/view/temper/TemperType'
+// import TemperType from '@/view/temper/TemperType'
 import TemperPro from '@/view/temper/TemperPro'
 import IPhone from '@/view/temper/component/IPhone'
 import Huawei from '@/view/temper/component/Huawei'
@@ -66,20 +65,15 @@ export default new Router({
       path: '/',
       name: 'Home',
       component: Layout,
-      redirect: 'banner',
+      redirect: '/banner',
       children: [
         {
-          path: '/banner',
+          path: 'banner',
           name: '',
           component: Banner
         },
         {
-          path: '/hello',
-          name: 'HelloWorld',
-          component: HelloWorld
-        },
-        {
-          path: '/register',
+          path: 'register',
           name: 'Register',
           component: Register
         },
@@ -92,10 +86,10 @@ export default new Router({
           path: '/about-us',
           name: 'AboutUs',
           component: AboutUs,
-          redirect: 'structure',
+          redirect: '/about-us/structure',
           children: [
             {
-              path: '/structure',
+              path: '/about-us/structure',
               name: 'Structure',
               component: Structure
             },
@@ -105,12 +99,12 @@ export default new Router({
               component: FactoryScene
             },
             {
-              path: '/terms-of-service',
+              path: '/about-us/terms-of-service',
               name: 'Terms of Service',
               component: TermsOfService
             },
             {
-              path: '/news',
+              path: '/about-us/news',
               name: 'BJD News',
               component: News
             }
@@ -120,25 +114,25 @@ export default new Router({
           path: '/cables',
           name: 'Cables',
           component: Cables,
-          redirect: 'micro-usb',
+          redirect: '/cables/micro-usb',
           children: [
             {
-              path: '/micro-usb',
+              path: '/cables/micro-usb',
               name: 'Micro USB',
               component: MicroUSB
             },
             {
-              path: '/lightning',
+              path: '/cables/lightning',
               name: 'Lightning',
               component: Lightning
             },
             {
-              path: '/type-c',
+              path: '/cables/type-c',
               name: 'Type-C',
               component: TypeC
             },
             {
-              path: '/other',
+              path: '/cables/other',
               name: 'Other',
               component: Other
             }
@@ -149,57 +143,57 @@ export default new Router({
           path: '/my-account',
           name: 'my-account',
           component: MyAccount,
-          redirect: '/account-information',
+          redirect: '/my-account/account-information',
           meta: {auth: true},
           children: [
             {
-              path: '/account-dashboard',
+              path: '/my-account/account-dashboard',
               name: 'Account Dashboard',
               component: AccountDashboard
             },
             {
-              path: '/account-information',
+              path: '/my-account/account-information',
               name: 'Account Information',
               component: AccountInformation,
               meta: {auth: true}
             },
             {
-              path: '/address-book',
+              path: '/my-account/address-book',
               name: 'Address Book',
               component: AddressBook
             },
             {
-              path: '/my-orders',
+              path: '/my-account/my-orders',
               name: 'My Orders',
               component: MyOrders
             },
             {
-              path: '/my-downloadable-products',
+              path: '/my-account/my-downloadable-products',
               name: 'My Downloadable Products',
               component: MyDownloadableProducts
             },
             {
-              path: '/my-product-reviews',
+              path: '/my-account/my-product-reviews',
               name: 'My Product Reviews',
               component: MyProductReviews
             },
             {
-              path: '/newsletter-subscriptions',
+              path: '/my-account/newsletter-subscriptions',
               name: 'Newsletter Subscriptions',
               component: NewsletterSubscriptions
             },
             {
-              path: '/my-credit-cards',
+              path: '/my-account/my-credit-cards',
               name: 'My Credit Cards',
               component: MyCreditCards
             },
             {
-              path: '/billing-agreements',
+              path: '/my-account/billing-agreements',
               name: 'Billing Agreements',
               component: BillingAgreements
             },
             {
-              path: '/my-wish-list',
+              path: '/my-account/my-wish-list',
               name: 'My Wish List',
               component: MyWishList
             }
@@ -209,35 +203,35 @@ export default new Router({
           path: '/temper',
           name: 'Temper',
           component: Temper,
-          redirect: '/iPhone',
+          redirect: '/temper/iPhone',
           children: [
             {
-              path: '/iPhone',
+              path: '/temper/iPhone',
               name: 'iPhone',
               component: IPhone
             },
             {
-              path: '/huawei',
+              path: '/temper/huawei',
               name: 'Huawei',
               component: Huawei
             },
             {
-              path: '/oppo',
+              path: '/temper/oppo',
               name: 'Oppo',
               component: Oppo
             },
             {
-              path: '/vivo',
+              path: '/temper/vivo',
               name: 'Vivo',
               component: Vivo
             },
             {
-              path: '/samsung',
+              path: '/temper/samsung',
               name: 'Samsung',
               component: Samsung
             },
             {
-              path: '/others',
+              path: '/temper/others',
               name: 'Others',
               component: Others
             }
@@ -247,20 +241,20 @@ export default new Router({
           path: '/support',
           name: 'Support',
           component: Support,
-          redirect: '/faq',
+          redirect: '/support/faq',
           children: [
             {
-              path: '/faq',
+              path: '/support/faq',
               name: 'Frequently Asked Questions',
               component: FAQ
             },
             {
-              path: '/after-sale-policy',
+              path: '/support/after-sale-policy',
               name: 'After Sale Policy',
               component: AfterSalePolicy
             },
             {
-              path: '/map',
+              path: '/support/map',
               name: 'Map',
               component: Map
             }

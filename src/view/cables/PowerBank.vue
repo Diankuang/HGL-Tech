@@ -123,15 +123,9 @@ export default {
     this.getProductDetail()
   },
   methods: {
-    handleSizeChange () {
-      // console.log(`每页 ${val} 条`);
-    },
-    handleCurrentChange () {
-      // console.log(`当前页: ${val}`);
-    },
+    handleSizeChange () {},
+    handleCurrentChange () {},
     getIndex (imgUrl) {
-      console.log()
-      console.log(imgUrl)
       this.ImgUrl = imgUrl
     },
     getProductDetail () {
@@ -140,7 +134,6 @@ export default {
         productId: this.$route.params.productId
       }
       api.postC('/product/query-power-pro-detail', param).then(data => {
-        console.log(data)
         if (data.code === '0') {
           that.product = data.product
           let type = that.product.type
@@ -164,8 +157,9 @@ export default {
           }
           that.productPicture = data.productPicture
           api.postC('/product/get-product-detail', param).then(detail => {
-            if(detail.code === '0'){
+            if (detail.code === '0') {
               that.productDetail = detail.list
+              console.log(that.productDetail)
             }
           })
         } else {

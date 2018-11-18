@@ -36,8 +36,6 @@ export default {
       api.post('/news/query-news-title', null).then(data => {
         if (data.code === '0') {
           that.newsList = data.list
-          debugger
-          console.log(that.newsList)
         }
       })
     }

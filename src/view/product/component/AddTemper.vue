@@ -41,11 +41,30 @@
                     <el-form-item label="introductions" prop="introductions">
                         <el-input type="textarea" :rows="2" v-model="temperForm.introductions"></el-input>
                     </el-form-item>
-                     <el-form-item>
+                     <!-- <el-form-item>
                         <el-button type="primary" @click="submitForm('temperForm')">Submit</el-button>
                         <el-button @click="resetForm('temperForm')">Reset</el-button>
-                    </el-form-item>
+                    </el-form-item> -->
                 </el-form>
+            </el-col>
+            <el-col class="add-temper-upload">
+                <strong>产品详情图片上传</strong>
+                <el-upload
+                    :action="uploadPath+'/file/upload'"
+                    list-type="picture-card"
+                    :on-preview="handlePictureCardPreview"
+                    :on-remove="handleRemove"
+                    accept="img"
+                    :on-success="uploadDetail">
+                    <i class="el-icon-plus"></i>
+                </el-upload>
+                <el-dialog :visible.sync="dialogVisible">
+                    <img width="100%" :src="dialogImageUrl" alt="">
+                </el-dialog>
+            </el-col>
+              <el-col>
+              <el-button type="primary" @click="submitForm('temperForm')">Submit</el-button>
+              <el-button @click="resetForm('temperForm')">Reset</el-button>
             </el-col>
         </el-row>
     </div>
@@ -67,7 +86,8 @@ export default {
         type: 1,
         price: 0,
         introductions: '',
-        picture: []
+        picture: [],
+        detail: []
       },
       rules: {
         name: [
@@ -95,8 +115,10 @@ export default {
       },
       dialogImageUrl: '',
       dialogVisible: false,
-      uploadPath: 'http://47.107.57.42:9002/',
-      orderNo: 0
+      // uploadPath: 'http://47.107.57.42:9002/',
+      uploadPath: 'http://www.gugualao.top',
+      orderNo: 0,
+      detailOrderNo: 0
     }
   },
   methods: {
@@ -123,7 +145,10 @@ export default {
       this.$refs[formName].resetFields()
     },
     handleRemove (file, fileList) {
-      console.log(file, fileList)
+      let params = {fileName: file.response.fileName}
+      api.postC('/file/remove', params).then(data => {
+        alert(data.msg)
+      })
     },
     handlePictureCardPreview (file) {
       this.dialogImageUrl = file.url
@@ -136,6 +161,15 @@ export default {
         that.orderNo = orderNo
         let picture = {orderNo: orderNo, picture: file.fileName}
         that.temperForm.picture.push(picture)
+      }
+    },
+    uploadDetail (file) {
+      let that = this
+      if (file.code === '0') {
+        let orderNo = that.detailOrderNo + 1
+        that.detailOrderNo = orderNo
+        let picture = {orderNo: orderNo, picture: file.fileName}
+        that.temperForm.detail.push(picture)
       }
     }
   }

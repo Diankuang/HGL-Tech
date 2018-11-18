@@ -6,11 +6,11 @@
       </el-row>
       <el-row class="el-row-latest-faq-content">
         <el-collapse accordion  @change="onChange()">
-            <el-collapse-item v-for="item in latestFaqList" :key="item.id">
+            <el-collapse-item v-for="item in latestFaqList" :key="item.id" class="latest-faq-collapse">
                 <template slot="title" class="tem-faq">
-                    <i class="el-icon-plus" v-if="i == 1"></i>
-                    <i class="el-icon-plus" v-if="i == 0"></i>
-                    <span>{{item.title}}</span>
+                    <!-- <i class="el-icon-plus" v-if="i == 1"></i>
+                    <i class="el-icon-plus" v-if="i == 0"></i> -->
+                    <span style="line-height: 20px;">{{item.title}}</span>
                 </template>
                 <div v-if="item.content1" class="faq-content">{{item.content1}}</div>
                 <div v-if="item.content2">{{item.content2}}</div>
@@ -73,20 +73,6 @@ export default {
   margin: 0px;
   padding: 0px;
 }
-/* .el-row-latest-faq{ */
-    /* font-size: 1.8rem; */
-    /* font-weight: 300;
-    line-height: 1.1;
-    margin-bottom: 1rem;
-    margin-top: 1.5rem;
-        font-size: 16px; */
-    /* color: #777; */
-    /* font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; */
-    /* font-style: normal; */
-    /* font-weight: 400;
-    line-height: 1.4;
-    font-size: 1.3rem; */
-/* } */
 .el-row-latest-faq-span{
     color: #777;
     font-size: 17px;
@@ -117,9 +103,9 @@ export default {
 .tem-faq{
     line-height: 20px;
 }
-el-collapse-item__header {
-    /* height: 48px; */
-    /* line-height: 48px; */
+.latest-faq-collapse {
+    height: 48px;
+    line-height: 20px;
     color: #303133;
     cursor: pointer;
     border-bottom: 1px solid #ebeef5;

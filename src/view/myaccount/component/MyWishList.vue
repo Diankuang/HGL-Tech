@@ -3,13 +3,15 @@
     <el-row>
       <el-col :span="5" :xs="24" v-for="item in wishList" :key="item.id" class="wish-col">
         <el-card class="wish-card" shadow="hover">
-          <router-link v-if="item.type === 0 " :to="{path: '/power-bank/'+item.productId}">
-            <img :src="img+item.picture" class="image" style="height:300px;width:100%">
-          </router-link>
-          <router-link v-if="item.type === 1 " :to="{path: '/temper-pro/'+item.productId}">
-            <img :src="img+item.picture" class="image" style="height:300px;width:100%">
-          </router-link>
-          <div style="padding: 14px;">
+          <el-col :span="24" :xs="24" style="width:100%;height: 200px;">
+            <router-link v-if="item.type === 0 " :to="{path: '/power-bank/'+item.productId}">
+              <img :src="img+item.picture" class="image" style="height:100%;width:100%">
+            </router-link>
+            <router-link v-if="item.type === 1 " :to="{path: '/temper-pro/'+item.productId}">
+              <img :src="img+item.picture" class="image" style="height:100%;width:100%">
+            </router-link>
+          </el-col>
+          <el-col :span="24" :xs="24" class="mywishlist-div">
             <!-- <el-button type="text" class="button">操作按钮</el-button> -->
             <h4 style="text-align: center;">${{item.price}}</h4>
             <router-link v-if="item.type === 0 " :to="{path: '/power-bank/'+item.productId}">
@@ -20,9 +22,10 @@
             </router-link>
             <div class="bottom clearfix" style="text-align: center;" >
               <!-- <time class="time">{{ currentDate }}</time> -->
-              <el-button type="text" class="button" @click="remove(item)">remove</el-button>
+              <el-button icon="el-icon-delete" circle style="padding:5px;" class="button" @click="remove(item)"></el-button>
+              <span class="add-wish-list-span" @click="remove(item)">remove</span>
             </div>
-          </div>
+          </el-col>
         </el-card>
       </el-col>
     </el-row>
@@ -88,5 +91,16 @@ export default {
 }
 .button{
   text-align: center;
+}
+.wish-card{
+  height: 350px;
+}
+.mywishlist-div{
+  margin: 50px 0 10px 0;
+}
+.add-wish-list-span{
+  font-size: 12px;
+  color: #999;
+  cursor: pointer;
 }
 </style>

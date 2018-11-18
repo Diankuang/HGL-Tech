@@ -30,37 +30,37 @@
                     <el-submenu index="2">
                         <!-- <template slot="title"><el-menu-item index="about-us">About us</el-menu-item></template> -->
                         <template slot="title"><router-link class="el-menu-router-link" to="/about-us"><span>About us</span></router-link></template>
-                        <el-menu-item index="structure">Structure</el-menu-item>
-                        <el-menu-item index="terms-of-service">Teams of Service</el-menu-item>
-                        <el-menu-item index="news">BJD News</el-menu-item>
+                        <el-menu-item index="/about-us/structure">Structure</el-menu-item>
+                        <el-menu-item index="/about-us/terms-of-service">Teams of Service</el-menu-item>
+                        <el-menu-item index="/about-us/news">BJD News</el-menu-item>
                     </el-submenu>
                     <el-submenu index="3">
                         <!-- <template slot="title"><el-menu-item  index="cables">Cables</el-menu-item></template> -->
-                        <template slot="title">Cables</template>
+                        <template slot="title"><router-link class="el-menu-router-link" to="/cables"><span>Cables</span></router-link></template>
                         <!-- <template slot="title"><router-link class="header-router-link" to="/cables">Cables</router-link></template> -->
-                        <el-menu-item index="/micro-usb">Micro USB</el-menu-item>
-                        <el-menu-item index="/type-c">Type-C</el-menu-item>
-                        <el-menu-item index="/lightning">Lightning </el-menu-item>
-                        <el-menu-item index="/other">Others</el-menu-item>
+                        <el-menu-item index="/cables/micro-usb">Micro USB</el-menu-item>
+                        <el-menu-item index="/cables/type-c">Type-C</el-menu-item>
+                        <el-menu-item index="/cables/lightning">Lightning </el-menu-item>
+                        <el-menu-item index="/cables/other">Others</el-menu-item>
                     </el-submenu>
                     <el-submenu index="4">
                         <!-- <template slot="title"><el-menu-item  index="temper">Temper</el-menu-item></template> -->
-                        <template slot="title">Temper</template>
-                        <!-- <template slot="title"><router-link class="el-menu-router-link" to="/temper">Temper</router-link></template> -->
-                        <el-menu-item index="/iPhone">iPhone</el-menu-item>
-                        <el-menu-item index="/huawei">Huawei</el-menu-item>
-                        <el-menu-item index="/samsung">Samsung</el-menu-item>
-                        <el-menu-item index="/oppo">Oppo</el-menu-item>
-                        <el-menu-item index="/vivo">Vivo</el-menu-item>
-                        <el-menu-item index="/others">Others</el-menu-item>
+                        <!-- <template slot="title">Temper</template> -->
+                        <template slot="title"><router-link class="el-menu-router-link" to="/temper"><span>Temper</span></router-link></template>
+                        <el-menu-item index="/temper/iPhone">iPhone</el-menu-item>
+                        <el-menu-item index="/temper/huawei">Huawei</el-menu-item>
+                        <el-menu-item index="/temper/samsung">Samsung</el-menu-item>
+                        <el-menu-item index="/temper/oppo">Oppo</el-menu-item>
+                        <el-menu-item index="/temper/vivo">Vivo</el-menu-item>
+                        <el-menu-item index="/temper/others">Others</el-menu-item>
                     </el-submenu>
                     <el-submenu index="5">
                         <!-- <template slot="title"><el-menu-item index="supoort">Support</el-menu-item></template> -->
-                        <template slot="title">Support</template>
-                        <!-- <template slot="title"><router-link class="el-menu-router-link" to="/support">Support</router-link></template> -->
-                        <el-menu-item index="/faq">FAQ</el-menu-item>
-                        <el-menu-item index="/map">Map</el-menu-item>
-                        <el-menu-item index="/after-sale-policy">After sale Policy</el-menu-item>
+                        <!-- <template slot="title">Support</template> -->
+                        <template slot="title"><router-link class="el-menu-router-link" to="/support"><span>Support</span></router-link></template>
+                        <el-menu-item index="/support/faq">FAQ</el-menu-item>
+                        <el-menu-item index="/support/map">Map</el-menu-item>
+                        <el-menu-item index="/support/after-sale-policy">After sale Policy</el-menu-item>
                     </el-submenu>
                     <el-menu-item index="/contact-us">Contact us</el-menu-item>
                     <!-- <el-submenu index="6"> -->

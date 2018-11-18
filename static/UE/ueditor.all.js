@@ -20272,7 +20272,7 @@ UE.plugins['table'] = function () {
                 if (cell) {
                     var table = cell.parentNode.parentNode.parentNode;
                     if (table.offsetWidth > table.getAttribute("width")) {
-                        cell.style.wordBreak = "break-all";
+                        // cell.style.wordBreak = "break-all";
                     }
                 }
 

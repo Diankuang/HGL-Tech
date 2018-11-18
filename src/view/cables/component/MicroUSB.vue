@@ -24,7 +24,7 @@
           <router-link :to="{path: '/power-bank/'+item.id}">
             <img :src="img+item.picture" class="image">
           </router-link>
-          <h4>{{item.price}}</h4>
+          <h4>${{item.price}}</h4>
           <el-button icon="el-icon-star-on" circle style="padding:5px;" @click="addWishList(item)"></el-button>
           <!-- <i class="el-icon-star-on"></i> -->
           <router-link :to="{path: '/power-bank/'+item.id}">
@@ -93,6 +93,10 @@ export default {
     },
     addWishList (item) {
       let that = this
+      if (that.userInfo === null) {
+        this.$router.push('/login')
+        return false
+      }
       let params = {
         userId: that.userInfo.userId,
         productId: item.id,
