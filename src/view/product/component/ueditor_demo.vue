@@ -7,21 +7,23 @@
       <el-col :span="22" :xs="24"><el-input v-model="summarize"></el-input></el-col>
       <el-col class="add-micro-usb-upload" :span="24" :xs="24">
         <strong>news cover:</strong>
-        <el-upload
-            :action="uploadPath+'/file/upload'"
-            list-type="picture-card"
-            :on-preview="handlePictureCardPreview"
-            :on-remove="handleRemove"
-            accept="img"
-            :on-success="upload">
-            <i class="el-icon-plus"></i>
-        </el-upload>
-        <el-dialog :visible.sync="dialogVisible">
-            <img width="100%" :src="dialogImageUrl" alt="">
-        </el-dialog>
+        <el-col class="el-upload-news">
+          <el-upload
+              :action="uploadPath+'/file/upload'"
+              list-type="picture-card"
+              :on-preview="handlePictureCardPreview"
+              :on-remove="handleRemove"
+              accept="img"
+              :on-success="upload"
+              >
+              <i class="el-icon-plus"></i>
+          </el-upload>
+          <el-dialog :visible.sync="dialogVisible">
+              <img width="100%" :src="dialogImageUrl" alt="">
+          </el-dialog>
+        </el-col>
       </el-col>
       <el-col :span="24" :xs="24">
-        <button size="primary" type="info" icon="plus" @click="getContent">获取内容</button>
         <UEditor :config="config" ref="ueditor"></UEditor>
         <el-button type="primary" class="add-news-button" @click="getUEContent()">Submit</el-button>
       </el-col>
@@ -91,11 +93,11 @@ export default {
     getUEContent () {
       let that = this
       let content = this.$refs.ueditor.getUEContent() // 调用子组件方法
-      this.$notify({
-        title: '获取成功，可在控制台查看！',
-        message: content,
-        type: 'success'
-      })
+      // this.$notify({
+      //   title: '获取成功，可在控制台查看！',
+      //   message: content,
+      //   type: 'success'
+      // })
       let params = {
         'title': that.title,
         'content': content,
@@ -106,7 +108,7 @@ export default {
       api.post('/news/add-news', params).then(data => {
         if (data.code === '0') {
           alert(data.msg)
-          that.title = ''
+          this.$router.push(0)
         } else {
           alert(data.msg)
         }
@@ -115,3 +117,23 @@ export default {
   }
 }
 </script>
+<style scoped>
+/* .el-upload-news{
+  height: 100px;
+} */
+.el-upload--picture-card, .el-upload-dragger{
+   width: 60px;
+    height: 60px;
+}
+.el-upload .picture-card {
+    background-color: #fbfdff;
+    border: 1px dashed #c0ccda;
+    border-radius: 6px;
+    -webkit-box-sizing: border-box;
+    /* box-sizing: border-box; */
+    width: 60px;
+    height: 60px;
+    line-height: 146px;
+    vertical-align: top;
+  }
+</style>

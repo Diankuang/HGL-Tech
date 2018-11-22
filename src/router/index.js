@@ -44,17 +44,11 @@ import ContactUs from '@/view/common/ContactUs'
 import PrivacyPolicy from '@/view/common/PrivacyPolicy'
 import TermsOfService from '@/view/common/TermsOfService'
 import WarrantySafety from '@/view/common/Warranty&Safety'
-// import LatestNews from '@/view/latest-news/LatestNews'
-
 import AddProducts from '@/view/product/AddProducts'
 import AddMicroUsb from '@/view/product/component/AddMicroUSB'
 import AddTemper from '@/view/product/component/AddTemper'
-import AddNews from '@/view/product/component/AddNews'
-// import AddNews111 from '@/view/product/component/AddNews111'
-import AddNews111 from '@/view/product/component/ueditor_demo'
+import AddNews from '@/view/product/component/ueditor_demo'
 import NewsDetail from '@/view/common/NewsDetail'
-// import quill from '@/view/product/component/quill'
-// import editor from '@/view/product/component/ueditor'
 
 Vue.use(Router)
 
@@ -284,16 +278,16 @@ export default new Router({
           path: '/add-products',
           name: 'Add Products',
           component: AddProducts,
-          redirect: '/add-usb',
+          redirect: '/add-products/add-usb',
           meta: {auth: true},
           children: [
             {
-              path: '/add-usb',
+              path: '/add-products/add-usb',
               name: 'AddMicroUsb',
               component: AddMicroUsb
             },
             {
-              path: '/add-temper',
+              path: '/add-products/add-temper',
               name: 'Add Temper',
               component: AddTemper
             },
@@ -302,12 +296,6 @@ export default new Router({
               name: 'Add News',
               meta: {auth: true},
               component: AddNews
-            },
-            {
-              path: '/add-news-111',
-              name: 'Add News',
-              meta: {auth: true},
-              component: AddNews111
             }
           ]
         },

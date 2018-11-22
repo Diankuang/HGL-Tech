@@ -189,11 +189,11 @@ export default {
     margin: 30px;
     padding-left: 26%;
 } */
-p{
+/* p{
     display: inline-block;
     vertical-align: top;
     margin: 0;
-}
+} */
 .el-form-item__content{
     margin-left: 0px;
 }

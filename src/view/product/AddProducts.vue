@@ -10,21 +10,21 @@
                 @open="handleOpen"
                 @select="handleSelect"
                 @close="handleClose">
-                <el-menu-item index="add-usb"><i class="el-icon-menu"></i>Add Micro USB</el-menu-item>
+                <el-menu-item index="/add-products/add-usb"><i class="el-icon-menu"></i>Add Micro USB</el-menu-item>
                 <el-menu-item index="1-2"><i class="el-icon-menu"></i>Add Type-C</el-menu-item>
                 <el-menu-item index="1-3"><i class="el-icon-menu"></i>Add Lightning</el-menu-item>
                 <el-menu-item index="1-4-1"><i class="el-icon-menu"></i>Add Other</el-menu-item>
-                <el-menu-item index="add-temper">
+                <el-menu-item index="/add-products/add-temper">
                     <i class="el-icon-menu"></i>
                     <span slot="title">Add Temper</span>
                 </el-menu-item>
-                <el-menu-item index="add-news">
+                <!-- <el-menu-item index="add-news">
                     <i class="el-icon-menu"></i>
                     <span slot="title">Add News</span>
-                </el-menu-item>
-                <el-menu-item index="add-news-111">
+                </el-menu-item> -->
+                <el-menu-item index="/add-news">
                     <i class="el-icon-menu"></i>
-                    <span slot="title">Add News 111</span>
+                    <span slot="title">Add News</span>
                 </el-menu-item>
                 </el-menu>
             </el-col>

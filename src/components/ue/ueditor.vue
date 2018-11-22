@@ -1,6 +1,6 @@
 <template>
   <div>
-    <script id="editor" type="text/plain" ></script>
+    <script id="editor" type="text/plain"  charset="utf-8" ></script>
   </div>
 </template>
 
