@@ -74,12 +74,15 @@ export default {
   },
   computed: {
     userInfo () {
-      // let user = JSON.parse(this.$store.state.user)
       return JSON.parse(sessionStorage.getItem('user'))
     }
   },
   created () {
-    this.getMyWishList()
+    if (this.userInfo === null) {
+      this.$router.push('/login')
+    } else {
+      this.getMyWishList()
+    }
   }
 }
 </script>

@@ -79,7 +79,6 @@ export default {
       // console.log(window.innerHeight)
       this.imgHeight = window.innerHeight
       this.imgClass = 'height:  ' + window.innerHeight + 'px;'
-      console.warn('重新计算', this.imgHeight)
     },
     getNewArrivals () {
       let that = this

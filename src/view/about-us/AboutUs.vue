@@ -90,7 +90,7 @@ export default {
     text-align: left;
 }
 .el-col-about-us-content-center{
-    padding: 10px 15px 15px;
+    padding: 20px 15px 15px;
 }
 .el-col-about-us-content-right{
     display: block;

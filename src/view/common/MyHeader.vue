@@ -5,7 +5,7 @@
                 <ul class="header-ul">
                     <li><span class="header-span">Welcome to BJD</span></li>
                     <li v-if="user !== null && user !== ''"><router-link to="/my-account" class="header-router-link">{{user.firstName}}&nbsp;{{user.lastName}}</router-link></li>
-                    <li><router-link to="/faq" class="header-router-link">FAQ</router-link></li>
+                    <li><router-link to="/support/faq" class="header-router-link">FAQ</router-link></li>
                     <li v-if="user === null"><router-link to="/login" class="header-router-link">Sign In</router-link></li>
                     <li v-if="user !== null && user !== ''"><router-link to="/logout" class="header-router-link" @click.native="logout()">Sign Out</router-link></li>
                     <!-- <li v-if="user"><span class="header-router-link">Sign Out</span></li> -->
@@ -24,7 +24,7 @@
                 background-color="#545c64"
                 text-color="#fff"
                 collapse-transition=true
-                active-text-color="#ffd04b">
+                active-text-color="#545c64">
                      <!-- <el-menu-item index="/"><img src="@/assets/logo.png"></el-menu-item> -->
                     <el-menu-item index="/">Home</el-menu-item>
                     <el-submenu index="2">
@@ -87,16 +87,11 @@ export default {
   },
   methods: {
     handleSelect (key, keyPath) {
-      console.log(key + '==' + keyPath)
       this.$router.push(keyPath)
     },
     logout () {
-      console.log('logout ')
       api.get('/user/logout', null).then(res => {
-        console.log(res)
         sessionStorage.removeItem('user')
-        // this.$store.commit('$_setStorage', null)
-        // this.$store.commit('$_setLogin', '0')
         this.$router.push('/')
       })
     }

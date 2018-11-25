@@ -31,6 +31,7 @@ new Vue({
 
 router.beforeEach((to, from, next) => {
   if (to.matched.some(m => m.meta.auth)) {
+    debugger
     if (window.sessionStorage.user !== null && window.sessionStorage.user !== '') {
       next()
     } else if (to.path !== '/') {

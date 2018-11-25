@@ -45,6 +45,11 @@ export default {
     userInfo () {
       return JSON.parse(sessionStorage.getItem('user'))
     }
+  },
+  created () {
+    if (this.userInfo === null) {
+      this.$router.push('/login')
+    }
   }
 }
 </script>

@@ -91,6 +91,7 @@ export default {
       }
     },
     getUEContent () {
+      debugger
       let that = this
       let content = this.$refs.ueditor.getUEContent() // 调用子组件方法
       // this.$notify({
@@ -104,15 +105,28 @@ export default {
         'picture': that.picture,
         'summarize': that.summarize
       }
-      console.log(content)
       api.post('/news/add-news', params).then(data => {
         if (data.code === '0') {
           alert(data.msg)
-          this.$router.push(0)
+          this.$router.go(0)
         } else {
           alert(data.msg)
         }
       })
+    }
+  },
+  computed: {
+    userInfo () {
+      return JSON.parse(this.$store.state.user)
+    }
+  },
+  created () {
+    if (this.userInfo === null) {
+      this.$router.push('/login')
+    } else if (this.userInfo.email !== '1832054053@qq.com') {
+      this.$router.push('/')
+    } else {
+      next()
     }
   }
 }

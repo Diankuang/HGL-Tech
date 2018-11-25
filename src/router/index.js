@@ -143,7 +143,8 @@ export default new Router({
             {
               path: '/my-account/account-dashboard',
               name: 'Account Dashboard',
-              component: AccountDashboard
+              component: AccountDashboard,
+              meta: {auth: true}
             },
             {
               path: '/my-account/account-information',
@@ -154,12 +155,14 @@ export default new Router({
             {
               path: '/my-account/address-book',
               name: 'Address Book',
-              component: AddressBook
+              component: AddressBook,
+              meta: {auth: true}
             },
             {
               path: '/my-account/my-orders',
               name: 'My Orders',
-              component: MyOrders
+              component: MyOrders,
+              meta: {auth: true}
             },
             {
               path: '/my-account/my-downloadable-products',
@@ -284,12 +287,14 @@ export default new Router({
             {
               path: '/add-products/add-usb',
               name: 'AddMicroUsb',
-              component: AddMicroUsb
+              component: AddMicroUsb,
+              meta: {auth: true}
             },
             {
               path: '/add-products/add-temper',
               name: 'Add Temper',
-              component: AddTemper
+              component: AddTemper,
+              meta: {auth: true}
             },
             {
               path: '/add-news',

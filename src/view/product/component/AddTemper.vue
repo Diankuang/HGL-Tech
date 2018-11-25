@@ -128,15 +128,14 @@ export default {
         if (valid) {
           let params = that.temperForm
           api.post('/temper/add-temper', params).then(data => {
-            console.log(data)
             if (data.code === '0') {
               alert(data.msg)
+              this.$router.go(0)
             } else {
               alert(data.msg)
             }
           })
         } else {
-          console.log('error submit!!')
           return false
         }
       })
@@ -171,6 +170,20 @@ export default {
         let picture = {orderNo: orderNo, picture: file.fileName}
         that.temperForm.detail.push(picture)
       }
+    }
+  },
+  computed: {
+    userInfo () {
+      return JSON.parse(this.$store.state.user)
+    }
+  },
+  created () {
+    if (this.userInfo === null) {
+      this.$router.push('/login')
+    } else if (this.userInfo.email !== '1832054053@qq.com') {
+      this.$router.push('/')
+    } else {
+      next()
     }
   }
 }

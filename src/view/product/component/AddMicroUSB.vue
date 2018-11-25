@@ -215,7 +215,7 @@ export default {
           api.post('/product/add-power-products', params).then(data => {
             if (data.code === '0') {
               alert(data.msg)
-              that.mictousbForm = {}
+              this.$router.go(0)
             } else {
               alert(data.msg)
             }
@@ -260,6 +260,15 @@ export default {
   computed: {
     userInfo () {
       return JSON.parse(this.$store.state.user)
+    }
+  },
+  created () {
+    if (this.userInfo === null) {
+      this.$router.push('/login')
+    } else if (this.userInfo.email !== '1832054053@qq.com') {
+      this.$router.push('/')
+    } else {
+      next()
     }
   }
 }

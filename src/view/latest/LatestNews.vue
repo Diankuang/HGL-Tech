@@ -8,6 +8,9 @@
           </li>
       </ul>
     </el-row>
+    <el-row class="view-all">
+      <router-link to="/about-us/news"><span class="view-span">View All</span></router-link>
+    </el-row>
   </div>
 </template>
 
@@ -19,14 +22,6 @@ export default {
     return {
       msg: 'Welcome to Your Vue.js App',
       imgUrl: require('@/assets/1539869424.jpg'),
-      ulList: [
-        {path: 'news-info1', title: 'VisionTek Launches the VT100 Universal USB 3.0 Portable Dock'},
-        {path: 'news-info2', title: 'VisionTek Launches Portable Thunderbolt 3 SSD Enclosures for Mac and PC'},
-        {path: 'news-info3', title: 'VisionTek Introduces New Thunderbolt™ 3 eGFX External Graphics Accelerator Enclosure'},
-        {path: 'news-info4', title: 'VisionTek Unveils Radeon RX Vega 64 Editions'},
-        {path: 'news-info5', title: 'VisionTek Adds The Radeon RX 550 To Its GPU Family'},
-        {path: 'news-info6', title: 'VisionTek Launches Radeon RX 580 8GB and RX 570 4GB Overclocked Editions'}
-      ],
       newsList: []
     }
   },
@@ -72,5 +67,9 @@ export default {
     display: block;
     margin: 10px 0 10px 0;
     padding-bottom: 5px;
+}
+.view-span{
+  color: #777777;
+  font-size: 12px;
 }
 </style>

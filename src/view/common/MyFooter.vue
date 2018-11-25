@@ -39,7 +39,7 @@
                             <p><i class="el-icon-phone"></i><b>Phone:</b><br><span class="contact-span">(866) 883-5411</span></p>
                         </li>
                         <li>
-                            <p><i class="el-icon-message"></i><b>Email:</b><br> <a class="footer-a" href="mailto:support@visiontek.com" style="padding-left: 8px;">support@visiontek.com</a></p>
+                            <p><i class="el-icon-message"></i><b>Email:</b><br> <a class="footer-a" href="mailto:support@visiontek.com"><span class="contact-span">support@visiontek.com</span></a></p>
                         </li>
                             <li>
                             <!-- <i class="el-icon-phone"></i> -->
@@ -222,9 +222,9 @@ a:hover {color: #777777; text-decoration:underline;} /*鼠标移近：红色、�
     font-size: 0.9rem;
 } */
 .contact-span{
-    padding-left: 8px;
+    /* padding-left: 8px; */
     color: #777777;
-    font-size: 14px;
+    font-size: 13px;
 }
 .footer-row-bottom{
     margin: 20px 0 20px 0;

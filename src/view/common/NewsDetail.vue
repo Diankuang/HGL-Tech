@@ -1,10 +1,19 @@
 <template>
     <div id="news-detail">
-        <!-- {{news.content}} -->
-        <el-row class="news-detail-row" v-html="html">
-          <div>{{html}}</div>
+        <el-row class="news-detail-row">
+          <el-col class="news-detail-title" :span="18" :offset="4" :xs="24">
+            <P><strong>{{news.title}}</strong></P>
+            <p><span class="news-detail-span">Time: {{news.createTime}}&nbsp;&nbsp;&nbsp;&nbsp;Source: BJD group</span></p>
+          </el-col>
+          <el-col v-html="html" class="news-detail-content" :span="24" :offset="4" :xs="24"></el-col>
+          <el-col class="news-detail-share" :span="18" :offset="4" :xs="24">
+            <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间">fdsfds</a>
+            <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">fdsf</a>
+            <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博">fdsaf</a>
+            <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网">fsd</a>
+            <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">fsda</a>
+          </el-col>
         </el-row>
-        <!-- <p><img src="http://localhost:9002/upload/ueditor/image/20181121/1542805588397099707.jpg" title="1542805588397099707.jpg" alt="201804180938403840.jpg" width="287" height="276"/></p><p>fhdsjfhdsjf&nbsp;</p><p><span style="color: rgb(192, 80, 77);">fdsghfjksdfhjksdhfjkdsf</span></p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://img.baidu.com/hi/jx2/j_0013.gif"/><img src="http://img.baidu.com/hi/jx2/j_0003.gif"/></p> -->
     </div>
 </template>
 
@@ -40,4 +49,23 @@ export default {
 </script>
 
 <style scoped>
+.news-detail-span{
+  font-size: 14px;
+  text-align: center;
+  color: #888;
+}
+.news-detail-title{
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+.news-detail-title p{
+  margin: 20px 0 5px 0;
+}
+.news-detail-content{
+  margin: 30px 0 150px 0;
+}
+.news-detail-share{
+  text-align: left;
+  margin-bottom: 30px;
+}
 </style>

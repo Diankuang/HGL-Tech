@@ -4,6 +4,7 @@
             <el-col :span="24" :xs="24" class="el-row-news-strong">
                 <strong>BJD News</strong>
             </el-col>
+            <el-col v-if="newsList.length === 0" class="news-row-col-null"><span>There's no News Info</span></el-col>
             <el-col :span="24" :xs="24" v-for="item in newsList" :key="item.id" class="news-row-col">
                 <el-col :span="4" :xs="24" class="news-row-col-img">
                     <router-link :to="{path: '/news-detail/'+item.newsId}"><img :src="img+item.picture" style="width:200px;height:120px;"/></router-link>
@@ -28,20 +29,12 @@
 
 <script>
 import api from '@/utils/api'
-import formatDate from '@/utils/date.js'
 
 export default {
   name: 'NEWS',
   data () {
     return {
-      newsList: [
-        {newsId: '1', title: '2018 Autumn Global Sources Mobile Electronics Fair Invitation', picture: require('@/assets/images/5bbeafcb2798f.jpg'), time: '2018-11-11', content: '2018 Autumn Global Sources Mobile Electronics Fair InvitationBooth No.： 9F18    Date：18th ~21st Oct Product： Car&Wall charger /  Qi wireless charger  /   Power Soc...'},
-        {newsId: '2', title: '2018 Autumn Global Sources Mobile Electronics Fair Invitation', picture: require('@/assets/images/5bbeafcb2798f.jpg'), time: '2018-11-11', content: '2018 Autumn Global Sources Mobile Electronics Fair InvitationBooth No.： 9F18    Date：18th ~21st Oct Product： Car&Wall charger /  Qi wireless charger  /   Power Soc...'},
-        {newsId: '3', title: '2018 Autumn Global Sources Mobile Electronics Fair Invitation', picture: require('@/assets/images/5bbeafcb2798f.jpg'), time: '2018-11-11', content: '2018 Autumn Global Sources Mobile Electronics Fair InvitationBooth No.： 9F18    Date：18th ~21st Oct Product： Car&Wall charger /  Qi wireless charger  /   Power Soc...'},
-        {newsId: '4', title: '2018 Autumn Global Sources Mobile Electronics Fair Invitation', picture: require('@/assets/images/5bbeafcb2798f.jpg'), time: '2018-11-11', content: '2018 Autumn Global Sources Mobile Electronics Fair InvitationBooth No.： 9F18    Date：18th ~21st Oct Product： Car&Wall charger /  Qi wireless charger  /   Power Soc...'},
-        {newsId: '5', title: '2018 Autumn Global Sources Mobile Electronics Fair Invitation', picture: require('@/assets/images/5bbeafcb2798f.jpg'), time: '2018-11-11', content: '2018 Autumn Global Sources Mobile Electronics Fair InvitationBooth No.： 9F18    Date：18th ~21st Oct Product： Car&Wall charger /  Qi wireless charger  /   Power Soc...'},
-        {newsId: '6', title: '2018 Autumn Global Sources Mobile Electronics Fair Invitation', picture: require('@/assets/images/5bbeafcb2798f.jpg'), time: '2018-11-11', content: '2018 Autumn Global Sources Mobile Electronics Fair InvitationBooth No.： 9F18    Date：18th ~21st Oct Product： Car&Wall charger /  Qi wireless charger  /   Power Soc...'}
-      ],
+      newsList: [],
       logo: require('@/assets/images/5bbeafcb2798f.jpg'),
       img: 'http://www.gugualao.top/img/'
     }
@@ -52,21 +45,12 @@ export default {
       api.post('/news/query-news', null).then(data => {
         if (data.code === '0') {
           that.newsList = data.list
-          that.newsList.forEach(function (item, index, input) {
-            input[index].createTime = that.formatDate(input[index].createTime)
-          })
         }
       })
     }
   },
   created () {
     this.queryNewsList()
-  },
-  filters: {
-    formatDate (time) {
-      var date = new Date(time)
-      return formatDate(date, 'yyyy-MM-dd hh:mm:ss')
-    }
   }
 }
 </script>
@@ -113,8 +97,8 @@ export default {
     font-size: 14px;
     color: #292727;
 }
-/* .news-row-col-img{
-    height: 100%;
-    width: 100%;
-} */
+.news-row-col-null{
+    text-align: center;
+    height: 82px;
+}
 </style>
