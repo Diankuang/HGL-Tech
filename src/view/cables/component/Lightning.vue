@@ -3,20 +3,22 @@
     <el-row class="lightning-row">
       <el-col :span="6" :xs="24" v-for="item in productList" :key="item.id"  class="lightning-row-col">
         <el-card :body-style="{ padding: '0px' }" class="lightning-row-col-card" shadow="hover">
-          <!-- <router-link :to="{name: 'Products',params: { productId: item.id}}">
-            <img src="@/assets/factory-scene/57b6cf5a9e40b.jpg" class="image">
-          </router-link>
-        </el-card>
-        <router-link :to="{name: 'Products',params: { productId: item.id}}">
-          <span class="lightning-row-col-span">{{item.name}}</span>
-        </router-link> -->
-        <router-link :to="{path: '/power-bank/'+item.id}">
+          <!-- <router-link :to="{path: '/power-bank/'+item.id}">
+              <img :src="img+item.picture" class="image">
+            </router-link>
+          </el-card>
+          <router-link :to="{path: '/power-bank/'+item.id}">
+            <p class="lightning-row-col-p">{{item.name}}</p>
+          </router-link> -->
+           <router-link :to="{path: '/power-bank/'+item.id}">
             <img :src="img+item.picture" class="image">
           </router-link>
+          <h4>${{item.price}}</h4>
+          <el-button icon="el-icon-star-on" circle style="padding:5px;" @click="addWishList(item)"></el-button>
+          <router-link :to="{path: '/power-bank/'+item.id}">
+            {{item.name}}
+          </router-link>
         </el-card>
-        <router-link :to="{path: '/power-bank/'+item.id}">
-          <p class="lightning-row-col-p">{{item.name}}</p>
-        </router-link>
       </el-col>
     </el-row>
     <el-row class="lightning-row-pagination">
@@ -63,7 +65,7 @@ export default {
       let that = this
       let params = {
         type: '1',
-        pageSize: that.pageNum,
+        pageSize: that.pageSize,
         pageNum: this.pageNum
       }
       api.post('/product/query-power-products', params).then(data => {
@@ -74,10 +76,32 @@ export default {
           alert('source not found')
         }
       })
+    },
+    addWishList (item) {
+      let that = this
+      if (that.userInfo === null) {
+        this.$router.push('/login')
+        return false
+      }
+      let params = {
+        userId: that.userInfo.userId,
+        productId: item.id,
+        flag: 0
+      }
+      api.post('/user/add-wish-list', params).then(data => {
+        if (data.code === '0') {
+          this.$router.push('/my-account/my-wish-list')
+        }
+      })
     }
   },
   created () {
     this.getMicroUsbList()
+  },
+  computed: {
+    userInfo () {
+      return JSON.parse(sessionStorage.getItem('user'))
+    }
   }
 }
 </script>
@@ -98,7 +122,7 @@ export default {
 .image {
   width: 100%;
   display: block;
-  height: 300px;
+  height: 100%;
 }
 .lightning-row-col{
   margin-left: 0px;
@@ -111,5 +135,6 @@ export default {
 }
 .lightning-row-col-card{
   margin-bottom: 20px;
+  padding-bottom: 10px;
 }
 </style>

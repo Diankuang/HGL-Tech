@@ -5,8 +5,8 @@
         <span class="el-row-latest-faq-span">Latest FAQ</span>
       </el-row>
       <el-row class="el-row-latest-faq-content">
-        <el-collapse accordion  @change="onChange()">
-            <el-collapse-item v-for="item in latestFaqList" :key="item.id" class="latest-faq-collapse">
+        <el-collapse accordion  @change="onChange()"  class="latest-faq-collapse">
+            <el-collapse-item v-for="item in latestFaqList" :key="item.id">
                 <template slot="title" class="tem-faq">
                     <!-- <i class="el-icon-plus" v-if="i == 1"></i>
                     <i class="el-icon-plus" v-if="i == 0"></i> -->
@@ -103,7 +103,7 @@ export default {
 .tem-faq{
     line-height: 20px;
 }
-.latest-faq-collapse {
+.latest-faq-collapse.el-collapse-item__header {
     height: 48px;
     line-height: 20px;
     color: #303133;

@@ -259,7 +259,7 @@ export default {
   },
   computed: {
     userInfo () {
-      return JSON.parse(this.$store.state.user)
+      return JSON.parse(sessionStorage.getItem('user'))
     }
   },
   created () {
@@ -267,8 +267,6 @@ export default {
       this.$router.push('/login')
     } else if (this.userInfo.email !== '1832054053@qq.com') {
       this.$router.push('/')
-    } else {
-      next()
     }
   }
 }

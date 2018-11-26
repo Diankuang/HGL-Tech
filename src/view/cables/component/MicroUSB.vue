@@ -14,19 +14,11 @@
     <el-row class="micro-usb-row">
       <el-col :span="6" :xs="24" v-for="item in productList" :key="item.id"  class="micro-usb-row-col">
         <el-card :body-style="{ padding: '0px' }" class="micro-usb-row-col-card" shadow="hover">
-          <!-- <router-link :to="{name: 'Products',params: { productId: item.id}}">
-            <img src="@/assets/factory-scene/57b6cf5a9e40b.jpg" class="image">
-          </router-link>
-        </el-card>
-        <router-link :to="{name: 'Products',params: { productId: item.id}}">
-          <span class="micro-usb-row-col-span">{{item.name}}</span>
-        </router-link> -->
           <router-link :to="{path: '/power-bank/'+item.id}">
             <img :src="img+item.picture" class="image">
           </router-link>
           <h4>${{item.price}}</h4>
           <el-button icon="el-icon-star-on" circle style="padding:5px;" @click="addWishList(item)"></el-button>
-          <!-- <i class="el-icon-star-on"></i> -->
           <router-link :to="{path: '/power-bank/'+item.id}">
             {{item.name}}
           </router-link>
@@ -79,7 +71,7 @@ export default {
       let that = this
       let params = {
         type: that.type,
-        pageSize: that.pageNum,
+        pageSize: that.pageSize,
         pageNum: this.pageNum
       }
       api.post('/product/query-power-products', params).then(data => {
@@ -104,7 +96,7 @@ export default {
       }
       api.post('/user/add-wish-list', params).then(data => {
         if (data.code === '0') {
-          this.$router.push('/my-wish-list')
+          this.$router.push('/my-account/my-wish-list')
         }
       })
     }
@@ -114,7 +106,6 @@ export default {
   },
   computed: {
     userInfo () {
-      // let user = JSON.parse(this.$store.state.user)
       return JSON.parse(sessionStorage.getItem('user'))
     }
   }

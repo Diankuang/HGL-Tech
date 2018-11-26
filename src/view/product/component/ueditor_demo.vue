@@ -117,16 +117,15 @@ export default {
   },
   computed: {
     userInfo () {
-      return JSON.parse(this.$store.state.user)
+      return JSON.parse(sessionStorage.getItem('user'))
     }
   },
   created () {
     if (this.userInfo === null) {
       this.$router.push('/login')
-    } else if (this.userInfo.email !== '1832054053@qq.com') {
+    }
+    if (this.userInfo.email !== '1832054053@qq.com') {
       this.$router.push('/')
-    } else {
-      next()
     }
   }
 }

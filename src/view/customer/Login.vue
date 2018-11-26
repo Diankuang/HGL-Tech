@@ -65,7 +65,6 @@ export default {
     // },
     submitForm (loginFrom) {
       var that = this
-      console.log(that.loginForm)
       this.$refs[loginFrom].validate((valid) => {
         if (valid) {
           let params = {
@@ -73,7 +72,6 @@ export default {
             password: that.loginForm.password
           }
           api.post('/user/login', params).then(data => {
-            console.log(data)
             if (data.code === '0') {
               sessionStorage.setItem('user', JSON.stringify(data.user))
               // let loginUser = sessionStorage.getItem('user')
@@ -81,6 +79,8 @@ export default {
               // this.$store.commit('$_setLogin', '1')
               // this.$store.commit('$_setUserId', data.user.userId)
               this.$router.push('/my-account')
+            } else {
+              alert(data.msg)
             }
           })
         } else {

@@ -54,6 +54,19 @@ export default {
     handleClose (key, keyPath) {
       console.log(key, keyPath)
     }
+  },
+  computed: {
+    userInfo () {
+      return JSON.parse(sessionStorage.getItem('user'))
+    }
+  },
+  created () {
+    if (this.userInfo === null) {
+      this.$router.push('/login')
+    }
+    if (this.userInfo.email !== '1832054053@qq.com') {
+      this.$router.push('/')
+    }
   }
 }
 </script>

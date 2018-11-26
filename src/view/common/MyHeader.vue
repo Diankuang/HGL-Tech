@@ -24,7 +24,7 @@
                 background-color="#545c64"
                 text-color="#fff"
                 collapse-transition=true
-                active-text-color="#545c64">
+                active-text-color="#ddd">
                      <!-- <el-menu-item index="/"><img src="@/assets/logo.png"></el-menu-item> -->
                     <el-menu-item index="/">Home</el-menu-item>
                     <el-submenu index="2">

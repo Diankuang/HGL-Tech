@@ -21,14 +21,23 @@
         <router-link :to="{name: 'Products',params: { productId: item.id}}">
           <span class="micro-usb-row-col-span">{{item.name}}</span>
         </router-link> -->
-        <router-link :to="{path: '/power-bank/'+item.id}">
+        <!-- <router-link :to="{path: '/power-bank/'+item.id}">
             <img :src="img+item.picture" class="image">
           </router-link>
         </el-card>
         <i class="el-icon-star-on"></i>
         <router-link :to="{path: '/power-bank/'+item.id}">
           {{item.name}}
-        </router-link>
+        </router-link> -->
+        <router-link :to="{path: '/power-bank/'+item.id}">
+            <img :src="img+item.picture" class="image">
+          </router-link>
+          <h4>${{item.price}}</h4>
+          <el-button icon="el-icon-star-on" circle style="padding:5px;" @click="addWishList(item)"></el-button>
+          <router-link :to="{path: '/power-bank/'+item.id}">
+            {{item.name}}
+          </router-link>
+        </el-card>
       </el-col>
     </el-row>
     <el-row class="micro-usb-row-pagination">
@@ -75,7 +84,7 @@ export default {
       let that = this
       let params = {
         type: that.type,
-        pageSize: that.pageNum,
+        pageSize: that.pageSize,
         pageNum: this.pageNum
       }
       console.log(params)
@@ -87,10 +96,32 @@ export default {
           alert('source not found')
         }
       })
+    },
+    addWishList (item) {
+      let that = this
+      if (that.userInfo === null) {
+        this.$router.push('/login')
+        return false
+      }
+      let params = {
+        userId: that.userInfo.userId,
+        productId: item.id,
+        flag: 0
+      }
+      api.post('/user/add-wish-list', params).then(data => {
+        if (data.code === '0') {
+          this.$router.push('/my-account/my-wish-list')
+        }
+      })
     }
   },
   created () {
     this.getMicroUsbList()
+  },
+  computed: {
+    userInfo () {
+      return JSON.parse(sessionStorage.getItem('user'))
+    }
   }
 }
 </script>
@@ -111,7 +142,7 @@ export default {
 .image {
   width: 100%;
   display: block;
-  height: 300px;
+  height: 100%;
 }
 .micro-usb-row-col{
   margin-left: 0px;
@@ -130,5 +161,6 @@ export default {
 }
 .micro-usb-row-col-card{
   margin-bottom: 20px;
+  padding-bottom: 10px;
 }
 </style>

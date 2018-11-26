@@ -1,9 +1,9 @@
 <template>
   <div id="faq">
       <el-row class="faq-row">
-        <el-collapse accordion  @change="onChange()">
-            <el-collapse-item v-for="item in allFaqList" :key="item.id" class="fap-el-collapse">
-                <template slot="title" class="tem-faq">
+        <el-collapse accordion  @change="onChange()" class="support-faq">
+            <el-collapse-item v-for="item in allFaqList" :key="item.id">
+                <template slot="title">
                     <!-- <span style="font-size:17px;line-height:20px">Question:</span>
                     <span style="font-size:14px;line-height:20px">{{item.title}}</span> -->
                     Question:
@@ -77,7 +77,7 @@ export default {
 .faq-content p{
   margin-left: 20px;
 }
-.el-collapse-item .el-collapse-item{
-line-height: 20px;
+.support-faq el-collapse-item{
+  line-height: 20px;
 }
 </style>
