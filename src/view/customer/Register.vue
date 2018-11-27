@@ -17,7 +17,6 @@
                     </el-form-item>
                      <el-form-item class="register-form">
                         <input type="checkbox" name="is_subscribed" title="Sign Up for Newsletter" value="1" id="is_subscribed" class="checkbox">
-                        <label for="is_subscribed" class="label"><span>Sign Up for Newsletter</span></label>
                     </el-form-item>
                     <el-form-item class="register-form">
                         <el-button type="primary" class="sign-in" @click="submitForm('registerForm')">Create an Account</el-button>

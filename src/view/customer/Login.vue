@@ -21,7 +21,7 @@
               </el-form-item>
               <el-form-item class="login-form-item">
                 <el-button type="primary" class="sign-in" @click="submitForm('loginForm')"> Sign In</el-button>
-                <!-- <a href="forgot-password" class="login-a-a">Sign InForgot Your Password?</a> -->
+                <router-link to="/reset-password" class="login-a-a">Sign InForgot Your Password?</router-link>
               </el-form-item>
             </el-form>
           </el-card>

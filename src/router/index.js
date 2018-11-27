@@ -49,6 +49,7 @@ import AddMicroUsb from '@/view/product/component/AddMicroUSB'
 import AddTemper from '@/view/product/component/AddTemper'
 import AddNews from '@/view/product/component/ueditor_demo'
 import NewsDetail from '@/view/common/NewsDetail'
+import ForgotPassword from '@/view/customer/ForgotPassword'
 
 Vue.use(Router)
 
@@ -75,6 +76,11 @@ export default new Router({
           path: '/login',
           name: 'Login',
           component: Login
+        },
+        {
+          path: '/reset-password',
+          name: 'ResetPassword',
+          component: ForgotPassword
         },
         {
           path: '/about-us',
