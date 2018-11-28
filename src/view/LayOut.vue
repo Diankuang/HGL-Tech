@@ -1,18 +1,6 @@
 <template>
     <div id="layout">
         <myheader></myheader>
-        <!-- <el-col :span="24" class="breadcrumb-container">
-            <strong class="title">{{$route.name}}</strong>
-            <el-breadcrumb separator="/" class="breadcrumb-inner">
-                <el-breadcrumb-item v-for="item in $route.matched" :key="item.path" :to="{path: item.path}">
-                    <span class="breadcrumb-span">{{ item.name }}</span>
-                </el-breadcrumb-item>
-            </el-breadcrumb>
-        </el-col> -->
-         <!-- <el-row>
-            <div class="my-account-row-div"></div>
-            <div class="grid-content bg-purple-dark"></div>
-        </el-row> -->
         <el-col :span="24" :xs="24" class="breadcrumb-container">
             <el-breadcrumb separator-class="el-icon-arrow-right">
                 <el-breadcrumb-item v-for="item in $route.matched" :key="item.path" :to="{ path: item.path }">

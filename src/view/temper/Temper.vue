@@ -1,7 +1,7 @@
 <template>
   <div class="temper">
     <el-row class="el-row-temper">
-        <el-col :span="4" :xs="24" class="el-col-temper-content-left">
+        <el-col :span="5" :xs="24" class="el-col-temper-content-left">
             <el-col :span="24" :xs="24" class="el-col-temper-content-left-title">
                 <strong>About us</strong>
             </el-col>
@@ -28,7 +28,7 @@
                 </ul>
             </el-col>
         </el-col>
-        <el-col :span="15" :xs="24" class="el-col-temper-content-center">
+        <el-col :span="14" :xs="24" class="el-col-temper-content-center">
             <router-view></router-view>
         </el-col>
         <el-col :span="5" :xs="24" class="el-col-temper-content-right">

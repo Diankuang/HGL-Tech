@@ -1,7 +1,7 @@
 <template>
   <div class="cables">
     <el-row class="el-row-cables">
-        <el-col :span="4" class="el-col-cables-content-left" :xs="24">
+        <el-col :span="5" class="el-col-cables-content-left" :xs="24">
             <el-col :span="24" class="el-col-cables-content-left-title" :xs="24">
                 <strong>About us</strong>
             </el-col>
@@ -22,7 +22,7 @@
                 </ul>
             </el-col>
         </el-col>
-        <el-col :span="15" class="el-col-cables-content-center" :xs="24">
+        <el-col :span="14" class="el-col-cables-content-center" :xs="24">
             <router-view></router-view>
         </el-col>
         <el-col :span="5" class="el-col-cables-content-right" :xs="24">

@@ -1,7 +1,7 @@
 <template>
   <div class="support">
     <el-row class="el-row-support">
-        <el-col :span="4" :xs="24" class="el-col-support-content-left">
+        <el-col :span="5" :xs="24" class="el-col-support-content-left">
             <el-col :span="24" :xs="24" class="el-col-support-content-left-top">
                 <el-col :span="24" :xs="24" class="el-col-support-content-left-title">
                     <strong>About us</strong>
@@ -24,7 +24,7 @@
                 <LatestNews></LatestNews>
             </el-col>
         </el-col>
-        <el-col :span="20" :xs="24" class="el-col-support-content-center">
+        <el-col :span="19" :xs="24" class="el-col-support-content-center">
             <router-view></router-view>
         </el-col>
         <!-- <el-col :span="4" :xs="24" class="el-col-support-content-right">

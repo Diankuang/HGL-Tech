@@ -14,14 +14,18 @@
     <el-row class="micro-usb-row">
       <el-col :span="6" :xs="24" v-for="item in productList" :key="item.id"  class="micro-usb-row-col">
         <el-card :body-style="{ padding: '0px' }" class="micro-usb-row-col-card" shadow="hover">
-          <router-link :to="{path: '/power-bank/'+item.id}">
-            <img :src="img+item.picture" class="image">
-          </router-link>
-          <h4>${{item.price}}</h4>
-          <el-button icon="el-icon-star-on" circle style="padding:5px;" @click="addWishList(item)"></el-button>
-          <router-link :to="{path: '/power-bank/'+item.id}">
-            {{item.name}}
-          </router-link>
+          <el-col :span="24" :xs="24" style="width:100%;height: 250px;">
+            <router-link :to="{path: '/power-bank/'+item.id}">
+              <img :src="img+item.picture" class="image">
+            </router-link>
+          </el-col>
+          <el-col :span="24" :xs="24" class="cables-div">
+            <h4>${{item.price}}</h4>
+            <el-button icon="el-icon-star-on" circle style="padding:5px;" @click="addWishList(item)"></el-button>
+            <router-link :to="{path: '/power-bank/'+item.id}">
+              {{item.name}}
+            </router-link>
+          </el-col>
         </el-card>
       </el-col>
     </el-row>
@@ -146,7 +150,12 @@ export default {
   margin-bottom: 20px;
 }
 .micro-usb-row-col-card{
-  margin-bottom: 20px;
-  padding-bottom: 10px;
+  /* margin-bottom: 20px;
+  padding-bottom: 10px; */
+  height: 400px;
+
+}
+.cables-div{
+  margin: 50px 0 10px 0;
 }
 </style>

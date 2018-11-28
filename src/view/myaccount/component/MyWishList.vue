@@ -96,7 +96,7 @@ export default {
   text-align: center;
 }
 .wish-card{
-  height: 350px;
+  height: 400px;
 }
 .mywishlist-div{
   margin: 50px 0 10px 0;

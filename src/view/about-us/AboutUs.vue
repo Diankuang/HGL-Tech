@@ -1,7 +1,7 @@
 <template>
   <div class="about-us">
     <el-row class="el-row-about-us">
-        <el-col :span="4" :xs="24" class="el-col-about-us-content-left">
+        <el-col :span="5" :xs="24" class="el-col-about-us-content-left">
             <el-col :span="24" :xs="24" class="el-col-about-us-content-left-title">
                 <strong>About us</strong>
             </el-col>
@@ -19,7 +19,7 @@
                 </ul>
             </el-col>
         </el-col>
-        <el-col :span="20" :xs="24" class="el-col-about-us-content-center">
+        <el-col :span="19" :xs="24" class="el-col-about-us-content-center">
             <router-view></router-view>
         </el-col>
         <!-- <el-col :span="5" :xs="24" class="el-col-about-us-content-right">
