@@ -58,7 +58,7 @@ export default {
       total: 0,
       img: 'http://www.gugualao.top/img/',
       productList: [],
-      type: '1'
+      type: '9'
     }
   },
   methods: {

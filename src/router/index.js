@@ -44,10 +44,6 @@ import ContactUs from '@/view/common/ContactUs'
 import PrivacyPolicy from '@/view/common/PrivacyPolicy'
 import TermsOfService from '@/view/common/TermsOfService'
 import WarrantySafety from '@/view/common/Warranty&Safety'
-import AddProducts from '@/view/product/AddProducts'
-import AddMicroUsb from '@/view/product/component/AddMicroUSB'
-import AddTemper from '@/view/product/component/AddTemper'
-import AddNews from '@/view/product/component/ueditor_demo'
 import NewsDetail from '@/view/common/NewsDetail'
 import ForgotPassword from '@/view/customer/ForgotPassword'
 
@@ -282,33 +278,6 @@ export default new Router({
           path: '/warranty-safety',
           name: 'Warranty & Safety',
           component: WarrantySafety
-        },
-        {
-          path: '/add-products',
-          name: 'Add Products',
-          component: AddProducts,
-          redirect: '/add-products/add-usb',
-          meta: {auth: true},
-          children: [
-            {
-              path: '/add-products/add-usb',
-              name: 'AddMicroUsb',
-              component: AddMicroUsb,
-              meta: {auth: true}
-            },
-            {
-              path: '/add-products/add-temper',
-              name: 'Add Temper',
-              component: AddTemper,
-              meta: {auth: true}
-            },
-            {
-              path: '/add-news',
-              name: 'Add News',
-              meta: {auth: true},
-              component: AddNews
-            }
-          ]
         },
         {
           path: '/power-bank/:productId',

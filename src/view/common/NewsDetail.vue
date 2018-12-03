@@ -19,7 +19,7 @@
 
 <script>
 import api from '@/utils/api'
-import '../../../static/UE/lang/zh-cn/zh-cn.js'
+// import '../../../static/UE/lang/zh-cn/zh-cn.js'
 export default {
   name: 'NewsDetail',
   data () {

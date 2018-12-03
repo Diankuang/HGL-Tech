@@ -61,7 +61,7 @@ export default {
     getMicroUsbList () {
       let that = this
       let params = {
-        type: '1',
+        type: '8',
         pageSize: that.pageSize,
         pageNum: this.pageNum
       }
