@@ -21,10 +21,14 @@
           </el-col>
           <el-col :span="24" :xs="24" class="cables-div">
             <h4>${{item.price}}</h4>
-            <el-button icon="el-icon-star-on" circle style="padding:5px;" @click="addWishList(item)"></el-button>
+            <!-- <el-button icon="el-icon-star-on" circle style="padding:5px;" @click="addWishList(item)"></el-button> -->
             <router-link :to="{path: '/power-bank/'+item.id}">
               {{item.name}}
             </router-link>
+            <el-col>
+              <el-button icon="el-icon-star-on" circle style="padding:5px;" @click="addWishList(item)"></el-button>
+              <span class="add-wish-list-span" @click="addWishList(item)">add to my wish list</span>
+            </el-col>
           </el-col>
         </el-card>
       </el-col>
@@ -155,5 +159,10 @@ export default {
 }
 .cables-div{
   margin: 50px 0 10px 0;
+}
+.add-wish-list-span{
+  font-size: 12px;
+  color: #999;
+  cursor: pointer;
 }
 </style>

@@ -91,7 +91,6 @@ export default {
       }
     },
     getUEContent () {
-      debugger
       let that = this
       let content = this.$refs.ueditor.getUEContent() // 调用子组件方法
       // this.$notify({

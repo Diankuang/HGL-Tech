@@ -66,9 +66,7 @@
         <e-row class="power-bank-row-col-right-latest-news">
           <LatestNews></LatestNews>
         </e-row>
-        <el-row class="power-bank-row-col-right-latest-faq">
-          <LatestFAQ></LatestFAQ>
-        </el-row>
+         -->
       </el-col>
     </el-row>
   </div>

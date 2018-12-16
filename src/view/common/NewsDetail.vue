@@ -7,7 +7,7 @@
           </el-col>
           <el-col v-html="html" class="news-detail-content" :span="24" :offset="4" :xs="24"></el-col>
           <el-col class="news-detail-share" :span="18" :offset="4" :xs="24">
-            <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间">fdsfds</a>
+            <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间">QQ</a>
             <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">fdsf</a>
             <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博">fdsaf</a>
             <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网">fsd</a>

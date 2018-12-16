@@ -70,7 +70,7 @@
           <el-tabs v-model="activeName" type="card" @tab-click="handleClick" value="Detail">
             <el-tab-pane label="Detail" name="Detail">
               <ul>
-                <li v-for="item in temperPic" :key="item.id">
+                <li v-for="item in productDetail" :key="item.id">
                   <img :src="img+item.picture">
                 </li>
               </ul>
@@ -85,9 +85,9 @@
         <e-row class="temper-pro-row-col-right-latest-news">
           <LatestNews></LatestNews>
         </e-row>
-        <el-row class="temper-pro-row-col-right-latest-faq">
+        <!-- <el-row class="temper-pro-row-col-right-latest-faq">
           <LatestFAQ></LatestFAQ>
-        </el-row>
+        </el-row> -->
       </el-col>
     </el-row>
   </div>
@@ -114,6 +114,7 @@ export default {
       ImgUrl: require('@/assets/images/1.jpg'),
       temper: {},
       temperPic: [],
+      productDetail: [],
       img: 'http://47.107.57.42/img/',
       activeName: 'Detail',
       techSupport: require('@/assets/images/Tech-Support.jpg'),
@@ -160,6 +161,15 @@ export default {
         if (data.code === '0') {
           that.temper = data.tTemper
           that.temperPic = data.tTemperPic
+          let params = {
+            productId: this.$route.params.productId
+          }
+          api.postC('/product/get-product-detail', params).then(detail => {
+            if (detail.code === '0') {
+              that.productDetail = detail.list
+              console.log(that.productDetail)
+            }
+          })
         }
       })
     },
@@ -202,6 +212,7 @@ export default {
 .temper-pro{
   margin: 0px;
   padding: 0px;
+  overflow: hidden;
 }
 .temper-pro-row{
   text-align: left;
