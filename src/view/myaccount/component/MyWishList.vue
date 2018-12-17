@@ -45,7 +45,7 @@ export default {
       ],
       currentDate: '2018-11-05',
       wishList: [],
-      img: 'http://www.gugualao.top/img/'
+      img: 'http://www.gugualao.top/files/'
     }
   },
   methods: {

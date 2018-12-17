@@ -1,6 +1,6 @@
 <template>
     <div id="my-footer">
-        <el-footer>
+        <!-- <el-footer> -->
             <el-col :span="24" class="footer-row-top" type="flex">
                 <el-col :span="5" class="footer-col" :offset="2"  :xs="24">
                     <ul class="footer-ul">
@@ -105,7 +105,7 @@
                     <span>Copyright©2016 SHENZHEN BJD GROUP CO., LTD All rights reserved.</span>
                 </el-col>
             </el-col>
-        </el-footer>
+        <!-- </el-footer> -->
     </div>
 </template>
 

@@ -17,9 +17,10 @@ import '../static/UE/ueditor.parse.min.js'
 import 'quill/dist/quill.core.css'
 import 'quill/dist/quill.snow.css'
 import 'quill/dist/quill.bubble.css'
+import pdf from 'vue-pdf'
 Vue.config.productionTip = false
 Vue.use(ElementUI, vueQuillEditor)
-Vue.use(VueAxios, axios)
+Vue.use(VueAxios, axios, pdf)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

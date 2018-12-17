@@ -1,7 +1,7 @@
 <template>
   <div class="temper-pro">
     <el-row class="temper-pro-row">
-      <el-col :span="17" class="temper-pro-row-col-left" :xs="24">
+      <el-col :span="14" :offset="5" class="temper-pro-row-col-left" :xs="24">
         <el-col class="temper-pro-row-col-left-col-left" :span="8" :xs="24">
           <el-col :span="24" :xs="24" class="big-img">
             <!-- <el-carousel trigger="click"  indicator-position="none" @change='change1()' class="big-img-carousel">
@@ -78,7 +78,7 @@
           </el-tabs>
         </el-col>
       </el-col>
-      <el-col :span="5" :offset="2" class="temper-pro-row-col-right" :xs="24">
+      <el-col :span="5" class="temper-pro-row-col-right" :xs="24">
         <el-row class="temper-pro-row-col-right-questions">
           <img :src="techSupport">
         </el-row>
@@ -211,7 +211,7 @@ export default {
 <style scoped>
 .temper-pro{
   margin: 0px;
-  padding: 0px;
+  padding: 5px 10px;
   overflow: hidden;
 }
 .temper-pro-row{

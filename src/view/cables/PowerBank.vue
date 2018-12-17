@@ -1,7 +1,7 @@
 <template>
   <div class="power-bank">
     <el-row class="power-bank-row">
-      <el-col :span="17" class="power-bank-row-col-left" :xs="24">
+      <el-col :span="14" :offset="5" class="power-bank-row-col-left" :xs="24">
         <el-col class="power-bank-row-col-left-col-left" :span="8" :xs="24">
           <el-col :span="24" :xs="24" class="big-img">
             <swiper :options="swiperOptionTop" ref="swiperTop" class="gallery-top">
@@ -59,14 +59,13 @@
           </el-tabs>
         </el-col>
       </el-col>
-      <el-col :span="5" :offset="2" class="power-bank-row-col-right" :xs="24">
+      <el-col :span="5"  class="power-bank-row-col-right" :xs="24">
         <el-row class="power-bank-row-col-right-questions">
           <img :src="techSupport">
         </el-row>
         <e-row class="power-bank-row-col-right-latest-news">
           <LatestNews></LatestNews>
         </e-row>
-         -->
       </el-col>
     </el-row>
   </div>
@@ -190,7 +189,7 @@ export default {
 <style scoped>
 .power-bank{
   margin: 0px;
-  padding: 0px;
+  padding: 5px 10px;
   overflow: hidden;
 }
 .power-bank-row{
