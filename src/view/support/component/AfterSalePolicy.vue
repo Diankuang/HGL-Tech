@@ -6,14 +6,14 @@
           </el-row>
           <el-row>
              <el-col :span="24" :xs="24" class="el-col-afterSalePolicy-content">
-                <p>BJD committees to provide 30-Days for Return & Refund, 18 Months Quality Warranty and Lifetime Technical Support.</p><br>
+                <p>HGL committees to provide 30-Days for Return & Refund, 18 Months Quality Warranty and Lifetime Technical Support.</p><br>
                 <p class="afterSalePolicy">Detail Information are as follows:</p>
             </el-col>
           </el-row>
           <el-row>
             <el-col :span="24" :xs="24" class="el-col-afterSalePolicy-content-col">
                 <strong>1. Return & Refund, 18-Months Warranty, Lifetime Technical Support</strong>
-                <p class="aftersalespolicy-p">First. For all purchases through BJD direct store, if there goes any kinds of malfunction, we provide 30-Days for Return & Refund, 18-Months Quality Warranty and Lifetime Technical Support.</p><br>
+                <p class="aftersalespolicy-p">First. For all purchases through HGL direct store, if there goes any kinds of malfunction, we provide 30-Days for Return & Refund, 18-Months Quality Warranty and Lifetime Technical Support.</p><br>
                 <p>Second. Return and Refund:</p><br>
                 <ul>
                   <li><span>We guarantee all of our products against quality defects within the defined period (eg, 30 Days for US buyers, for specific warranty period please refer to related local laws), customers could apply for return and refund under the condition that items (including accessories) are qualified for second sale.</span></li>

@@ -1,9 +1,9 @@
 <template>
     <div id="myheader">
-        <el-header>
+        <!-- <el-header> -->
             <el-row class="header-row">
                 <ul class="header-ul">
-                    <li><span class="header-span">Welcome to BJD</span></li>
+                    <li><span class="header-span">Welcome to HGL</span></li>
                     <li v-if="user !== null && user !== ''"><router-link to="/my-account" class="header-router-link">{{user.firstName}}&nbsp;{{user.lastName}}</router-link></li>
                     <li><router-link to="/support/faq" class="header-router-link">FAQ</router-link></li>
                     <li v-if="user === null"><router-link to="/login" class="header-router-link">Sign In</router-link></li>
@@ -32,7 +32,7 @@
                         <template slot="title"><router-link class="el-menu-router-link" to="/about-us"><span>About us</span></router-link></template>
                         <el-menu-item index="/about-us/structure">Structure</el-menu-item>
                         <el-menu-item index="/about-us/terms-of-service">Teams of Service</el-menu-item>
-                        <el-menu-item index="/about-us/news">BJD News</el-menu-item>
+                        <el-menu-item index="/about-us/news">HGL News</el-menu-item>
                     </el-submenu>
                     <el-submenu index="3">
                         <!-- <template slot="title"><el-menu-item  index="cables">Cables</el-menu-item></template> -->
@@ -70,7 +70,7 @@
                     <!-- </el-submenu> -->
                 </el-menu>
             </el-row>
-        </el-header>
+        <!-- </el-header> -->
     </div>
 </template>
 
@@ -120,6 +120,7 @@ export default {
     z-index: 2;
     float: right;
     position: relative;
+    background-color:#545c64;
 }
 .header-ul{
     margin-top: 10px;

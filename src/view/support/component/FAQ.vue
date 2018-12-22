@@ -1,20 +1,16 @@
 <template>
   <div id="faq">
       <el-row class="faq-row">
-        <el-collapse accordion  @change="onChange()" class="support-faq">
-            <el-collapse-item v-for="item in allFaqList" :key="item.id">
-                <template slot="title">
-                    <!-- <span style="font-size:17px;line-height:20px">Question:</span>
-                    <span style="font-size:14px;line-height:20px">{{item.title}}</span> -->
-                    Question:
-                    {{item.title}}
-                </template>
-                <div v-if="item.content1" class="faq-content"><p>{{item.content1}}</p></div>
-                <div v-if="item.content2" class="faq-content"><p>{{item.content2}}</p></div>
-                <div v-if="item.content3" class="faq-content"><p>{{item.content3}}</p></div>
-                <div v-if="item.content4" class="faq-content"><p>{{item.content4}}</p></div>
-            </el-collapse-item>
-        </el-collapse>
+        <el-row class="el-row-faq-strong">
+          <strong>Frequently Asked Questions</strong>
+        </el-row>
+        <el-col v-for="item in allFaqList" :span="24" :xs="24" :key="item.id" class="faq-row-col">
+          <strong>Question:{{item.title}}</strong>
+          <span v-if="item.content1" class="faq-content"><p>{{item.content1}}</p></span>
+          <span v-if="item.content2" class="faq-content"><p>{{item.content2}}</p></span>
+          <span v-if="item.content3" class="faq-content"><p>{{item.content3}}</p></span>
+          <span v-if="item.content4" class="faq-content"><p>{{item.content4}}</p></span>
+        </el-col>
       </el-row>
   </div>
 </template>
@@ -35,7 +31,6 @@ export default {
     getAllFaq () {
       let that = this
       api.post('/faq/query-all', null).then(data => {
-        console.log(data)
         if (data.code === '0') {
           that.allFaqList = data.list
         }
@@ -59,9 +54,8 @@ export default {
   border-radius: 8px;
   background: #fff;
   border-top: 4px solid #000000;
-  padding: 15px 10px 0;
+  padding: 15px 10px 30px 20px;
   box-shadow: 0 2px 3px rgba(0,0,0,0.08);
-  /* margin-top: 20px; */
 }
 .fag-row-ul li{
   list-style: none;
@@ -76,8 +70,16 @@ export default {
 }
 .faq-content p{
   margin-left: 20px;
+  /* color: #777777; */
+  margin-top: 10px;
 }
-.support-faq el-collapse-item{
-  line-height: 20px;
+.faq-row-col{
+  margin: 20px 0 0 0;
+}
+.el-row-faq-strong{
+    font-size: 24px;
+    text-align: left;
+    border-bottom: 1px solid #000000;
+    margin: 20px 0 0 0;
 }
 </style>

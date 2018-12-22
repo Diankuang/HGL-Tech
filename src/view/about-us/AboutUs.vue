@@ -14,7 +14,7 @@
                         <router-link to="/about-us/terms-of-service">Teams of Service</router-link>
                     </li>
                     <li>
-                        <router-link to="/about-us/news">BJD News</router-link>
+                        <router-link to="/about-us/news">HGL News</router-link>
                     </li>
                 </ul>
             </el-col>

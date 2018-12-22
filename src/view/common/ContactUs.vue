@@ -7,7 +7,7 @@
       <el-row class="el-row-contact-content">
         <el-col :span="12" :xs="24" class="el-row-contact-content-col">
           <el-card shadow="never" class="el-row-contact-content-col-card1">
-            <strong>BJD GROUP CO,. LIMITED</strong>
+            <strong>HGL GROUP CO,. LIMITED</strong>
             <el-row class="el-row-contact-content-col-card-row">
               <p>Shenzhen Headquarter : C Building, Keshangmei Technology Park,Chongqing Road, Fuyong Town, Bao'an District, Shenzhen, China 518103</p><br>
               <p>Tel : 0086-755-29595841   29595842   29595843</p><br>

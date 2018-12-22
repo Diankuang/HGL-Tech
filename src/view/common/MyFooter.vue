@@ -2,7 +2,7 @@
     <div id="my-footer">
         <!-- <el-footer> -->
             <el-col :span="24" class="footer-row-top" type="flex">
-                <el-col :span="5" class="footer-col" :offset="2"  :xs="24">
+                <el-col :span="5" :offset="1" class="footer-col"  :xs="24">
                     <ul class="footer-ul">
                         <li><strong class="title">CORPORATE</strong></li>
                         <li>
@@ -28,7 +28,7 @@
                         </li>
                     </ul>
                 </el-col>
-                <el-col :span="5" :xs="24">
+                <el-col :span="5" :offset="1" :xs="24">
                     <ul class="footer-ul">
                     <!-- <ul> -->
                         <li><strong class="title">CONTACT INFORMATION</strong></li>
@@ -47,7 +47,7 @@
                         </li>
                     </ul>
                 </el-col>
-                <el-col :span="5" :xs="24">
+                <el-col :span="5" :offset="1" :xs="24">
                         <ul class="footer-ul">
                             <li> <strong class="title">CUSTOMER SERVICE</strong></li>
                         <li>
@@ -64,7 +64,7 @@
                         </li>
                     </ul>
                 </el-col>
-                <el-col :span="5" :xs="24">
+                <el-col :span="5" :offset="1" :xs="24">
                     <ul class="footer-ul">
                         <li><strong class="title">BE THE FIRST TO KNOW</strong></li>
                         <li>
@@ -102,7 +102,7 @@
                     <!-- </ul> -->
                 </el-col>
                 <el-col :span="24" :xs="24">
-                    <span>Copyright©2016 SHENZHEN BJD GROUP CO., LTD All rights reserved.</span>
+                    <span>Copyright©2016 SHENZHEN HGL GROUP CO., LTD All rights reserved.</span>
                 </el-col>
             </el-col>
         <!-- </el-footer> -->

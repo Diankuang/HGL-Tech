@@ -93,7 +93,7 @@ export default {
       product: {},
       productPicture: [],
       productDetail: [],
-      img: 'http://www.gugualao.top/img/',
+      img: 'http://www.gugualao.top/files/',
       activeName: 'Detail',
       techSupport: require('@/assets/images/Tech-Support.jpg'),
       bottomSwiper: '',
@@ -190,7 +190,7 @@ export default {
 .power-bank{
   margin: 0px;
   padding: 5px 10px;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 .power-bank-row{
   text-align: left;

@@ -2,7 +2,7 @@
     <div id="news">
         <el-row class="news-row">
             <el-col :span="24" :xs="24" class="el-row-news-strong">
-                <strong>BJD News</strong>
+                <strong>HGL News</strong>
             </el-col>
             <el-col v-if="newsList.length === 0" class="news-row-col-null"><span>There's no News Info</span></el-col>
             <el-col :span="24" :xs="24" v-for="item in newsList" :key="item.id" class="news-row-col">

@@ -3,9 +3,10 @@
       <el-col :span="24" :xs="24" class="banner-col-top">
         <el-carousel indicator-position="outside" :height = "imgHeight-28+'px'">
         <el-carousel-item v-for="item in imgList" :key="item.id" :style = "imgClass" >
-            <el-row>
-            <el-col :span="24" :xs="24"><img ref="imgHeight+'px'" :src="img+item.idView" class="banner_img"/></el-col>
-            </el-row>
+          <img style="height:100%;width:100%;" :src="img+item.idView"/>
+            <!-- <el-row> -->
+            <!-- <el-col :span="24" :xs="24"><img style="height:100%;width:100%;" :src="img+item.idView"/></el-col> -->
+            <!-- </el-row> -->
         </el-carousel-item>
         </el-carousel>
       </el-col>
@@ -16,11 +17,13 @@
         <el-col :span="24" :xs="24" class="banner-col-bottom-col">
           <swiper :options="swiperOption" ref="mySwiper">
             <swiper-slide v-for="item in newArrival" :key="item.id" class="banner-col-bottom-col-slide">
-              <el-col style="padding:10px;">
+              <el-col style="padding:10px;height:200px;">
               <router-link :to="{path: '/power-bank/'+item.id}">
-                <img :src="img+item.picture" class="banner_img" style="width:100%;height:100%;margin-bottom: 10px;"/>
+                <img :src="img+item.picture" style="width:100%;height:100%;margin-bottom: 10px;"/>
               </router-link>
-              <i class="el-icon-star-on"></i>
+              </el-col>
+              <el-col>
+                 <i class="el-icon-star-on"></i>
               <router-link :to="{path: '/power-bank/'+item.id}">
                 {{item.name}}
               </router-link>
@@ -40,12 +43,12 @@ export default {
   name: 'Baner',
   data () {
     return {
-      img: 'http://47.107.57.42/img/',
+      img: 'http://www.gugualao.top/files/',
       imgList: [
-        {id: 1, idView: '57c778644a448.jpg'},
-        {id: 2, idView: '57c778b2decd8.jpg'},
-        {id: 3, idView: '57c778ca85728.jpg'},
-        {id: 4, idView: '57c778fae4f48.jpg'}
+        {id: 1, idView: 'img/57c778644a448.jpg'},
+        {id: 2, idView: 'img/57c778b2decd8.jpg'},
+        {id: 3, idView: 'img/57c778ca85728.jpg'},
+        {id: 4, idView: 'img/57c778fae4f48.jpg'}
       ],
       imgHeight: 0,
       miniImg: [
@@ -129,7 +132,7 @@ export default {
   color: black;
 }
 .banner-col-bottom{
-  margin: 40px 0 100px 0;
+  margin: 20px 0 20px 0;
   /* border: 1px #777777 solid; */
 }
 .banner-col-bottom-col{

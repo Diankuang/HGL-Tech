@@ -1,18 +1,18 @@
 <template>
     <div id="news-detail">
         <el-row class="news-detail-row">
-          <el-col class="news-detail-title" :span="18" :offset="4" :xs="24">
+          <el-col class="news-detail-title" :span="16" :offset="4" :xs="24">
             <P><strong>{{news.title}}</strong></P>
-            <p><span class="news-detail-span">Time: {{news.createTime}}&nbsp;&nbsp;&nbsp;&nbsp;Source: BJD group</span></p>
+            <p><span class="news-detail-span">Time: {{news.createTime}}&nbsp;&nbsp;&nbsp;&nbsp;Source: HGL group</span></p>
           </el-col>
           <el-col v-html="html" class="news-detail-content" :span="24" :offset="4" :xs="24"></el-col>
-          <el-col class="news-detail-share" :span="18" :offset="4" :xs="24">
+          <!-- <el-col class="news-detail-share" :span="18" :offset="4" :xs="24">
             <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间">QQ</a>
             <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">fdsf</a>
             <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博">fdsaf</a>
             <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网">fsd</a>
             <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">fsda</a>
-          </el-col>
+          </el-col> -->
         </el-row>
     </div>
 </template>

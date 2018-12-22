@@ -71,7 +71,7 @@
             <el-tab-pane label="Detail" name="Detail">
               <ul>
                 <li v-for="item in productDetail" :key="item.id">
-                  <img :src="img+item.picture">
+                  <img :src="img+item.picture" style="width:100%;height:100%">
                 </li>
               </ul>
             </el-tab-pane>
@@ -115,7 +115,7 @@ export default {
       temper: {},
       temperPic: [],
       productDetail: [],
-      img: 'http://47.107.57.42/img/',
+      img: 'http://www.gugualao.top/files/',
       activeName: 'Detail',
       techSupport: require('@/assets/images/Tech-Support.jpg'),
       swiperOptionTop: {
@@ -146,8 +146,8 @@ export default {
       // console.log(`当前页: ${val}`);
     },
     getIndex (imgUrl) {
-      console.log()
-      console.log(imgUrl)
+      // console.log()
+      // console.log(imgUrl)
       this.ImgUrl = imgUrl
     },
     getProductDetail () {
@@ -157,7 +157,7 @@ export default {
         temperId: this.$route.params.productId
       }
       api.postC('/temper/query-Temper-detail', param).then(data => {
-        console.log(data)
+        // console.log(data)
         if (data.code === '0') {
           that.temper = data.tTemper
           that.temperPic = data.tTemperPic
@@ -167,7 +167,7 @@ export default {
           api.postC('/product/get-product-detail', params).then(detail => {
             if (detail.code === '0') {
               that.productDetail = detail.list
-              console.log(that.productDetail)
+              // console.log(that.productDetail)
             }
           })
         }
@@ -212,7 +212,7 @@ export default {
 .temper-pro{
   margin: 0px;
   padding: 5px 10px;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 .temper-pro-row{
   text-align: left;

@@ -101,7 +101,7 @@ export default new Router({
             },
             {
               path: '/about-us/news',
-              name: 'BJD News',
+              name: 'HGL News',
               component: News
             }
           ]
@@ -291,7 +291,7 @@ export default new Router({
         },
         {
           path: '/news-detail/:newsId',
-          name: 'BJD News',
+          name: 'HGL News',
           component: NewsDetail
         }
       ]
