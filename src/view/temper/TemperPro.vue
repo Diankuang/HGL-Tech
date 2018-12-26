@@ -4,14 +4,8 @@
       <el-col :span="14" :offset="5" class="temper-pro-row-col-left" :xs="24">
         <el-col class="temper-pro-row-col-left-col-left" :span="8" :xs="24">
           <el-col :span="24" :xs="24" class="big-img">
-            <!-- <el-carousel trigger="click"  indicator-position="none" @change='change1()' class="big-img-carousel">
-              <el-carousel-item v-for="item in productPicture" :key="item.id">
-                <img :src="img+item.picture" style="width:100%;height:100%" >
-              </el-carousel-item>
-            </el-carousel> -->
             <swiper :options="swiperOptionTop" ref="swiperTop" class="gallery-top">
-            <!-- <swiper :options="swiperOptionTop" id="gallery"> -->
-              <swiper-slide v-for="item in temperPic" :key="item.id" class="banner-col-top-col-slide">
+              <swiper-slide v-for="item in temperPictures" :key="item.id" class="banner-col-top-col-slide">
                   <img :src="img+item.picture" style="width:100%;height:100%" >
               </swiper-slide>
             </swiper>
@@ -20,39 +14,14 @@
           </el-col>
           <el-col class="little-img" >
             <swiper :options="swiperOptionThumbs" ref="swiperThumbs" class="gallery-thumbs">
-            <!-- <swiper :options="swiperOptionBottom" id = "thumbs"> -->
-            <swiper-slide v-for="item in temperPic" :key="item.id">
-              <!-- <el-col style="border: 1px #000000 solid"> -->
-                <img :src="img+item.picture" style="width:100%;height:100%" >
-              <!-- </el-col> -->
+            <swiper-slide v-for="item in temperPictures" :key="item.id">
+              <img :src="img+item.picture" style="width:100%;height:100%" >
             </swiper-slide>
           </swiper>
           </el-col>
-          <!-- <div class="big-img">
-            <el-carousel trigger="click"  indicator-position="none" @change='change1()'>
-              <el-carousel-item v-for="item in temperPic" :key="item.id">
-                <img :src="img+item.picture" 3>
-              </el-carousel-item>
-            </el-carousel>
-          </div>
-          <div class="little-img" >
-            <ul class="little-img-ul">
-                <li v-for="item in temperPic" :key="item.id" @click='getIndex(item.idView)' class="little-img-ul-li">
-                    <img :src="img+item.picture" style="width: 50px; height: 50px" >
-                </li>
-            </ul>
-          </div> -->
         </el-col>
         <el-col class="temper-pro-row-col-left-col-right" :span="16" :xs="24">
-          <h1><span class="temper-pro-row-col-left-col-right-span">{{temper.name}}</span></h1>
-          <el-col class="temper-pro-row-col-left-col-right-1" :span="24" :xs="24">
-            <a class="action" href="https://www.visiontek.com/hdmi-pivot-cable-3-ft-m-m.html#review-form">
-              Be the first to review this productId
-            </a>
-          </el-col>
-          <el-col class="temper-pro-row-col-left-col-right-2">
-            <h1><span class="temper-pro-row-col-left-col-right-span">${{temper.price}}</span></h1>
-          </el-col>
+          <h1 style="margin-top:20px;"><span class="temper-pro-row-col-left-col-right-span">{{temper.item}}</span></h1>
           <el-col class="temper-pro-row-col-left-col-right-2"></el-col>
           <el-col class="temper-pro-row-col-left-col-right-3" :span="24" :xs="24">
             <p>{{temper.introductions}}</p>
@@ -60,7 +29,8 @@
             <el-row>
               <ul>
                 <el-col  :span="12" :xs="24"  v-for="(value,key,index) in temper"  :key="index" class="temper-pro-row-col-left-col-right-3">
-                <li v-if="key !== 'introductions' && value !== '' && key !== 'id' && key !== 'type'" ><strong>{{key}}：</strong>&nbsp;{{value}}</li>
+                <li v-if="key !== 'createTime' && value !== '' && key !== 'id' && key !== 'type' && key !== 'status'
+                 && key !== 'picture'" ><strong>{{key}}：</strong>&nbsp;{{value}}</li>
                 </el-col>
               </ul>
             </el-row>
@@ -70,7 +40,7 @@
           <el-tabs v-model="activeName" type="card" @tab-click="handleClick" value="Detail">
             <el-tab-pane label="Detail" name="Detail">
               <ul>
-                <li v-for="item in productDetail" :key="item.id">
+                <li v-for="item in temperDetails" :key="item.id">
                   <img :src="img+item.picture" style="width:100%;height:100%">
                 </li>
               </ul>
@@ -85,9 +55,6 @@
         <e-row class="temper-pro-row-col-right-latest-news">
           <LatestNews></LatestNews>
         </e-row>
-        <!-- <el-row class="temper-pro-row-col-right-latest-faq">
-          <LatestFAQ></LatestFAQ>
-        </el-row> -->
       </el-col>
     </el-row>
   </div>
@@ -113,8 +80,8 @@ export default {
       ],
       ImgUrl: require('@/assets/images/1.jpg'),
       temper: {},
-      temperPic: [],
-      productDetail: [],
+      temperPictures: [],
+      temperDetails: [],
       img: 'http://www.gugualao.top/files/',
       activeName: 'Detail',
       techSupport: require('@/assets/images/Tech-Support.jpg'),
@@ -151,32 +118,19 @@ export default {
       this.ImgUrl = imgUrl
     },
     getProductDetail () {
-      console.log(this.$route.params.productId)
       let that = this
       let param = {
         temperId: this.$route.params.productId
       }
-      api.postC('/temper/query-Temper-detail', param).then(data => {
-        // console.log(data)
+      api.postC('/temper/query-detail', param).then(data => {
         if (data.code === '0') {
-          that.temper = data.tTemper
-          that.temperPic = data.tTemperPic
-          let params = {
-            productId: this.$route.params.productId
-          }
-          api.postC('/product/get-product-detail', params).then(detail => {
-            if (detail.code === '0') {
-              that.productDetail = detail.list
-              // console.log(that.productDetail)
-            }
-          })
+          that.temper = data.temper
+          that.temperPictures = data.temperPictures
+          that.temperDetails = data.temperDetails
         }
       })
     },
     change1 (val, oldVal) {
-      // this.resetItemPosition(oldVal);
-      // this.$emit('change', val, oldVal);
-      console.log('--------------')
     },
     handleClick (tab, event) {
       console.log(tab, event)
@@ -186,8 +140,6 @@ export default {
   props: [],
   watch: {
     change1 (val, oldVal) {
-      // this.resetItemPosition(oldVal);
-      // this.$emit('change', val, oldVal);
       console.log('--------------')
     }
   },
@@ -207,7 +159,6 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .temper-pro{
   margin: 0px;
@@ -218,7 +169,7 @@ export default {
   text-align: left;
 }
 .big-img{
-  border:#ddd 1px solid;
+  /* border:#ddd 1px solid; */
 }
 /* .little-img-ul li{
   list-style: none;
@@ -229,8 +180,15 @@ export default {
 .little-img-ul-li{
   list-style: none;
   float:left;
-  border:#000 1px solid;
+  /* border:#000 1px solid; */
   margin: 5px 5px 0 0;
+}
+.little-img{
+  height: 20%;
+  box-sizing: border-box;
+  /* padding: 10px 0; */
+  position: relative;
+  border:#ddd 1px solid;
 }
 
 .temper-pro-row-col{
@@ -298,7 +256,7 @@ export default {
 }
 .temper-pro-row-col-left-col-left{
   position: relative;
-  border: #777 1px solid;
+  /* border: #777 1px solid; */
 }
 .gallery-thumbs {
     height: 15%!important;

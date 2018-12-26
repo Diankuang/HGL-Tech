@@ -6,9 +6,8 @@
            <router-link :to="{path: '/temper-pro/'+item.id}">
             <img :src="img+item.picture" class="image">
           </router-link>
-          <h4>${{item.price}}</h4>
           <router-link :to="{path: '/temper-pro/'+item.id}" class="temper-router-link">
-            <p class="iPhone-row-col-p">{{item.name}}</p>
+            <p class="iPhone-row-col-p">{{item.item}}</p>
           </router-link>
           <el-col>
             <el-button icon="el-icon-star-on" circle style="padding:5px;" @click="addWishList(item)"></el-button>
@@ -63,7 +62,7 @@ export default {
         pageSize: that.pageSize,
         pageNum: that.pageNum
       }
-      api.post('/temper/query-temper', params).then(data => {
+      api.post('/temper/query-list', params).then(data => {
         if (data.code === '0') {
           that.temperList = data.list
           that.total = data.total
@@ -132,9 +131,9 @@ export default {
   background-color:#000;
   color:#fff;
 }
-/* .iPhone-row-col-card{
+.iPhone-row-col-card{
   height: 400px;
-} */
+}
 .temper-router-link :hover {text-decoration:underline;}
 .add-wish-list-span{
   font-size: 12px;

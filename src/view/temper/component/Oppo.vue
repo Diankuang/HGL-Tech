@@ -6,10 +6,8 @@
            <router-link :to="{path: '/temper-pro/'+item.id}">
             <img :src="img+item.picture" class="image">
           </router-link>
-          <h4>${{item.price}}</h4>
-          <!-- <el-button icon="el-icon-star-on" circle style="padding:5px;" @click="addWishList(item)"></el-button> -->
           <router-link :to="{path: '/temper-pro/'+item.id}" class="temper-router-link">
-            <p class="Oppo-row-col-p">{{item.name}}</p>
+            <p class="Oppo-row-col-p">{{item.item}}</p>
           </router-link>
           <el-col>
             <el-button icon="el-icon-star-on" circle style="padding:5px;" @click="addWishList(item)"></el-button>
@@ -63,7 +61,7 @@ export default {
         pageSize: that.pageSize,
         pageNum: that.pageNum
       }
-      api.post('/temper/query-temper', params).then(data => {
+      api.post('/temper/query-list', params).then(data => {
         if (data.code === '0') {
           that.temperList = data.list
           that.total = data.total
@@ -137,5 +135,8 @@ export default {
   font-size: 12px;
   color: #999;
   cursor: pointer;
+}
+.Oppo-row-col-card{
+  height: 400px;
 }
 </style>

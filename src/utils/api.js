@@ -3,8 +3,8 @@
 import axios from 'axios'
 import qs from 'qs'
 
-// axios.defaults.baseURL = 'http://localhost:9002'
-axios.defaults.baseURL = 'http://www.gugualao.top/'
+axios.defaults.baseURL = 'http://localhost:9002'
+// axios.defaults.baseURL = 'http://www.gugualao.top/'
 axios.defaults.withCredentials = true
 
 axios.interceptors.request.use(config => {

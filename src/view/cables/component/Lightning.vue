@@ -9,10 +9,8 @@
             </router-link>
           </el-col>
           <el-col :span="24" :xs="24" class="cables-div">
-            <h4>${{item.price}}</h4>
-            <!-- <el-button icon="el-icon-star-on" circle style="padding:5px;" @click="addWishList(item)"></el-button> -->
             <router-link :to="{path: '/power-bank/'+item.id}">
-              {{item.name}}
+              {{item.item}}
             </router-link>
             <el-col>
               <el-button icon="el-icon-star-on" circle style="padding:5px;" @click="addWishList(item)"></el-button>
@@ -50,7 +48,8 @@ export default {
       total: 0,
       pageSize: 10,
       img: 'http://www.gugualao.top/files/',
-      productList: []
+      productList: [],
+      type: '3'
     }
   },
   methods: {
@@ -65,11 +64,11 @@ export default {
     getMicroUsbList () {
       let that = this
       let params = {
-        type: '8',
+        type: that.type,
         pageSize: that.pageSize,
         pageNum: this.pageNum
       }
-      api.post('/product/query-power-products', params).then(data => {
+      api.post('/cables/query-list', params).then(data => {
         if (data.code === '0') {
           that.productList = data.list
           that.total = data.total
