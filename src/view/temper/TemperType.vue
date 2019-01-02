@@ -3,10 +3,10 @@
     <el-row class="type-row">
       <el-col :span="6" :xs="24" v-for="item in temperList" :key="item.id"  class="type-row-col">
         <el-card :body-style="{ padding: '0px' }" class="type-row-col-card" shadow="hover">
-           <router-link :to="{path: '/temper-pro/'+item.id}">
+           <router-link :to="{path: '/temper-detail/'+item.id}">
             <img :src="img+item.picture" class="image">
           </router-link>
-          <router-link :to="{path: '/temper-pro/'+item.id}">
+          <router-link :to="{path: '/temper-detail/'+item.id}">
             <p class="type-row-col-p">{{item.name}}</p>
           </router-link>
         </el-card>

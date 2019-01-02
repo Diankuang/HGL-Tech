@@ -1,8 +1,8 @@
 <template>
-  <div class="temper-pro">
-    <el-row class="temper-pro-row">
-      <el-col :span="14" :offset="5" class="temper-pro-row-col-left" :xs="24">
-        <el-col class="temper-pro-row-col-left-col-left" :span="8" :xs="24">
+  <div class="temper-detail">
+    <el-row class="temper-detail-row">
+      <el-col :span="14" :offset="5" class="temper-detail-row-col-left" :xs="24">
+        <el-col class="temper-detail-row-col-left-col-left" :span="8" :xs="24">
           <el-col :span="24" :xs="24" class="big-img">
             <swiper :options="swiperOptionTop" ref="swiperTop" class="gallery-top">
               <swiper-slide v-for="item in temperPictures" :key="item.id" class="banner-col-top-col-slide">
@@ -20,15 +20,15 @@
           </swiper>
           </el-col>
         </el-col>
-        <el-col class="temper-pro-row-col-left-col-right" :span="16" :xs="24">
-          <h1 style="margin-top:20px;"><span class="temper-pro-row-col-left-col-right-span">{{temper.item}}</span></h1>
-          <el-col class="temper-pro-row-col-left-col-right-2"></el-col>
-          <el-col class="temper-pro-row-col-left-col-right-3" :span="24" :xs="24">
+        <el-col class="temper-detail-row-col-left-col-right" :span="16" :xs="24">
+          <h1 style="margin-top:20px;"><span class="temper-detail-row-col-left-col-right-span">{{temper.item}}</span></h1>
+          <el-col class="temper-detail-row-col-left-col-right-2"></el-col>
+          <el-col class="temper-detail-row-col-left-col-right-3" :span="24" :xs="24">
             <p>{{temper.introductions}}</p>
             <p><strong><span>Features:</span></strong></p>
             <el-row>
               <ul>
-                <el-col  :span="12" :xs="24"  v-for="(value,key,index) in temper"  :key="index" class="temper-pro-row-col-left-col-right-3">
+                <el-col  :span="12" :xs="24"  v-for="(value,key,index) in temper"  :key="index" class="temper-detail-row-col-left-col-right-3">
                 <li v-if="key !== 'createTime' && value !== '' && key !== 'id' && key !== 'type' && key !== 'status'
                  && key !== 'picture'" ><strong>{{key}}：</strong>&nbsp;{{value}}</li>
                 </el-col>
@@ -36,7 +36,7 @@
             </el-row>
           </el-col>
         </el-col>
-        <el-col class="temper-pro-row-col-left-col-right-4" :span="24" :xs="24">
+        <el-col class="temper-detail-row-col-left-col-right-4" :span="24" :xs="24">
           <el-tabs v-model="activeName" type="card" @tab-click="handleClick" value="Detail">
             <el-tab-pane label="Detail" name="Detail">
               <ul>
@@ -48,11 +48,11 @@
           </el-tabs>
         </el-col>
       </el-col>
-      <el-col :span="5" class="temper-pro-row-col-right" :xs="24">
-        <el-row class="temper-pro-row-col-right-questions">
+      <el-col :span="5" class="temper-detail-row-col-right" :xs="24">
+        <el-row class="temper-detail-row-col-right-questions">
           <img :src="techSupport">
         </el-row>
-        <e-row class="temper-pro-row-col-right-latest-news">
+        <e-row class="temper-detail-row-col-right-latest-news">
           <LatestNews></LatestNews>
         </e-row>
       </el-col>
@@ -160,12 +160,12 @@ export default {
 </script>
 
 <style scoped>
-.temper-pro{
+.temper-detail{
   margin: 0px;
   padding: 5px 10px;
   /* overflow: hidden; */
 }
-.temper-pro-row{
+.temper-detail-row{
   text-align: left;
 }
 .big-img{
@@ -191,21 +191,21 @@ export default {
   border:#ddd 1px solid;
 }
 
-.temper-pro-row-col{
+.temper-detail-row-col{
   margin-left: 0px;
   margin-bottom: 20px;
   text-align: center
 }
-.temper-pro-row-col-left-col-right{
+.temper-detail-row-col-left-col-right{
   padding: 0px 20px 0px;
 }
-.temper-pro-row-col-left-col-right-span{
+.temper-detail-row-col-left-col-right-span{
     font-size: 28px;
     font-weight: 600;
     line-height: 1;
     color: #555;
 }
-.temper-pro-row-col-left-col-right-1{
+.temper-detail-row-col-left-col-right-1{
     padding: 0 15px 0 10px;
     display: inline-block;
     vertical-align: middle;
@@ -214,11 +214,11 @@ export default {
     margin-bottom: 10px;
     margin-top: 10px;
 }
-.temper-pro-row-col-left-col-right-1 a{
+.temper-detail-row-col-left-col-right-1 a{
     color: #bdbdbd;
     text-decoration: none;
 }
-.temper-pro-row-col-left-col-right-2{
+.temper-detail-row-col-left-col-right-2{
     border-bottom: 1px #ebebeb solid;
     display: table;
     width: 100%;
@@ -226,7 +226,7 @@ export default {
     display: table-cell;
     vertical-align: top;
 }
-.temper-pro-row-col-left-col-right-3{
+.temper-detail-row-col-left-col-right-3{
     color: #777;
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-style: normal;
@@ -234,14 +234,14 @@ export default {
     line-height: 1.4;
     font-size: 0.8rem;
 }
-.temper-pro-row-col-left-col-right-3 p{
+.temper-detail-row-col-left-col-right-3 p{
     display: block;
     -webkit-margin-before: 0.9em;
     -webkit-margin-after: 0.9em;
     -webkit-margin-start: 0px;
     -webkit-margin-end: 0px;
 }
-.temper-pro-row-col-left-col-right-3 li{
+.temper-detail-row-col-left-col-right-3 li{
     display: block;
     list-style-type: disc;
     -webkit-margin-before: 1em;
@@ -251,10 +251,10 @@ export default {
     -webkit-padding-start: 20px;
     margin: 5px 5px 0px 0px;
 }
-.temper-pro-row-col-left-col-right-4{
+.temper-detail-row-col-left-col-right-4{
     margin: 30px 10px 10px 0;
 }
-.temper-pro-row-col-left-col-left{
+.temper-detail-row-col-left-col-left{
   position: relative;
   /* border: #777 1px solid; */
 }
@@ -273,5 +273,8 @@ export default {
 }
 .swiper-button-next, .swiper-button-prev{
   top: 40%;
+}
+.temper-detail-row-col-right{
+  padding-left: 10px;
 }
 </style>

@@ -280,12 +280,12 @@ export default new Router({
           component: WarrantySafety
         },
         {
-          path: '/power-bank/:productId',
+          path: '/cables-detail/:productId',
           name: 'Products',
           component: PowerBank
         },
         {
-          path: '/temper-pro/:productId',
+          path: '/temper-detail/:productId',
           name: 'Temper',
           component: TemperPro
         },

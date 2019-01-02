@@ -1,8 +1,8 @@
 <template>
-  <div class="power-bank">
-    <el-row class="power-bank-row">
-      <el-col :span="14" :offset="5" class="power-bank-row-col-left" :xs="24">
-        <el-col id = "power-bank-row-col-left-col-left" class="power-bank-row-col-left-col-left" :span="8" :xs="24">
+  <div class="cables">
+    <el-row class="cables-row">
+      <el-col :span="14" :offset="5" class="cables-row-col-left" :xs="24">
+        <el-col id = "cables-row-col-left-col-left" class="cables-row-col-left-col-left" :span="8" :xs="24">
           <el-col :span="24" :xs="24" class="big-img">
             <swiper :options="swiperOptionTop" ref="swiperTop" class="gallery-top">
             <!-- <swiper :options="swiperOptionTop" id="gallery"> -->
@@ -24,26 +24,26 @@
           </swiper>
           </el-col>
         </el-col>
-        <el-col class="power-bank-row-col-left-col-right" :span="16" :xs="24" :height = "imgHeight+'px'">
-          <h1 style="margin-top:20px;"><span class="power-bank-row-col-left-col-right-span">{{cables.item}}</span></h1>
-          <el-col class="power-bank-row-col-left-col-right-2"></el-col>
-          <el-col class="power-bank-row-col-left-col-right-3" :span="24" :xs="24">
+        <el-col class="cables-row-col-left-col-right" :span="16" :xs="24" :height = "imgHeight+'px'">
+          <h1 style="margin-top:20px;"><span class="cables-row-col-left-col-right-span">{{cables.item}}</span></h1>
+          <el-col class="cables-row-col-left-col-right-2"></el-col>
+          <el-col class="cables-row-col-left-col-right-3" :span="24" :xs="24">
             <!-- <p>{{product.introductions}}</p> -->
             <p><strong><span>Features:</span></strong></p>
             <el-row>
               <ul>
-                <el-col  :span="12" :xs="24"  v-for="(value,key,index) in cables"  :key="index" class="power-bank-row-col-left-col-right-3">
+                <el-col  :span="12" :xs="24"  v-for="(value,key,index) in cables"  :key="index" class="cables-row-col-left-col-right-3">
                 <li v-if="key !== 'createTime' && value !== '' && key !== 'id'
                 && key !== 'type'  && key !== 'status' && key !=='picture'"><strong>{{key}}：</strong>&nbsp;{{value}}</li>
                 </el-col>
               </ul>
             </el-row>
           </el-col>
-          <el-col class="power-bank-row-col-left-col-right-5">
+          <!-- <el-col class="cables-row-col-left-col-right-5">
             <el-button type="primary" round style="width: 80%;">Detail</el-button>
-          </el-col>
+          </el-col> -->
         </el-col>
-        <el-col class="power-bank-row-col-left-col-right-4" :span="24" :xs="24">
+        <el-col class="cables-row-col-left-col-right-4" :span="24" :xs="24">
           <el-tabs v-model="activeName" type="card" @tab-click="handleClick" value="Detail">
             <el-tab-pane label="Detail" name="Detail">
               <ul>
@@ -55,11 +55,11 @@
           </el-tabs>
         </el-col>
       </el-col>
-      <el-col :span="5"  class="power-bank-row-col-right" :xs="24">
-        <el-row class="power-bank-row-col-right-questions">
+      <el-col :span="5" class="cables-row-col-right" :xs="24">
+        <el-row class="cables-row-col-right-questions">
           <img :src="techSupport">
         </el-row>
-        <e-row class="power-bank-row-col-right-latest-news">
+        <e-row class="cables-row-col-right-latest-news">
           <LatestNews></LatestNews>
         </e-row>
       </el-col>
@@ -115,7 +115,7 @@ export default {
   },
   created () {
     this.getProductDetail()
-    // const leftHight = window.document.getElementById('power-bank-row-col-left-col-left')
+    // const leftHight = window.document.getElementById('cables-row-col-left-col-left')
   },
   methods: {
     handleSizeChange () {},
@@ -161,12 +161,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.power-bank{
+.cables{
   margin: 0px;
   padding: 5px 10px;
   /* overflow: hidden; */
 }
-.power-bank-row{
+.cables-row{
   text-align: left;
 }
 .big-img{
@@ -174,23 +174,23 @@ export default {
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
-.power-bank-row-col{
+.cables-row-col{
   margin-left: 0px;
   margin-bottom: 20px;
   text-align: center
 }
-.power-bank-row-col-left-col-right{
+.cables-row-col-left-col-right{
   padding: 0px 20px 0px;
   position: relative;
   /* height: 370px; */
 }
-.power-bank-row-col-left-col-right-span{
+.cables-row-col-left-col-right-span{
     font-size: 28px;
     font-weight: 600;
     line-height: 1;
     color: #555;
 }
-.power-bank-row-col-left-col-right-1{
+.cables-row-col-left-col-right-1{
     padding: 0 15px 0 10px;
     display: inline-block;
     vertical-align: middle;
@@ -199,11 +199,11 @@ export default {
     margin-bottom: 10px;
     margin-top: 10px;
 }
-.power-bank-row-col-left-col-right-1 a{
+.cables-row-col-left-col-right-1 a{
     color: #bdbdbd;
     text-decoration: none;
 }
-.power-bank-row-col-left-col-right-2{
+.cables-row-col-left-col-right-2{
     border-bottom: 1px #ebebeb solid;
     display: table;
     width: 100%;
@@ -211,7 +211,7 @@ export default {
     display: table-cell;
     vertical-align: top;
 }
-.power-bank-row-col-left-col-right-3{
+.cables-row-col-left-col-right-3{
     color: #777;
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-style: normal;
@@ -219,14 +219,14 @@ export default {
     line-height: 1.4;
     font-size: 0.8rem;
 }
-.power-bank-row-col-left-col-right-3 p{
+.cables-row-col-left-col-right-3 p{
     display: block;
     -webkit-margin-before: 0.9em;
     -webkit-margin-after: 0.9em;
     -webkit-margin-start: 0px;
     -webkit-margin-end: 0px;
 }
-.power-bank-row-col-left-col-right-3 li{
+.cables-row-col-left-col-right-3 li{
     display: block;
     list-style-type: disc;
     -webkit-margin-before: 1em;
@@ -236,7 +236,7 @@ export default {
     -webkit-padding-start: 20px;
     margin: 5px 5px 0px 0px;
 }
-.power-bank-row-col-left-col-right-4{
+.cables-row-col-left-col-right-4{
     margin: 30px 10px 10px 0;
 }
 .el-carousel__arrow .el-carousel__arrow--left{
@@ -258,7 +258,7 @@ export default {
 /* .swiper-button-prev{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23007aff'%2F%3E%3C%2Fsvg%3E");} */
 /*改变了颜色和加粗的样式*/
 /* .swiper-button-prev{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l4.2%2C4.2L8.4%2C22l17.8%2C17.8L22%2C44L0%2C22z'%20fill%3D'%23ff6600'%2F%3E%3C%2Fsvg%3E");} */
-.power-bank-row-col-left-col-left{
+.cables-row-col-left-col-left{
   position: relative;
   /* border: #777 1px solid; */
 }
@@ -285,8 +285,11 @@ export default {
 .swiper-button-next, .swiper-button-prev{
   top: 40%;
 }
-.power-bank-row-col-left-col-right-5{
+.cables-row-col-left-col-right-5{
   /* position:absolute; */
   bottom:0;
+}
+.cables-row-col-right{
+  padding-left: 10px;
 }
 </style>

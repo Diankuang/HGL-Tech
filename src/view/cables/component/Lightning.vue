@@ -4,12 +4,12 @@
       <el-col :span="6" :xs="24" v-for="item in productList" :key="item.id"  class="lightning-row-col">
         <el-card :body-style="{ padding: '0px' }" class="lightning-row-col-card" shadow="hover">
           <el-col :span="24" :xs="24" style="width:100%;height: 250px;">
-            <router-link :to="{path: '/power-bank/'+item.id}">
+            <router-link :to="{path: '/cables-detail/'+item.id}">
               <img :src="img+item.picture" class="image">
             </router-link>
           </el-col>
           <el-col :span="24" :xs="24" class="cables-div">
-            <router-link :to="{path: '/power-bank/'+item.id}">
+            <router-link :to="{path: '/cables-detail/'+item.id}">
               {{item.item}}
             </router-link>
             <el-col>

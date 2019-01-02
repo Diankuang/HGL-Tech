@@ -18,19 +18,19 @@
           <swiper :options="swiperOption" ref="mySwiper">
             <swiper-slide v-for="item in newArrival" :key="item.id" class="banner-col-bottom-col-slide">
               <el-col style="padding:10px;height:200px;">
-              <router-link :to="{path: '/power-bank/'+item.id}" v-if="item.type === '0'">
+              <router-link :to="{path: '/cables/'+item.id}" v-if="item.type === '0'">
                 <img :src="img+item.picture" style="width:100%;height:100%;margin-bottom: 10px;"/>
               </router-link>
-              <router-link :to="{path: '/temper-pro/'+item.id}" v-if="item.type === '1'">
+              <router-link :to="{path: '/temper-detail/'+item.id}" v-if="item.type === '1'">
                 <img :src="img+item.picture" style="width:100%;height:100%;margin-bottom: 10px;"/>
               </router-link>
               </el-col>
               <el-col>
                  <i class="el-icon-star-on"></i>
-                <router-link :to="{path: '/power-bank/'+item.id}" v-if="item.type === '0'">
+                <router-link :to="{path: '/cables/'+item.id}" v-if="item.type === '0'">
                   {{item.item}}
                 </router-link>
-                <router-link :to="{path: '/temper-pro/'+item.id}" v-if="item.type === '1'">
+                <router-link :to="{path: '/temper-detail/'+item.id}" v-if="item.type === '1'">
                   {{item.item}}
                 </router-link>
               </el-col>
