@@ -24,14 +24,21 @@
           <h1 style="margin-top:20px;"><span class="temper-detail-row-col-left-col-right-span">{{temper.item}}</span></h1>
           <el-col class="temper-detail-row-col-left-col-right-2"></el-col>
           <el-col class="temper-detail-row-col-left-col-right-3" :span="24" :xs="24">
-            <p>{{temper.introductions}}</p>
-            <p><strong><span>Features:</span></strong></p>
+            <!-- <p>{{temper.introductions}}</p> -->
+            <!-- <p><strong><span>Features:</span></strong></p> -->
             <el-row>
               <ul>
-                <el-col  :span="12" :xs="24"  v-for="(value,key,index) in temper"  :key="index" class="temper-detail-row-col-left-col-right-3">
+                <!-- <el-col  :span="12" :xs="24"  v-for="(value,key,index) in temper"  :key="index" class="temper-detail-row-col-left-col-right-3">
                 <li v-if="key !== 'createTime' && value !== '' && key !== 'id' && key !== 'type' && key !== 'status'
                  && key !== 'picture'" ><strong>{{key}}：</strong>&nbsp;{{value}}</li>
-                </el-col>
+                </el-col> -->
+                <li><strong>item:&nbsp;</strong>{{temper.item}}</li>
+                <li><strong>model:&nbsp;</strong>{{temper.model}}</li>
+                <li><strong>dimension:&nbsp;</strong>{{temper.dimension}}</li>
+                <li><strong>material:&nbsp;</strong>{{temper.material}}</li>
+                <li><strong>thickness:&nbsp;</strong>{{temper.thickness}}</li>
+                <li><strong>hardness:&nbsp;</strong>{{temper.hardness}}</li>
+                <li><strong>features:&nbsp;</strong>{{temper.features}}</li>
               </ul>
             </el-row>
           </el-col>

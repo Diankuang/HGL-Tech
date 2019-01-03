@@ -29,13 +29,21 @@
           <el-col class="cables-row-col-left-col-right-2"></el-col>
           <el-col class="cables-row-col-left-col-right-3" :span="24" :xs="24">
             <!-- <p>{{product.introductions}}</p> -->
-            <p><strong><span>Features:</span></strong></p>
+            <!-- <p><strong><span>Features:</span></strong></p> -->
             <el-row>
               <ul>
-                <el-col  :span="12" :xs="24"  v-for="(value,key,index) in cables"  :key="index" class="cables-row-col-left-col-right-3">
+                <!-- <el-col  :span="12" :xs="24"  v-for="(value,key,index) in cables"  :key="index" class="cables-row-col-left-col-right-3">
                 <li v-if="key !== 'createTime' && value !== '' && key !== 'id'
                 && key !== 'type'  && key !== 'status' && key !=='picture'"><strong>{{key}}：</strong>&nbsp;{{value}}</li>
-                </el-col>
+                </el-col> -->
+                <li><strong>item:&nbsp;</strong>{{cables.item}}</li>
+                <li><strong>model:&nbsp;</strong>{{cables.model}}</li>
+                <li><strong>length:&nbsp;</strong>{{cables.length}}</li>
+                <li><strong>material:&nbsp;</strong>{{cables.material}}</li>
+                <li><strong>core:&nbsp;</strong>{{cables.core}}</li>
+                <li><strong>current:&nbsp;</strong>{{cables.current}}</li>
+                <li><strong>features:&nbsp;</strong>{{cables.features}}</li>
+                <!-- <li><strong>picture&nbsp;</strong>cables.picture</li> -->
               </ul>
             </el-row>
           </el-col>
