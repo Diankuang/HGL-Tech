@@ -56,7 +56,7 @@
             <el-tab-pane label="Detail" name="Detail">
               <ul>
                 <li v-for="item in cablesDetails" :key="item.id">
-                  <img :src="img+item.picture">
+                  <img :src="img+item.picture" style="width:100%;height:100%">
                 </li>
               </ul>
             </el-tab-pane>
